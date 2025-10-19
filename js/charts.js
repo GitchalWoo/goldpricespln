@@ -129,53 +129,31 @@ const ChartManager = {
     },
 
     /**
-     * Create the Warsaw M² vs Gold chart
-     * @param {Array} warsawData - Warsaw real estate data
-     * @param {Array} goldData - Gold price data
+     * Create the Warsaw M² vs Gold chart (using monthly data)
+     * @param {Array} warsawMonthlyData - Warsaw monthly real estate data
      */
-    createWarsawChart(warsawData, goldData) {
+    createWarsawChart(warsawMonthlyData) {
         const ctx = document.getElementById('chartWarsawM2');
         if (!ctx) return;
 
-        // Calculate gold equivalents
-        const warsawWithGold = warsawData.map(item => {
-            const goldPrice = goldData.find(g => g.year === item.year);
-            const goldEquivalent = goldPrice ? item.priceM2 / goldPrice.price : item.priceM2;
-            return {
-                year: item.year,
-                pricePLN: item.priceM2,
-                priceGold: goldEquivalent
-            };
-        });
+        // Filter data from 2013 onwards (before 2013, gold prices are null)
+        const filteredData = warsawMonthlyData.filter(item => item.year >= 2013);
 
+        // Default: show PLN prices
         const chartData = {
-            labels: warsawWithGold.map(item => item.year),
-            datasets: [
-                {
-                    label: 'Cena m² (PLN)',
-                    data: warsawWithGold.map(item => item.pricePLN),
-                    borderColor: '#3b82f6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    borderWidth: 3,
-                    tension: 0.4,
-                    fill: true,
-                    yAxisID: 'y',
-                    pointRadius: 3,
-                    pointBackgroundColor: '#3b82f6'
-                },
-                {
-                    label: 'Równowartość w złocie (gramy)',
-                    data: warsawWithGold.map(item => item.priceGold),
-                    borderColor: '#f59e0b',
-                    backgroundColor: 'rgba(245, 158, 11, 0.05)',
-                    borderWidth: 3,
-                    tension: 0.4,
-                    fill: true,
-                    yAxisID: 'y1',
-                    pointRadius: 3,
-                    pointBackgroundColor: '#f59e0b'
-                }
-            ]
+            labels: filteredData.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`),
+            datasets: [{
+                label: 'Cena m² (PLN)',
+                data: filteredData.map(item => item.priceM2_pln),
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                borderWidth: 3,
+                tension: 0.4,
+                fill: true,
+                pointRadius: 2,
+                pointBackgroundColor: '#3b82f6',
+                pointHoverRadius: 5
+            }]
         };
 
         this.chartInstances.warsaw = new Chart(ctx, {
@@ -199,16 +177,20 @@ const ChartManager = {
                     },
                     tooltip: {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12
+                        padding: 12,
+                        callbacks: {
+                            label: function(context) {
+                                return 'Cena: ' + DataLoader.formatPLN(context.parsed.y);
+                            }
+                        }
                     }
                 },
                 scales: {
                     y: {
-                        type: 'linear',
-                        position: 'left',
+                        beginAtZero: false,
                         title: {
                             display: true,
-                            text: 'PLN'
+                            text: 'PLN/m²'
                         },
                         ticks: {
                             callback: function(value) {
@@ -216,33 +198,69 @@ const ChartManager = {
                             }
                         }
                     },
-                    y1: {
-                        type: 'linear',
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: 'Gramy złota'
-                        },
-                        grid: {
-                            drawOnChartArea: false
-                        },
-                        ticks: {
-                            callback: function(value) {
-                                return value.toFixed(0) + 'g';
-                            }
-                        }
-                    },
                     x: {
                         title: {
                             display: true,
-                            text: 'Rok'
+                            text: 'Miesiąc'
                         }
                     }
                 }
             }
         });
 
-        this.updateWarsawStats(warsawWithGold);
+        // Store filtered data for switcher
+        this.chartInstances.warsawData = filteredData;
+        this.updateWarsawStats(filteredData, 'pln');
+    },
+
+    /**
+     * Update Warsaw chart to show PLN or Gold prices
+     * @param {string} period - 'pln' or 'gold'
+     */
+    updateWarsawChartPeriod(period) {
+        const chart = this.chartInstances.warsaw;
+        const data = this.chartInstances.warsawData;
+
+        if (!chart || !data) return;
+
+        let chartLabel, tooltipFormat;
+
+        if (period === 'pln') {
+            chartLabel = 'Cena m² (PLN)';
+            chart.data.datasets[0].data = data.map(item => item.priceM2_pln);
+            chart.options.scales.y.title.text = 'PLN/m²';
+            chart.options.scales.y.ticks.callback = function(value) {
+                return DataLoader.formatPLN(value);
+            };
+            tooltipFormat = 'pln';
+        } else {
+            chartLabel = 'Równowartość w złocie (gramy)';
+            chart.data.datasets[0].data = data.map(item => item.priceM2_gold);
+            chart.options.scales.y.title.text = 'Gramy złota';
+            chart.options.scales.y.ticks.callback = function(value) {
+                return value.toFixed(2) + 'g';
+            };
+            tooltipFormat = 'gold';
+        }
+
+        chart.data.datasets[0].label = chartLabel;
+        chart.data.datasets[0].borderColor = period === 'pln' ? '#3b82f6' : '#f59e0b';
+        chart.data.datasets[0].backgroundColor = period === 'pln' ? 'rgba(59, 130, 246, 0.1)' : 'rgba(245, 158, 11, 0.1)';
+        chart.data.datasets[0].pointBackgroundColor = period === 'pln' ? '#3b82f6' : '#f59e0b';
+
+        // Update tooltip format
+        if (period === 'pln') {
+            chart.options.plugins.tooltip.callbacks.label = function(context) {
+                return 'Cena: ' + DataLoader.formatPLN(context.parsed.y);
+            };
+        } else {
+            chart.options.plugins.tooltip.callbacks.label = function(context) {
+                return 'Złoto: ' + context.parsed.y.toFixed(2) + 'g';
+            };
+        }
+
+        chart.update();
+        this.updateWarsawStats(data, period);
     },
 
     /**
@@ -354,12 +372,19 @@ const ChartManager = {
 
     /**
      * Update Warsaw statistics
+     * @param {Array} data - Warsaw data with monthly entries
+     * @param {string} period - 'pln' or 'gold'
      */
-    updateWarsawStats(data) {
+    updateWarsawStats(data, period) {
         const currentData = data[data.length - 1];
         
-        document.getElementById('warsawM2Current').textContent = DataLoader.formatPLN(currentData.pricePLN);
-        document.getElementById('warsawM2Gold').textContent = DataLoader.formatGrams(currentData.priceGold);
+        if (period === 'pln') {
+            document.getElementById('warsawM2Current').textContent = DataLoader.formatPLN(currentData.priceM2_pln);
+            document.getElementById('warsawM2Gold').textContent = DataLoader.formatGrams(currentData.priceM2_gold);
+        } else {
+            document.getElementById('warsawM2Current').textContent = DataLoader.formatGrams(currentData.priceM2_gold);
+            document.getElementById('warsawM2Gold').textContent = DataLoader.formatPLN(currentData.priceM2_pln);
+        }
     },
 
     /**

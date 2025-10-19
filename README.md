@@ -59,8 +59,9 @@ GoldPrice/
 
 ### Prerequisites
 
-- Python 3.7+ (for Python script) OR Node.js 12+ (for Node.js script)
+- Python 3.7+ (for Python scripts) OR Node.js 12+ (for Node.js script)
 - Internet connection (to fetch NBP data)
+- Python packages: `pip install -r scripts/requirements.txt` (requests, openpyxl)
 
 ### Local Development
 
@@ -120,7 +121,7 @@ GoldPrice/
 
 The project includes a Python script to automatically fetch and update gold price data from NBP:
 
-#### Python Version
+#### Gold Prices - Python Version
 
 ```bash
 # Fetch yearly average data (default, backward compatible)
@@ -137,6 +138,36 @@ python scripts/fetch_nbp_gold_prices.py -v
 
 # Full help
 python scripts/fetch_nbp_gold_prices.py --help
+```
+
+#### Warsaw M² Prices - Python Version
+
+Fetches quarterly Warsaw real estate prices from NBP, interpolates to monthly granularity, and converts to gold equivalent:
+
+```bash
+# Fetch Warsaw M² prices and generate monthly data with gold conversion
+python scripts/fetch_warsaw_m2_prices.py
+
+# Show verbose output
+python scripts/fetch_warsaw_m2_prices.py --verbose
+
+# Custom output file
+python scripts/fetch_warsaw_m2_prices.py --output custom_output.json
+```
+
+**What it does:**
+1. Downloads quarterly housing price data from NBP (Q3 2006 - present)
+2. Extracts Warsaw-specific average m² prices
+3. Interpolates quarterly data to monthly using linear interpolation
+4. Converts monthly prices from PLN to gold equivalent using NBP gold prices
+5. Generates `warsaw-m2-prices-monthly.json` with both PLN and gold values
+
+**Output Format:**
+```json
+[
+  { "year": 2013, "month": 1, "priceM2_pln": 6002.0, "priceM2_gold": 35.87 },
+  { "year": 2013, "month": 2, "priceM2_pln": 6050.0, "priceM2_gold": 36.11 }
+]
 ```
 
 #### How It Works

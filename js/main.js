@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const allData = await DataLoader.loadAllData();
 
     // Check if data loaded successfully
-    if (!allData.gold.length || !allData.warsaw.length || !allData.golf.length) {
+    if (!allData.gold.length || !allData.warsawMonthly.length || !allData.golf.length) {
         console.error('❌ Failed to load all required data files');
         showError();
         return;
@@ -20,11 +20,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Create charts
     ChartManager.createGoldPriceChart(allData.gold);
-    ChartManager.createWarsawChart(allData.warsaw, allData.gold);
+    ChartManager.createWarsawChart(allData.warsawMonthly);
     ChartManager.createGolfChart(allData.golf, allData.gold);
 
-    // Initialize gold price period switcher
+    // Initialize switchers
     initGoldPeriodSwitcher(allData);
+    initWarsawPeriodSwitcher();
 
     // Update last update date
     const lastUpdated = DataLoader.getLastUpdateDate(allData);
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
  * @param {Object} allData - All loaded data
  */
 function initGoldPeriodSwitcher(allData) {
-    const switcherButtons = document.querySelectorAll('.switcher-btn');
+    const switcherButtons = document.querySelectorAll('.switcher-btn[data-chart="gold"]');
     
     switcherButtons.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -54,6 +55,26 @@ function initGoldPeriodSwitcher(allData) {
             } else if (period === 'monthly') {
                 ChartManager.updateGoldChart(allData.goldMonthly, 'monthly');
             }
+        });
+    });
+}
+
+/**
+ * Initialize the Warsaw M² period switcher (PLN vs Gold)
+ */
+function initWarsawPeriodSwitcher() {
+    const switcherButtons = document.querySelectorAll('.switcher-btn[data-chart="warsaw"]');
+    
+    switcherButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const period = e.target.getAttribute('data-period');
+            
+            // Update button states
+            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
+            e.target.classList.add('switcher-btn--active');
+            
+            // Update chart based on period
+            ChartManager.updateWarsawChartPeriod(period);
         });
     });
 }

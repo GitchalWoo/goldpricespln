@@ -46,8 +46,8 @@
                 <div class="period-switcher">
                     <label class="switcher-label">Wyświetl dane:</label>
                     <div class="switcher-buttons">
-                        <button class="switcher-btn switcher-btn--active" data-period="yearly">Roczne</button>
-                        <button class="switcher-btn" data-period="monthly">Miesięczne</button>
+                        <button class="switcher-btn switcher-btn--active" data-period="yearly" data-chart="gold">Roczne</button>
+                        <button class="switcher-btn" data-period="monthly" data-chart="gold">Miesięczne</button>
                     </div>
                 </div>
                 <div class="chart-wrapper">
@@ -78,12 +78,20 @@
                     Porównanie średniej ceny metra kwadratowego nieruchomości w Warszawie 
                     wyrażonej w złotych polskich vs równoważnika w gramach złota.
                 </p>
+                <!-- Period Switcher for Warsaw M² -->
+                <div class="period-switcher">
+                    <label class="switcher-label">Wyświetl dane:</label>
+                    <div class="switcher-buttons">
+                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="warsaw">PLN/m²</button>
+                        <button class="switcher-btn" data-period="gold" data-chart="warsaw">Złoto (gramy)</button>
+                    </div>
+                </div>
                 <div class="chart-wrapper">
                     <canvas id="chartWarsawM2"></canvas>
                 </div>
                 <div class="chart-stats">
                     <div class="stat">
-                        <span class="stat-label">M² w Warszawie (2024):</span>
+                        <span class="stat-label">M² w Warszawie (ostatnia):</span>
                         <span class="stat-value" id="warsawM2Current">-</span>
                     </div>
                     <div class="stat">
