@@ -263,6 +263,10 @@ a:hover {
 }
 
 @media (max-width: 768px) {
+    .navigation {
+        display: none;
+    }
+    
     .navigation ul {
         flex-wrap: wrap;
     }
