@@ -315,6 +315,38 @@ const ChartManager = {
     },
 
     /**
+     * Update Golf chart to show PLN or Gold prices
+     * @param {string} period - 'pln' or 'gold'
+     */
+    updateGolfChartPeriod(period) {
+        const chart = this.chartInstances.golf;
+        const data = this.chartInstances.golfData;
+
+        if (!chart || !data) return;
+
+        const isPLN = period === 'pln';
+        const chartLabel = isPLN ? 'Cena Golfa (PLN)' : 'Cena Golfa w złocie (gramy)';
+        const yAxisTitle = isPLN ? 'PLN' : 'Gramy złota';
+        const colors = getChartColors(period, '#10b981', '#f59e0b');
+
+        // Update chart data and options
+        chart.data.datasets[0].data = data.map(item => isPLN ? item.pricePLN : item.priceGold);
+        chart.data.datasets[0].label = chartLabel;
+        chart.data.datasets[0].borderColor = colors.borderColor;
+        chart.data.datasets[0].backgroundColor = colors.backgroundColor;
+        chart.data.datasets[0].pointBackgroundColor = colors.pointBackgroundColor;
+
+        chart.options.scales.y.title.text = yAxisTitle;
+        chart.options.scales.y.ticks.callback = isPLN ? getTickPLNCallback() : getTickGoldCallback();
+        chart.options.plugins.tooltip.callbacks.label = isPLN 
+            ? getTooltipPLNCallback('Cena: ')
+            : getTooltipGoldCallback('Złoto: ');
+
+        chart.update();
+        this.updateGolfStats(data, period);
+    },
+
+    /**
      * Create the VW Golf price chart
      * @param {Array} golfData - VW Golf price data
      * @param {Array} goldData - Gold price data
@@ -402,7 +434,9 @@ const ChartManager = {
             }
         });
 
-        this.updateGolfStats(golfWithGold);
+        // Store data for switcher
+        this.chartInstances.golfData = golfWithGold;
+        this.updateGolfStats(golfWithGold, 'gold');
     },
 
     /**
@@ -575,14 +609,23 @@ const ChartManager = {
 
     /**
      * Update Golf statistics
+     * @param {Array} data - Golf data with prices in PLN and gold
+     * @param {string} period - 'pln' or 'gold' (used for display)
      */
-    updateGolfStats(data) {
+    updateGolfStats(data, period = 'gold') {
         const oldGolf = data[0];
         const newGolf = data[data.length - 1];
-        const change = ((newGolf.priceGold - oldGolf.priceGold) / oldGolf.priceGold * 100).toFixed(1);
+        const isPLN = period === 'pln';
+        const oldValue = isPLN ? oldGolf.pricePLN : oldGolf.priceGold;
+        const newValue = isPLN ? newGolf.pricePLN : newGolf.priceGold;
+        const change = ((newValue - oldValue) / oldValue * 100).toFixed(1);
 
-        document.getElementById('golfOldGrams').textContent = DataLoader.formatGrams(oldGolf.priceGold);
-        document.getElementById('golfNewGrams').textContent = DataLoader.formatGrams(newGolf.priceGold);
+        document.getElementById('golfOldGrams').textContent = isPLN 
+            ? DataLoader.formatPLN(oldValue)
+            : DataLoader.formatGrams(oldValue);
+        document.getElementById('golfNewGrams').textContent = isPLN 
+            ? DataLoader.formatPLN(newValue)
+            : DataLoader.formatGrams(newValue);
         document.getElementById('golfChange').textContent = (change > 0 ? '+' : '') + change + '%';
     },
 

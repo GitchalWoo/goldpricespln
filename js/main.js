@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initPeriodSwitcher('warsaw', (period) => ChartManager.updateWarsawChartPeriod(period));
     initPeriodSwitcher('wages', (period) => ChartManager.updateMinWagesChartPeriod(period));
     initPeriodSwitcher('avgwages', (period) => ChartManager.updateAvgWagesChartPeriod(period));
+    initPeriodSwitcher('golf', (period) => ChartManager.updateGolfChartPeriod(period));
 
     // Update last update date
     if (allData.lastUpdate) {

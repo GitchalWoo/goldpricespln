@@ -1,14 +1,15 @@
 [
-  { "year": 2013, "pricePLN": 88000 },
-  { "year": 2014, "pricePLN": 90000 },
-  { "year": 2015, "pricePLN": 92000 },
-  { "year": 2016, "pricePLN": 95000 },
-  { "year": 2017, "pricePLN": 98000 },
-  { "year": 2018, "pricePLN": 102000 },
-  { "year": 2019, "pricePLN": 108000 },
-  { "year": 2020, "pricePLN": 115000 },
-  { "year": 2021, "pricePLN": 125000 },
-  { "year": 2022, "pricePLN": 135000 },
-  { "year": 2023, "pricePLN": 145000 },
-  { "year": 2024, "pricePLN": 155000 }
+  { "year": 2013, "pricePLN": 60000, "source": "Autokult – Golf VII debiut (Trendline 1.2 TSI 85 KM)" },
+  { "year": 2014, "pricePLN": 61000, "source": "szacun wg utrzymania ceny debiutowej" },
+  { "year": 2015, "pricePLN": 60000, "source": "Autokult – Golf VII (1.2 TSI 85 KM)" },
+  { "year": 2016, "pricePLN": 62000, "source": "brak oficjalnego cennika, szacun wg inflacji" },
+  { "year": 2017, "pricePLN": 67000, "source": "moto.infor.pl – lifting VII (3d Trendline)" },
+  { "year": 2018, "pricePLN": 63700, "source": "Autokult – Golf VII FL (Trendline)" },
+  { "year": 2019, "pricePLN": 65000, "source": "szacun wg końca produkcji Golfa VII" },
+  { "year": 2020, "pricePLN": 92000, "source": "Autokult – Golf VIII debiut (1.5 TSI 130 KM)" },
+  { "year": 2021, "pricePLN": 77000, "source": "Autokult – cennik roczny (podstawowa wersja)" },
+  { "year": 2022, "pricePLN": 120000, "source": "VW Polska – Golf VIII (1.0 TSI 110 KM)" },
+  { "year": 2023, "pricePLN": 112000, "source": "chceauto.pl – Golf VIII (1.5 eTSI 130 KM)" },
+  { "year": 2024, "pricePLN": 112100, "source": "Autokult – Golf VIII po liftingu" },
+  { "year": 2025, "pricePLN": 115000, "source": "dane salonowe / volkswagen.pl – Golf VIII Life 1.5 TSI 116 KM" }
 ]

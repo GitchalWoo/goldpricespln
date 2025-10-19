@@ -267,6 +267,14 @@
                     Ile gramów złota trzeba było zapłacić za nowego Volkswagena Golf przez lata.
                     Interesujące, jak zmienia się relacja ceny samochodu do ceny złota.
                 </p>
+                <!-- Period Switcher for VW Golf -->
+                <div class="period-switcher">
+                    <label class="switcher-label">Wyświetl dane:</label>
+                    <div class="switcher-buttons">
+                        <button class="switcher-btn" data-period="pln" data-chart="golf">PLN</button>
+                        <button class="switcher-btn switcher-btn--active" data-period="gold" data-chart="golf">Złoto (gramy)</button>
+                    </div>
+                </div>
                 <div class="chart-wrapper">
                     <canvas id="chartVWGolf"></canvas>
                 </div>
@@ -283,6 +291,9 @@
                         <span class="stat-label">Zmiana:</span>
                         <span class="stat-value" id="golfChange">-</span>
                     </div>
+                </div>
+                <div class="chart-caveat">
+                    <p><strong>⚠️ Uwaga o metodyce danych:</strong> Ceny Golfa oparte na katalogowych cenach sugerowanych dla modeli bazowych (Trendline/Life). Dane pochodzą z Autokult, moto.infor.pl, cenników VW Polska i salonów internetowych. Niektóre wartości zostały interpolowane lub oszacowane na podstawie inflacji. Rzeczywiste ceny mogły się różnić w zależności od wyposażenia, promocji i regionalnych warunków rynku.</p>
                 </div>
             </div>
         </section>

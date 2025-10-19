@@ -77,6 +77,10 @@ Three interactive, scrollable charts showcasing:
 ### Other Data Sources
 - **Warsaw M² Prices:** [GUS](https://stat.gov.pl/), real estate portals (manually updated)
 - **VW Golf Prices:** Historical MSRP, local dealer pricing (manually updated)
+  - **Data Years:** 2013-2025 based on catalog prices for base models (Trendline/Life trim)
+  - **Sources:** Autokult articles, moto.infor.pl, VW Polska official price lists, online car dealers (chceauto.pl)
+  - **Methodology:** Some years were interpolated or estimated based on inflation rates due to missing official data
+  - **Note:** Prices represent suggested retail prices and may vary by region, equipment options, and market promotions
 
 ---
 
@@ -103,6 +107,9 @@ For manual updates, individual scripts, troubleshooting, and GitHub Actions setu
   - Weekend/holiday data uses last available price
 - **Monthly Granularity:** Optional - default format is yearly for backward compatibility
 - **Rate Limiting:** NBP API doesn't have strict rate limits but respects reasonable usage
+- **VW Golf Prices:** Catalog prices for base models only
+  - Some years interpolated or estimated due to incomplete historical data
+  - Actual market prices may differ based on equipment, promotions, and region
 
 ---
 
