@@ -31,6 +31,7 @@
                 <li><a href="#graph1" class="nav-link">Złoto 2013-teraz</a></li>
                 <li><a href="#graph2" class="nav-link">M² Warszawa</a></li>
                 <li><a href="#graph3" class="nav-link">Płaca Minimalna</a></li>
+                <li><a href="#graph5" class="nav-link">Średnia Płaca</a></li>
                 <li><a href="#graph4" class="nav-link">VW Golf</a></li>
             </ul>
         </nav>
@@ -134,6 +135,42 @@
                     <div class="stat">
                         <span class="stat-label">Wzrost od 2013:</span>
                         <span class="stat-value" id="wagesChange">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph 5: Average Wages -->
+        <section id="graph5" class="graph-section graph-section--secondary">
+            <div class="container">
+                <h2>Średnia Płaca w PLN vs Złoto</h2>
+                <p class="description">
+                    Porównanie średniej płacy (pełnowymiarowa dostosowana pensja na pracownika) w Polsce 
+                    wyrażonej w złotych polskich vs równoważnika w gramach złota.
+                </p>
+                <!-- Period Switcher for Average Wages -->
+                <div class="period-switcher">
+                    <label class="switcher-label">Wyświetl dane:</label>
+                    <div class="switcher-buttons">
+                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="avgwages">PLN</button>
+                        <button class="switcher-btn" data-period="gold" data-chart="avgwages">Złoto (gramy)</button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chartAvgWages"></canvas>
+                </div>
+                <div class="chart-stats">
+                    <div class="stat">
+                        <span class="stat-label">Średnia płaca (2023):</span>
+                        <span class="stat-value" id="avgwagesCurrentPLN">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Równowartość w złocie:</span>
+                        <span class="stat-value" id="avgwagesCurrentGold">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Wzrost od 2013:</span>
+                        <span class="stat-value" id="avgwagesChange">-</span>
                     </div>
                 </div>
             </div>

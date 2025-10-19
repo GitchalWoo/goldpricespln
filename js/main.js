@@ -22,12 +22,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     ChartManager.createGoldPriceChart(allData.gold);
     ChartManager.createWarsawChart(allData.warsawMonthly);
     ChartManager.createMinWagesChart(allData.wages, allData.gold);
+    ChartManager.createAvgWagesChart(allData.avgwages, allData.gold);
     ChartManager.createGolfChart(allData.golf, allData.gold);
 
     // Initialize switchers
     initGoldPeriodSwitcher(allData);
     initWarsawPeriodSwitcher();
     initWagesPeriodSwitcher();
+    initAvgWagesPeriodSwitcher();
 
     // Update last update date
     const lastUpdated = DataLoader.getLastUpdateDate(allData);
@@ -97,6 +99,26 @@ function initWagesPeriodSwitcher() {
             
             // Update chart based on period
             ChartManager.updateMinWagesChartPeriod(period);
+        });
+    });
+}
+
+/**
+ * Initialize the Average Wages period switcher (PLN vs Gold)
+ */
+function initAvgWagesPeriodSwitcher() {
+    const switcherButtons = document.querySelectorAll('.switcher-btn[data-chart="avgwages"]');
+    
+    switcherButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const period = e.target.getAttribute('data-period');
+            
+            // Update button states
+            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
+            e.target.classList.add('switcher-btn--active');
+            
+            // Update chart based on period
+            ChartManager.updateAvgWagesChartPeriod(period);
         });
     });
 }
