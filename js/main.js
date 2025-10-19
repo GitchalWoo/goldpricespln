@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     ChartManager.createGolfChart(allData.golf, allData.gold);
 
     // Initialize switchers
-    initGoldPeriodSwitcher(allData);
-    initWarsawPeriodSwitcher();
-    initWagesPeriodSwitcher();
-    initAvgWagesPeriodSwitcher();
+    initPeriodSwitcher('gold', updateGoldChartPeriod, allData);
+    initPeriodSwitcher('warsaw', (period) => ChartManager.updateWarsawChartPeriod(period));
+    initPeriodSwitcher('wages', (period) => ChartManager.updateMinWagesChartPeriod(period));
+    initPeriodSwitcher('avgwages', (period) => ChartManager.updateAvgWagesChartPeriod(period));
 
     // Update last update date
     const lastUpdated = DataLoader.getLastUpdateDate(allData);
@@ -39,88 +39,39 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /**
- * Initialize the gold price period switcher
+ * Generic switcher initializer that handles period switching for any chart
+ * @param {string} chartName - Name of the chart (e.g., 'gold', 'warsaw', 'wages')
+ * @param {Function} updateCallback - Callback function to update the chart
+ * @param {Object} allData - Optional: All loaded data (used for multi-period charts like gold)
+ */
+function initPeriodSwitcher(chartName, updateCallback, allData) {
+    const switcherButtons = document.querySelectorAll(`.switcher-btn[data-chart="${chartName}"]`);
+    
+    switcherButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const period = e.target.getAttribute('data-period');
+            
+            // Update button states
+            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
+            e.target.classList.add('switcher-btn--active');
+            
+            // Call the appropriate update callback
+            updateCallback(period, allData);
+        });
+    });
+}
+
+/**
+ * Wrapper for gold chart period switching
+ * @param {string} period - 'yearly' or 'monthly'
  * @param {Object} allData - All loaded data
  */
-function initGoldPeriodSwitcher(allData) {
-    const switcherButtons = document.querySelectorAll('.switcher-btn[data-chart="gold"]');
-    
-    switcherButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const period = e.target.getAttribute('data-period');
-            
-            // Update button states
-            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
-            e.target.classList.add('switcher-btn--active');
-            
-            // Update chart based on period
-            if (period === 'yearly') {
-                ChartManager.updateGoldChart(allData.gold, 'yearly');
-            } else if (period === 'monthly') {
-                ChartManager.updateGoldChart(allData.goldMonthly, 'monthly');
-            }
-        });
-    });
-}
-
-/**
- * Initialize the Warsaw M² period switcher (PLN vs Gold)
- */
-function initWarsawPeriodSwitcher() {
-    const switcherButtons = document.querySelectorAll('.switcher-btn[data-chart="warsaw"]');
-    
-    switcherButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const period = e.target.getAttribute('data-period');
-            
-            // Update button states
-            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
-            e.target.classList.add('switcher-btn--active');
-            
-            // Update chart based on period
-            ChartManager.updateWarsawChartPeriod(period);
-        });
-    });
-}
-
-/**
- * Initialize the Minimum Wages period switcher (PLN vs Gold)
- */
-function initWagesPeriodSwitcher() {
-    const switcherButtons = document.querySelectorAll('.switcher-btn[data-chart="wages"]');
-    
-    switcherButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const period = e.target.getAttribute('data-period');
-            
-            // Update button states
-            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
-            e.target.classList.add('switcher-btn--active');
-            
-            // Update chart based on period
-            ChartManager.updateMinWagesChartPeriod(period);
-        });
-    });
-}
-
-/**
- * Initialize the Average Wages period switcher (PLN vs Gold)
- */
-function initAvgWagesPeriodSwitcher() {
-    const switcherButtons = document.querySelectorAll('.switcher-btn[data-chart="avgwages"]');
-    
-    switcherButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-            const period = e.target.getAttribute('data-period');
-            
-            // Update button states
-            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
-            e.target.classList.add('switcher-btn--active');
-            
-            // Update chart based on period
-            ChartManager.updateAvgWagesChartPeriod(period);
-        });
-    });
+function updateGoldChartPeriod(period, allData) {
+    if (period === 'yearly') {
+        ChartManager.updateGoldChart(allData.gold, 'yearly');
+    } else if (period === 'monthly') {
+        ChartManager.updateGoldChart(allData.goldMonthly, 'monthly');
+    }
 }
 
 /**

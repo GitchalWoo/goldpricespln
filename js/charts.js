@@ -7,6 +7,83 @@
 Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
 Chart.defaults.color = '#6b7280';
 
+// ============ HELPER FUNCTIONS ============
+
+/**
+ * Get tooltip callback for PLN values
+ * @param {string} prefix - Optional prefix for the label
+ * @returns {Function} - Tooltip callback
+ */
+function getTooltipPLNCallback(prefix = 'Cena: ') {
+    return function(context) {
+        return prefix + DataLoader.formatPLN(context.parsed.y);
+    };
+}
+
+/**
+ * Get tooltip callback for Gold values
+ * @param {string} prefix - Optional prefix for the label
+ * @returns {Function} - Tooltip callback
+ */
+function getTooltipGoldCallback(prefix = 'Złoto: ') {
+    return function(context) {
+        return prefix + context.parsed.y.toFixed(2) + 'g';
+    };
+}
+
+/**
+ * Get scale tick callback for PLN values
+ * @returns {Function} - Tick callback
+ */
+function getTickPLNCallback() {
+    return function(value) {
+        return DataLoader.formatPLN(value);
+    };
+}
+
+/**
+ * Get scale tick callback for Gold values
+ * @returns {Function} - Tick callback
+ */
+function getTickGoldCallback() {
+    return function(value) {
+        return value.toFixed(2) + 'g';
+    };
+}
+
+/**
+ * Get colors for a chart type (PLN or Gold)
+ * @param {string} period - 'pln' or 'gold'
+ * @param {string} colorPLN - Color for PLN mode
+ * @param {string} colorGold - Color for Gold mode (optional, defaults to gold)
+ * @returns {Object} - Object with borderColor and backgroundColor
+ */
+function getChartColors(period, colorPLN, colorGold = '#f59e0b') {
+    const color = period === 'pln' ? colorPLN : colorGold;
+    const bgColor = period === 'pln' ? colorPLN : colorGold;
+    const opacity = 0.1;
+    
+    return {
+        borderColor: color,
+        backgroundColor: `rgba(${hexToRgb(color).join(', ')}, ${opacity})`,
+        pointBackgroundColor: color
+    };
+}
+
+/**
+ * Convert hex color to RGB
+ * @param {string} hex - Hex color code
+ * @returns {Array} - [r, g, b] values
+ */
+function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? [
+        parseInt(result[1], 16),
+        parseInt(result[2], 16),
+        parseInt(result[3], 16)
+    ] : [0, 0, 0];
+}
+
 const ChartManager = {
     chartInstances: {},
 
@@ -61,9 +138,7 @@ const ChartManager = {
                         titleFont: { size: 14 },
                         bodyFont: { size: 13 },
                         callbacks: {
-                            label: function(context) {
-                                return 'Cena: ' + DataLoader.formatPLN(context.parsed.y);
-                            }
+                            label: getTooltipPLNCallback()
                         }
                     }
                 },
@@ -75,9 +150,7 @@ const ChartManager = {
                             text: 'PLN/gram'
                         },
                         ticks: {
-                            callback: function(value) {
-                                return DataLoader.formatPLN(value);
-                            }
+                            callback: getTickPLNCallback()
                         }
                     },
                     x: {
@@ -179,9 +252,7 @@ const ChartManager = {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
                         padding: 12,
                         callbacks: {
-                            label: function(context) {
-                                return 'Cena: ' + DataLoader.formatPLN(context.parsed.y);
-                            }
+                            label: getTooltipPLNCallback()
                         }
                     }
                 },
@@ -193,9 +264,7 @@ const ChartManager = {
                             text: 'PLN/m²'
                         },
                         ticks: {
-                            callback: function(value) {
-                                return DataLoader.formatPLN(value);
-                            }
+                            callback: getTickPLNCallback()
                         }
                     },
                     x: {
@@ -223,41 +292,23 @@ const ChartManager = {
 
         if (!chart || !data) return;
 
-        let chartLabel, tooltipFormat;
+        const isPLN = period === 'pln';
+        const chartLabel = isPLN ? 'Cena m² (PLN)' : 'Równowartość w złocie (gramy)';
+        const yAxisTitle = isPLN ? 'PLN/m²' : 'Gramy złota';
+        const colors = getChartColors(period, '#3b82f6', '#f59e0b');
 
-        if (period === 'pln') {
-            chartLabel = 'Cena m² (PLN)';
-            chart.data.datasets[0].data = data.map(item => item.priceM2_pln);
-            chart.options.scales.y.title.text = 'PLN/m²';
-            chart.options.scales.y.ticks.callback = function(value) {
-                return DataLoader.formatPLN(value);
-            };
-            tooltipFormat = 'pln';
-        } else {
-            chartLabel = 'Równowartość w złocie (gramy)';
-            chart.data.datasets[0].data = data.map(item => item.priceM2_gold);
-            chart.options.scales.y.title.text = 'Gramy złota';
-            chart.options.scales.y.ticks.callback = function(value) {
-                return value.toFixed(2) + 'g';
-            };
-            tooltipFormat = 'gold';
-        }
-
+        // Update chart data and options
+        chart.data.datasets[0].data = data.map(item => isPLN ? item.priceM2_pln : item.priceM2_gold);
         chart.data.datasets[0].label = chartLabel;
-        chart.data.datasets[0].borderColor = period === 'pln' ? '#3b82f6' : '#f59e0b';
-        chart.data.datasets[0].backgroundColor = period === 'pln' ? 'rgba(59, 130, 246, 0.1)' : 'rgba(245, 158, 11, 0.1)';
-        chart.data.datasets[0].pointBackgroundColor = period === 'pln' ? '#3b82f6' : '#f59e0b';
+        chart.data.datasets[0].borderColor = colors.borderColor;
+        chart.data.datasets[0].backgroundColor = colors.backgroundColor;
+        chart.data.datasets[0].pointBackgroundColor = colors.pointBackgroundColor;
 
-        // Update tooltip format
-        if (period === 'pln') {
-            chart.options.plugins.tooltip.callbacks.label = function(context) {
-                return 'Cena: ' + DataLoader.formatPLN(context.parsed.y);
-            };
-        } else {
-            chart.options.plugins.tooltip.callbacks.label = function(context) {
-                return 'Złoto: ' + context.parsed.y.toFixed(2) + 'g';
-            };
-        }
+        chart.options.scales.y.title.text = yAxisTitle;
+        chart.options.scales.y.ticks.callback = isPLN ? getTickPLNCallback() : getTickGoldCallback();
+        chart.options.plugins.tooltip.callbacks.label = isPLN 
+            ? getTooltipPLNCallback()
+            : getTooltipGoldCallback();
 
         chart.update();
         this.updateWarsawStats(data, period);
@@ -324,9 +375,7 @@ const ChartManager = {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
                         padding: 12,
                         callbacks: {
-                            label: function(context) {
-                                return 'Złoto: ' + DataLoader.formatGrams(context.parsed.y);
-                            }
+                            label: getTooltipGoldCallback('Złoto: ')
                         }
                     }
                 },
@@ -419,9 +468,7 @@ const ChartManager = {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
                         padding: 12,
                         callbacks: {
-                            label: function(context) {
-                                return 'Płaca: ' + DataLoader.formatPLN(context.parsed.y);
-                            }
+                            label: getTooltipPLNCallback('Płaca: ')
                         }
                     }
                 },
@@ -433,9 +480,7 @@ const ChartManager = {
                             text: 'PLN'
                         },
                         ticks: {
-                            callback: function(value) {
-                                return DataLoader.formatPLN(value);
-                            }
+                            callback: getTickPLNCallback()
                         }
                     },
                     x: {
@@ -454,46 +499,51 @@ const ChartManager = {
     },
 
     /**
+     * Generic function to update wage-type charts (min wages or avg wages)
+     * @param {string} chartKey - Key in chartInstances (e.g., 'wages', 'avgwages')
+     * @param {string} dataKey - Key in chartInstances for data (e.g., 'wagesData', 'avgwagesData')
+     * @param {string} statsUpdater - Function name to update stats (e.g., 'updateMinWagesStats', 'updateAvgWagesStats')
+     * @param {Object} config - Configuration object with labels and colors
+     * @param {string} period - 'pln' or 'gold'
+     */
+    updateWageChartPeriod(chartKey, dataKey, statsUpdater, config, period) {
+        const chart = this.chartInstances[chartKey];
+        const data = this.chartInstances[dataKey];
+
+        if (!chart || !data) return;
+
+        const isPLN = period === 'pln';
+        const chartLabel = isPLN ? config.labelPLN : config.labelGold;
+        const yAxisTitle = isPLN ? 'PLN' : 'Gramy złota';
+        const colors = getChartColors(period, config.colorPLN, '#f59e0b');
+
+        // Update chart data and options
+        chart.data.datasets[0].data = data.map(item => isPLN ? item.wagePLN : item.wageGold);
+        chart.data.datasets[0].label = chartLabel;
+        chart.data.datasets[0].borderColor = colors.borderColor;
+        chart.data.datasets[0].backgroundColor = colors.backgroundColor;
+        chart.data.datasets[0].pointBackgroundColor = colors.pointBackgroundColor;
+
+        chart.options.scales.y.title.text = yAxisTitle;
+        chart.options.scales.y.ticks.callback = isPLN ? getTickPLNCallback() : getTickGoldCallback();
+        chart.options.plugins.tooltip.callbacks.label = isPLN 
+            ? getTooltipPLNCallback('Płaca: ')
+            : getTooltipGoldCallback();
+
+        chart.update();
+        this[statsUpdater](data, period);
+    },
+
+    /**
      * Update Minimum Wages chart to show PLN or Gold
      * @param {string} period - 'pln' or 'gold'
      */
     updateMinWagesChartPeriod(period) {
-        const chart = this.chartInstances.wages;
-        const data = this.chartInstances.wagesData;
-
-        if (!chart || !data) return;
-
-        let chartLabel;
-
-        if (period === 'pln') {
-            chartLabel = 'Płaca minimalna (PLN)';
-            chart.data.datasets[0].data = data.map(item => item.wagePLN);
-            chart.options.scales.y.title.text = 'PLN';
-            chart.options.scales.y.ticks.callback = function(value) {
-                return DataLoader.formatPLN(value);
-            };
-            chart.options.plugins.tooltip.callbacks.label = function(context) {
-                return 'Płaca: ' + DataLoader.formatPLN(context.parsed.y);
-            };
-        } else {
-            chartLabel = 'Płaca minimalna w złocie (gramy)';
-            chart.data.datasets[0].data = data.map(item => item.wageGold);
-            chart.options.scales.y.title.text = 'Gramy złota';
-            chart.options.scales.y.ticks.callback = function(value) {
-                return value.toFixed(2) + 'g';
-            };
-            chart.options.plugins.tooltip.callbacks.label = function(context) {
-                return 'Złoto: ' + DataLoader.formatGrams(context.parsed.y);
-            };
-        }
-
-        chart.data.datasets[0].label = chartLabel;
-        chart.data.datasets[0].borderColor = period === 'pln' ? '#8b5cf6' : '#f59e0b';
-        chart.data.datasets[0].backgroundColor = period === 'pln' ? 'rgba(139, 92, 246, 0.1)' : 'rgba(245, 158, 11, 0.1)';
-        chart.data.datasets[0].pointBackgroundColor = period === 'pln' ? '#8b5cf6' : '#f59e0b';
-
-        chart.update();
-        this.updateMinWagesStats(data, period);
+        this.updateWageChartPeriod('wages', 'wagesData', 'updateMinWagesStats', {
+            labelPLN: 'Płaca minimalna (PLN)',
+            labelGold: 'Płaca minimalna w złocie (gramy)',
+            colorPLN: '#8b5cf6'
+        }, period);
     },
 
     /**
@@ -623,9 +673,7 @@ const ChartManager = {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
                         padding: 12,
                         callbacks: {
-                            label: function(context) {
-                                return 'Płaca: ' + DataLoader.formatPLN(context.parsed.y);
-                            }
+                            label: getTooltipPLNCallback('Płaca: ')
                         }
                     }
                 },
@@ -637,9 +685,7 @@ const ChartManager = {
                             text: 'PLN'
                         },
                         ticks: {
-                            callback: function(value) {
-                                return DataLoader.formatPLN(value);
-                            }
+                            callback: getTickPLNCallback()
                         }
                     },
                     x: {
@@ -662,42 +708,11 @@ const ChartManager = {
      * @param {string} period - 'pln' or 'gold'
      */
     updateAvgWagesChartPeriod(period) {
-        const chart = this.chartInstances.avgwages;
-        const data = this.chartInstances.avgwagesData;
-
-        if (!chart || !data) return;
-
-        let chartLabel;
-
-        if (period === 'pln') {
-            chartLabel = 'Średnia płaca (PLN)';
-            chart.data.datasets[0].data = data.map(item => item.wagePLN);
-            chart.options.scales.y.title.text = 'PLN';
-            chart.options.scales.y.ticks.callback = function(value) {
-                return DataLoader.formatPLN(value);
-            };
-            chart.options.plugins.tooltip.callbacks.label = function(context) {
-                return 'Płaca: ' + DataLoader.formatPLN(context.parsed.y);
-            };
-        } else {
-            chartLabel = 'Średnia płaca w złocie (gramy)';
-            chart.data.datasets[0].data = data.map(item => item.wageGold);
-            chart.options.scales.y.title.text = 'Gramy złota';
-            chart.options.scales.y.ticks.callback = function(value) {
-                return value.toFixed(2) + 'g';
-            };
-            chart.options.plugins.tooltip.callbacks.label = function(context) {
-                return 'Złoto: ' + DataLoader.formatGrams(context.parsed.y);
-            };
-        }
-
-        chart.data.datasets[0].label = chartLabel;
-        chart.data.datasets[0].borderColor = period === 'pln' ? '#06b6d4' : '#f59e0b';
-        chart.data.datasets[0].backgroundColor = period === 'pln' ? 'rgba(6, 182, 212, 0.1)' : 'rgba(245, 158, 11, 0.1)';
-        chart.data.datasets[0].pointBackgroundColor = period === 'pln' ? '#06b6d4' : '#f59e0b';
-
-        chart.update();
-        this.updateAvgWagesStats(data, period);
+        this.updateWageChartPeriod('avgwages', 'avgwagesData', 'updateAvgWagesStats', {
+            labelPLN: 'Średnia płaca (PLN)',
+            labelGold: 'Średnia płaca w złocie (gramy)',
+            colorPLN: '#06b6d4'
+        }, period);
     },
 
     /**
