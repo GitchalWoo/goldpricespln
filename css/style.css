@@ -90,14 +90,14 @@ a:hover {
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .header-branding {
     display: flex;
     align-items: center;
     gap: var(--spacing-lg);
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -113,6 +113,13 @@ a:hover {
 .logo-main:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .header-text {
@@ -223,11 +230,12 @@ a:hover {
 
 .navigation ul {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     list-style: none;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+    padding-left: var(--spacing-lg);
 }
 
 .navigation li {
