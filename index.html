@@ -291,19 +291,29 @@
         <section class="info-section">
             <div class="container">
                 <h3>ℹ️ O Projekcie</h3>
-                <p>
-                    Dane pochodzą z 
-                    <a href="https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/" target="_blank">
-                        Narodowego Banku Polski (NBP)
-                    </a>. 
-                    Wszystkie wykresy są generowane w przeglądarce na podstawie lokalnych plików JSON.
-                </p>
-                <p>
-                    <strong>Dane aktualizowane:</strong> <span id="lastUpdated">-</span>
-                </p>
+                <div class="info-content">
+                    <div class="info-subsection">
+                        <h4>📊 Źródła Danych</h4>
+                        <ul>
+                            <li><strong>Ceny Złota (NBP):</strong> <a href="https://api.nbp.pl/" target="_blank">Narodowy Bank Polski Web API</a> - dane dzienne od 2013-01-02 do dziś</li>
+                            <li><strong>Ceny M² w Warszawie:</strong> <a href="https://stat.gov.pl/" target="_blank">Główny Urząd Statystyczny (GUS)</a> i portale nieruchomości (ręczna aktualizacja)</li>
+                            <li><strong>Ceny VW Golf:</strong> Historyczne MSRP i cenniki lokalne (ręczna aktualizacja)</li>
+                            <li><strong>Płace Minimalne i Średnie:</strong> <a href="https://ec.europa.eu/eurostat/" target="_blank">Eurostat</a></li>
+                        </ul>
+                    </div>
+                    <div class="info-subsection">
+                        <h4>⚙️ Technologia</h4>
+                        <p>Wszystkie wykresy są generowane w przeglądarce na podstawie lokalnych plików JSON. Brak backendu, bazy danych ani śledzenia użytkowników.</p>
+                    </div>
+                    <div class="info-subsection">
+                        <h4>📝 Informacje o Danych</h4>
+                        <p><strong>Ostatnia aktualizacja:</strong> <span id="lastUpdated">19 października 2025</span></p>
+                        <p><strong>Granulacja danych:</strong> Dane złota są dostępne w wersji dziennej (M-F) i miesięcznej. Inne dane w formie rocznej.</p>
+                        <p><strong>Zasięg danych:</strong> 2013-01-02 do dzisiaj (od daty dostępności NBP API)</p>
+                    </div>
+                </div>
                 <p class="disclaimer">
-                    Projekt służy wyłącznie celom edukacyjnym i informacyjnym. 
-                    Ceny mogą się różnić od rzeczywistych.
+                    ⚠️ Projekt służy wyłącznie celom edukacyjnym i informacyjnym. Ceny mogą się różnić od rzeczywistych. Brak gwarancji co do dokładności danych, użyto najbardziej wiarygodnych źródeł.
                 </p>
             </div>
         </section>
@@ -312,8 +322,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 <a href="https://wzlocie.pl" target="_blank">wzlocie.pl</a> | 
-                <a href="https://github.com/GitchalWoo/goldpricespln" target="_blank">GitHub</a>
+            <p>&copy; 2025 <a href="https://wzlocie.pl" target="_blank">wzlocie.pl</a> by 
+                <a href="https://github.com/GitchalWoo" target="_blank">GitchalWoo</a> | 
+                <a href="https://github.com/GitchalWoo/goldpricespln" target="_blank">GitHub Repo</a> |
+                <span class="footer-meta">Last Updated: October 19, 2025</span>
             </p>
         </div>
     </footer>
