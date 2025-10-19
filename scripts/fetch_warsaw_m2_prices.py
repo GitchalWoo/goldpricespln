@@ -59,7 +59,7 @@ class WarsawM2PriceFetcher:
         try:
             response = self.session.get(self.NBP_EXCEL_URL, timeout=30)
             response.raise_for_status()
-            self.log(f"  → Downloaded {len(response.content)} bytes")
+            self.log(f"  Downloaded {len(response.content)} bytes")
             return response.content
         except requests.exceptions.RequestException as e:
             print(f"[ERROR] Failed to download NBP data: {e}", file=sys.stderr)
@@ -82,11 +82,11 @@ class WarsawM2PriceFetcher:
         self.log("Parsing Excel file...")
         
         workbook = openpyxl.load_workbook(BytesIO(excel_data))
-        self.log(f"  → Available sheets: {workbook.sheetnames}")
+        self.log(f"  Available sheets: {workbook.sheetnames}")
         
         # Try to find the main data sheet (usually the first one)
         sheet = workbook.active
-        self.log(f"  → Using sheet: {sheet.title}")
+        self.log(f"  Using sheet: {sheet.title}")
         
         warsaw_prices = []
         
@@ -102,7 +102,7 @@ class WarsawM2PriceFetcher:
                     (idx + 1 for idx, cell in enumerate(row) if cell and 'warsza' in str(cell).lower()),
                     None
                 )
-                self.log(f"  → Found Warsaw column at row {header_row}, column {warsaw_col}")
+                self.log(f"  Found Warsaw column at row {header_row}, column {warsaw_col}")
                 break
         
         if not warsaw_col:
@@ -125,7 +125,7 @@ class WarsawM2PriceFetcher:
             year, quarter = self._parse_period(period_str)
             
             if year is None or quarter is None:
-                self.log(f"  ⚠ Skipping unrecognized period: {period_str}")
+                self.log(f"  Skipping unrecognized period: {period_str}")
                 continue
             
             try:
@@ -136,10 +136,10 @@ class WarsawM2PriceFetcher:
                     'priceM2': price
                 })
             except (ValueError, TypeError):
-                self.log(f"  ⚠ Skipping invalid price for {period_str}: {price_cell}")
+                self.log(f"  Skipping invalid price for {period_str}: {price_cell}")
                 continue
         
-        self.log(f"  → Extracted {len(warsaw_prices)} quarterly data points for Warsaw")
+        self.log(f"  Extracted {len(warsaw_prices)} quarterly data points for Warsaw")
         return warsaw_prices
     
     def _parse_period(self, period_str: str) -> Tuple[int, int]:
@@ -280,7 +280,7 @@ class WarsawM2PriceFetcher:
                 'priceM2_pln': round(price, 2)
             })
         
-        self.log(f"  → Generated {len(result)} monthly data points")
+        self.log(f"  Generated {len(result)} monthly data points")
         return result
     
     def load_gold_prices(self) -> Dict[Tuple[int, int], float]:
@@ -301,7 +301,7 @@ class WarsawM2PriceFetcher:
                 key = (entry['year'], entry['month'])
                 gold_prices[key] = entry['price']
             
-            self.log(f"  → Loaded {len(gold_prices)} monthly gold prices")
+            self.log(f"  Loaded {len(gold_prices)} monthly gold prices")
             return gold_prices
         except FileNotFoundError:
             print(f"[ERROR] Gold prices file not found: {self.GOLD_PRICES_FILE}", file=sys.stderr)
@@ -360,7 +360,7 @@ class WarsawM2PriceFetcher:
             if len(missing_months) > 5:
                 self.log(f"     ... and {len(missing_months) - 5} more")
         
-        self.log(f"  → Converted {len(result)} entries to gold equivalent")
+        self.log(f"  Converted {len(result)} entries to gold equivalent")
         return result
     
     def save_json(self, data: List[Dict], filepath: Path, pretty: bool = True):
@@ -411,19 +411,19 @@ Examples:
     
     args = parser.parse_args()
     
-    print(f"🏠 Warsaw M2 Price Processor")
+    print(f"[HOUSE] Warsaw M2 Price Processor")
     print(f"{'=' * 60}")
     
     fetcher = WarsawM2PriceFetcher(verbose=args.verbose)
     
     try:
         # Step 1: Fetch Excel data from NBP
-        print(f"\n📥 Fetching Data:")
+        print(f"\n[INBOX] Fetching Data:")
         print(f"{'=' * 60}")
         excel_data = fetcher.fetch_excel_data()
         
         # Step 2: Extract Warsaw quarterly prices
-        print(f"\n📊 Extracting Warsaw Data:")
+        print(f"\n[DATA] Extracting Warsaw Data:")
         print(f"{'=' * 60}")
         quarterly_prices = fetcher.extract_warsaw_quarterly_prices(excel_data)
         
@@ -431,14 +431,14 @@ Examples:
             print("[ERROR] No quarterly data extracted for Warsaw", file=sys.stderr)
             return 1
         
-        print(f"✅ Extracted {len(quarterly_prices)} quarterly data points")
+        print(f"[OK] Extracted {len(quarterly_prices)} quarterly data points")
         print(f"   Date range: Q{quarterly_prices[0]['quarter']} {quarterly_prices[0]['year']} to "
               f"Q{quarterly_prices[-1]['quarter']} {quarterly_prices[-1]['year']}")
         print(f"   Price range: {min(p['priceM2'] for p in quarterly_prices):.2f} - "
-              f"{max(p['priceM2'] for p in quarterly_prices):.2f} PLN/m²")
+              f"{max(p['priceM2'] for p in quarterly_prices):.2f} PLN/m2")
         
         # Step 3: Interpolate to monthly
-        print(f"\n📈 Processing Data:")
+        print(f"\n[GRAPH] Processing Data:")
         print(f"{'=' * 60}")
         monthly_prices = fetcher.interpolate_quarterly_to_monthly(quarterly_prices)
         
@@ -446,10 +446,10 @@ Examples:
             print("[ERROR] Failed to interpolate data to monthly", file=sys.stderr)
             return 1
         
-        print(f"✅ Interpolated to {len(monthly_prices)} monthly data points")
+        print(f"[OK] Interpolated to {len(monthly_prices)} monthly data points")
         
         # Step 4: Load gold prices and convert
-        print(f"\n💰 Converting to Gold Equivalent:")
+        print(f"\n[MONEY] Converting to Gold Equivalent:")
         print(f"{'=' * 60}")
         gold_prices = fetcher.load_gold_prices()
         
@@ -457,17 +457,17 @@ Examples:
         
         # Filter out entries without gold conversion (shouldn't happen with full data)
         complete_entries = [e for e in monthly_prices_with_gold if e['priceM2_gold'] is not None]
-        print(f"✅ Converted {len(complete_entries)} entries to gold equivalent")
+        print(f"[OK] Converted {len(complete_entries)} entries to gold equivalent")
         print(f"   Price range: {min(e['priceM2_gold'] for e in complete_entries):.2f} - "
-              f"{max(e['priceM2_gold'] for e in complete_entries):.2f} g/m²")
+              f"{max(e['priceM2_gold'] for e in complete_entries):.2f} g/m2")
         
         # Step 5: Save results
-        print(f"\n💾 Saving Results:")
+        print(f"\n[SAVE] Saving Results:")
         print(f"{'=' * 60}")
         fetcher.save_json(monthly_prices_with_gold, args.output)
         
-        print(f"\n📁 Output: {args.output.resolve()}")
-        print(f"✨ Done! Generated monthly data with PLN and gold equivalent prices.")
+        print(f"\n[FILES] Output: {args.output.resolve()}")
+        print(f"[DONE] Done! Generated monthly data with PLN and gold equivalent prices.")
         
         return 0
         

@@ -6,7 +6,7 @@ This script fetches historical minimum wage data for Poland from the Eurostat AP
 (European Statistical Office) and saves the results to a JSON file in annual format.
 
 Eurostat API: https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/
-- Dataset: earn_mw_cur (Monthly minimum wages - bi-annual data        print(f"\n📈 Data Summary:")
+- Dataset: earn_mw_cur (Monthly minimum wages - bi-annual data        print(f"\n Data Summary:")
         print(f"{'=' * 70}")
         print(f"Years: {combined[0]['year']} - {combined[-1]['year']}")
         print(f"Data points: {len(combined)}")
@@ -294,7 +294,7 @@ class EurostatMinimumWageFetcher:
             json.dump(data, f, indent=2 if pretty else None, ensure_ascii=False)
         
         self.log(f"Saved {len(data)} entries to {filepath}")
-        print(f"✅ Data saved: {filepath}")
+        print(f"[OK] Data saved: {filepath}")
 
 
 def main():
@@ -358,7 +358,7 @@ Examples:
     
     args = parser.parse_args()
     
-    print(f"📊 Eurostat Minimum Wage Data Downloader (Poland)")
+    print(f"[DATA] Eurostat Minimum Wage Data Downloader (Poland)")
     print(f"Dataset: earn_mw_cur (Monthly minimum wages - bi-annual data)")
     print(f"{'=' * 70}")
     
@@ -366,11 +366,11 @@ Examples:
     
     try:
         # Load gold prices
-        print(f"\n📁 Loading gold prices...")
+        print(f"\n[FILES] Loading gold prices...")
         gold_prices = load_gold_prices(args.gold_prices, verbose=args.verbose)
         
         # Fetch wage data
-        print(f"\n💰 Fetching wage data...")
+        print(f"\n[MONEY] Fetching wage data...")
         wages = fetcher.fetch_wage_data(
             start_year=args.start_year,
             end_year=args.end_year
@@ -381,10 +381,10 @@ Examples:
             return 1
         
         # Combine data
-        print(f"\n� Combining data...")
+        print(f"\n Combining data...")
         combined = fetcher.combine_with_gold_prices(wages, gold_prices)
         
-        print(f"\n�📈 Data Summary:")
+        print(f"\n Data Summary:")
         print(f"{'=' * 70}")
         print(f"Years: {combined[0]['year']} - {combined[-1]['year']}")
         print(f"Data points: {len(combined)}")
@@ -399,8 +399,8 @@ Examples:
         # Save to JSON
         fetcher.save_json(combined, args.output)
         
-        print(f"\n📁 Output file: {args.output.resolve()}")
-        print(f"✨ Done!")
+        print(f"\n[FILES] Output file: {args.output.resolve()}")
+        print(f"[DONE] Done!")
         return 0
         
     except Exception as e:

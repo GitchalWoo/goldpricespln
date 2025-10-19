@@ -68,7 +68,7 @@ class NBPGoldPriceFetcher:
                     'price': float(entry['cena'])  # 'cena' is the price in PLN
                 })
             
-            self.log(f"  → Retrieved {len(prices)} daily prices")
+            self.log(f"  Retrieved {len(prices)} daily prices")
             return prices
             
         except requests.exceptions.RequestException as e:
@@ -240,7 +240,7 @@ Examples:
     
     args = parser.parse_args()
     
-    print(f"🏦 NBP Gold Price Downloader")
+    print(f"NBP Gold Price Downloader")
     print(f"{'=' * 50}")
     
     fetcher = NBPGoldPriceFetcher(verbose=args.verbose)
@@ -253,23 +253,23 @@ Examples:
             print("[ERROR] No data retrieved from NBP API", file=sys.stderr)
             return 1
         
-        print(f"\n📊 Data Processing:")
+        print(f"\nData Processing:")
         print(f"{'=' * 50}")
         
         if args.monthly:
             # Save monthly data
             monthly_prices = fetcher.aggregate_to_monthly(daily_prices)
             fetcher.save_json(monthly_prices, args.output)
-            print(f"✅ Monthly data saved: {len(monthly_prices)} entries")
+            print(f"[OK] Monthly data saved: {len(monthly_prices)} entries")
         else:
             # Save yearly average (default, for backward compatibility)
             yearly_prices = fetcher.aggregate_to_monthly(daily_prices)
             yearly_prices = fetcher.to_yearly_average(yearly_prices)
             fetcher.save_json(yearly_prices, args.output)
-            print(f"✅ Yearly data saved: {len(yearly_prices)} entries")
+            print(f"[OK] Yearly data saved: {len(yearly_prices)} entries")
         
-        print(f"\n📁 Output: {args.output.resolve()}")
-        print(f"✨ Done!")
+        print(f"\nOutput: {args.output.resolve()}")
+        print(f"Done!")
         return 0
         
     except Exception as e:
