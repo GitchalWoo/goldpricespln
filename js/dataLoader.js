@@ -27,10 +27,9 @@ const DataLoader = {
      * @returns {Promise<Object>} - All data organized by category
      */
     async loadAllData() {
-        const [goldData, goldMonthlyData, warsawData, warsawMonthlyData, golfData, wagesData, avgwagesData] = await Promise.all([
+        const [goldData, goldMonthlyData, warsawMonthlyData, golfData, wagesData, avgwagesData] = await Promise.all([
             this.loadJSON('data/nbp-gold-prices.json'),
             this.loadJSON('data/nbp-gold-prices-monthly.json'),
-            this.loadJSON('data/warsaw-m2-prices.json'),
             this.loadJSON('data/warsaw-m2-prices-monthly.json'),
             this.loadJSON('data/vw-golf-prices.json'),
             this.loadJSON('data/min-wages.json'),
@@ -40,7 +39,6 @@ const DataLoader = {
         return {
             gold: goldData || [],
             goldMonthly: goldMonthlyData || [],
-            warsaw: warsawData || [],
             warsawMonthly: warsawMonthlyData || [],
             golf: golfData || [],
             wages: wagesData || [],
@@ -59,8 +57,8 @@ const DataLoader = {
         if (allData.gold?.length > 0) {
             dates.push(new Date(allData.gold[allData.gold.length - 1].date));
         }
-        if (allData.warsaw?.length > 0) {
-            dates.push(new Date(allData.warsaw[allData.warsaw.length - 1].date));
+        if (allData.warsawMonthly?.length > 0) {
+            dates.push(new Date(allData.warsawMonthly[allData.warsawMonthly.length - 1].date));
         }
         if (allData.golf?.length > 0) {
             dates.push(new Date(allData.golf[allData.golf.length - 1].date));
