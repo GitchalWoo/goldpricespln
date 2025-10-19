@@ -141,7 +141,7 @@ class DataUpdater:
                     )
                     return False
             
-            self.log(f"✓ Validated {filename}: {len(data)} entries")
+            self.log(f"[OK] Validated {filename}: {len(data)} entries")
             return True
             
         except json.JSONDecodeError as e:
