@@ -74,8 +74,17 @@ Three interactive, scrollable charts showcasing:
 - **Unit:** PLN per gram (1000 proof)
 - **Update Frequency:** Daily (M-F only, bank working days)
 
+### Wage Data (Eurostat)
+- **Source:** [Eurostat (European Statistical Office)](https://ec.europa.eu/eurostat/)
+- **Minimum Wage:** Dataset `earn_mw_cur` (Monthly minimum wages - bi-annual data, aggregated to annual averages)
+- **Average Wage:** Dataset `nama_10_fte` (Average full-time adjusted salary per employee)
+- **Country:** Poland (PL)
+- **Currency:** National currency (PLN)
+- **Data Available:** 2013 onwards
+- **Update Frequency:** Annual
+
 ### Other Data Sources
-- **Warsaw M² Prices:** [GUS](https://stat.gov.pl/), real estate portals (manually updated)
+- **Warsaw M² Prices:** [NBP API](https://api.nbp.pl/)
 - **VW Golf Prices:** Historical MSRP, local dealer pricing (manually updated)
   - **Data Years:** 2013-2025 based on catalog prices for base models (Trendline/Life trim)
   - **Sources:** Autokult articles, moto.infor.pl, VW Polska official price lists, online car dealers (chceauto.pl)
