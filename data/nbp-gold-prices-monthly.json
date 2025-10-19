@@ -1,0 +1,772 @@
+[
+  {
+    "year": 2013,
+    "month": 1,
+    "price": 167.32
+  },
+  {
+    "year": 2013,
+    "month": 2,
+    "price": 163.47
+  },
+  {
+    "year": 2013,
+    "month": 3,
+    "price": 163.95
+  },
+  {
+    "year": 2013,
+    "month": 4,
+    "price": 152.7
+  },
+  {
+    "year": 2013,
+    "month": 5,
+    "price": 146.16
+  },
+  {
+    "year": 2013,
+    "month": 6,
+    "price": 141.05
+  },
+  {
+    "year": 2013,
+    "month": 7,
+    "price": 134.86
+  },
+  {
+    "year": 2013,
+    "month": 8,
+    "price": 137.41
+  },
+  {
+    "year": 2013,
+    "month": 9,
+    "price": 138.2
+  },
+  {
+    "year": 2013,
+    "month": 10,
+    "price": 130.15
+  },
+  {
+    "year": 2013,
+    "month": 11,
+    "price": 127.4
+  },
+  {
+    "year": 2013,
+    "month": 12,
+    "price": 120.28
+  },
+  {
+    "year": 2014,
+    "month": 1,
+    "price": 122.36
+  },
+  {
+    "year": 2014,
+    "month": 2,
+    "price": 127.69
+  },
+  {
+    "year": 2014,
+    "month": 3,
+    "price": 130.71
+  },
+  {
+    "year": 2014,
+    "month": 4,
+    "price": 126.53
+  },
+  {
+    "year": 2014,
+    "month": 5,
+    "price": 126.15
+  },
+  {
+    "year": 2014,
+    "month": 6,
+    "price": 124.75
+  },
+  {
+    "year": 2014,
+    "month": 7,
+    "price": 128.97
+  },
+  {
+    "year": 2014,
+    "month": 8,
+    "price": 130.88
+  },
+  {
+    "year": 2014,
+    "month": 9,
+    "price": 129.4
+  },
+  {
+    "year": 2014,
+    "month": 10,
+    "price": 130.53
+  },
+  {
+    "year": 2014,
+    "month": 11,
+    "price": 127.76
+  },
+  {
+    "year": 2014,
+    "month": 12,
+    "price": 131.58
+  },
+  {
+    "year": 2015,
+    "month": 1,
+    "price": 147.84
+  },
+  {
+    "year": 2015,
+    "month": 2,
+    "price": 145.43
+  },
+  {
+    "year": 2015,
+    "month": 3,
+    "price": 144.36
+  },
+  {
+    "year": 2015,
+    "month": 4,
+    "price": 144.21
+  },
+  {
+    "year": 2015,
+    "month": 5,
+    "price": 140.69
+  },
+  {
+    "year": 2015,
+    "month": 6,
+    "price": 141.17
+  },
+  {
+    "year": 2015,
+    "month": 7,
+    "price": 137.52
+  },
+  {
+    "year": 2015,
+    "month": 8,
+    "price": 135.21
+  },
+  {
+    "year": 2015,
+    "month": 9,
+    "price": 135.85
+  },
+  {
+    "year": 2015,
+    "month": 10,
+    "price": 140.6
+  },
+  {
+    "year": 2015,
+    "month": 11,
+    "price": 138.4
+  },
+  {
+    "year": 2015,
+    "month": 12,
+    "price": 135.72
+  },
+  {
+    "year": 2016,
+    "month": 1,
+    "price": 142.57
+  },
+  {
+    "year": 2016,
+    "month": 2,
+    "price": 152.24
+  },
+  {
+    "year": 2016,
+    "month": 3,
+    "price": 155.25
+  },
+  {
+    "year": 2016,
+    "month": 4,
+    "price": 151.26
+  },
+  {
+    "year": 2016,
+    "month": 5,
+    "price": 158.04
+  },
+  {
+    "year": 2016,
+    "month": 6,
+    "price": 160.0
+  },
+  {
+    "year": 2016,
+    "month": 7,
+    "price": 170.91
+  },
+  {
+    "year": 2016,
+    "month": 8,
+    "price": 165.69
+  },
+  {
+    "year": 2016,
+    "month": 9,
+    "price": 164.4
+  },
+  {
+    "year": 2016,
+    "month": 10,
+    "price": 159.17
+  },
+  {
+    "year": 2016,
+    "month": 11,
+    "price": 161.41
+  },
+  {
+    "year": 2016,
+    "month": 12,
+    "price": 155.48
+  },
+  {
+    "year": 2017,
+    "month": 1,
+    "price": 157.53
+  },
+  {
+    "year": 2017,
+    "month": 2,
+    "price": 160.39
+  },
+  {
+    "year": 2017,
+    "month": 3,
+    "price": 159.18
+  },
+  {
+    "year": 2017,
+    "month": 4,
+    "price": 161.12
+  },
+  {
+    "year": 2017,
+    "month": 5,
+    "price": 152.47
+  },
+  {
+    "year": 2017,
+    "month": 6,
+    "price": 152.06
+  },
+  {
+    "year": 2017,
+    "month": 7,
+    "price": 146.35
+  },
+  {
+    "year": 2017,
+    "month": 8,
+    "price": 148.76
+  },
+  {
+    "year": 2017,
+    "month": 9,
+    "price": 151.51
+  },
+  {
+    "year": 2017,
+    "month": 10,
+    "price": 149.32
+  },
+  {
+    "year": 2017,
+    "month": 11,
+    "price": 148.6
+  },
+  {
+    "year": 2017,
+    "month": 12,
+    "price": 144.34
+  },
+  {
+    "year": 2018,
+    "month": 1,
+    "price": 146.23
+  },
+  {
+    "year": 2018,
+    "month": 2,
+    "price": 144.28
+  },
+  {
+    "year": 2018,
+    "month": 3,
+    "price": 145.36
+  },
+  {
+    "year": 2018,
+    "month": 4,
+    "price": 146.54
+  },
+  {
+    "year": 2018,
+    "month": 5,
+    "price": 151.39
+  },
+  {
+    "year": 2018,
+    "month": 6,
+    "price": 152.15
+  },
+  {
+    "year": 2018,
+    "month": 7,
+    "price": 147.92
+  },
+  {
+    "year": 2018,
+    "month": 8,
+    "price": 143.33
+  },
+  {
+    "year": 2018,
+    "month": 9,
+    "price": 142.21
+  },
+  {
+    "year": 2018,
+    "month": 10,
+    "price": 146.08
+  },
+  {
+    "year": 2018,
+    "month": 11,
+    "price": 148.81
+  },
+  {
+    "year": 2018,
+    "month": 12,
+    "price": 151.13
+  },
+  {
+    "year": 2019,
+    "month": 1,
+    "price": 156.02
+  },
+  {
+    "year": 2019,
+    "month": 2,
+    "price": 161.38
+  },
+  {
+    "year": 2019,
+    "month": 3,
+    "price": 159.03
+  },
+  {
+    "year": 2019,
+    "month": 4,
+    "price": 157.78
+  },
+  {
+    "year": 2019,
+    "month": 5,
+    "price": 158.55
+  },
+  {
+    "year": 2019,
+    "month": 6,
+    "price": 164.68
+  },
+  {
+    "year": 2019,
+    "month": 7,
+    "price": 172.16
+  },
+  {
+    "year": 2019,
+    "month": 8,
+    "price": 187.31
+  },
+  {
+    "year": 2019,
+    "month": 9,
+    "price": 192.37
+  },
+  {
+    "year": 2019,
+    "month": 10,
+    "price": 187.43
+  },
+  {
+    "year": 2019,
+    "month": 11,
+    "price": 183.21
+  },
+  {
+    "year": 2019,
+    "month": 12,
+    "price": 182.73
+  },
+  {
+    "year": 2020,
+    "month": 1,
+    "price": 191.75
+  },
+  {
+    "year": 2020,
+    "month": 2,
+    "price": 201.15
+  },
+  {
+    "year": 2020,
+    "month": 3,
+    "price": 204.74
+  },
+  {
+    "year": 2020,
+    "month": 4,
+    "price": 225.57
+  },
+  {
+    "year": 2020,
+    "month": 5,
+    "price": 229.98
+  },
+  {
+    "year": 2020,
+    "month": 6,
+    "price": 219.62
+  },
+  {
+    "year": 2020,
+    "month": 7,
+    "price": 229.77
+  },
+  {
+    "year": 2020,
+    "month": 8,
+    "price": 235.49
+  },
+  {
+    "year": 2020,
+    "month": 9,
+    "price": 234.23
+  },
+  {
+    "year": 2020,
+    "month": 10,
+    "price": 235.64
+  },
+  {
+    "year": 2020,
+    "month": 11,
+    "price": 229.11
+  },
+  {
+    "year": 2020,
+    "month": 12,
+    "price": 219.25
+  },
+  {
+    "year": 2021,
+    "month": 1,
+    "price": 223.52
+  },
+  {
+    "year": 2021,
+    "month": 2,
+    "price": 216.91
+  },
+  {
+    "year": 2021,
+    "month": 3,
+    "price": 213.15
+  },
+  {
+    "year": 2021,
+    "month": 4,
+    "price": 215.95
+  },
+  {
+    "year": 2021,
+    "month": 5,
+    "price": 221.76
+  },
+  {
+    "year": 2021,
+    "month": 6,
+    "price": 220.51
+  },
+  {
+    "year": 2021,
+    "month": 7,
+    "price": 223.84
+  },
+  {
+    "year": 2021,
+    "month": 8,
+    "price": 222.79
+  },
+  {
+    "year": 2021,
+    "month": 9,
+    "price": 221.66
+  },
+  {
+    "year": 2021,
+    "month": 10,
+    "price": 226.14
+  },
+  {
+    "year": 2021,
+    "month": 11,
+    "price": 238.14
+  },
+  {
+    "year": 2021,
+    "month": 12,
+    "price": 235.2
+  },
+  {
+    "year": 2022,
+    "month": 1,
+    "price": 234.69
+  },
+  {
+    "year": 2022,
+    "month": 2,
+    "price": 238.58
+  },
+  {
+    "year": 2022,
+    "month": 3,
+    "price": 270.17
+  },
+  {
+    "year": 2022,
+    "month": 4,
+    "price": 266.75
+  },
+  {
+    "year": 2022,
+    "month": 5,
+    "price": 262.01
+  },
+  {
+    "year": 2022,
+    "month": 6,
+    "price": 258.36
+  },
+  {
+    "year": 2022,
+    "month": 7,
+    "price": 261.61
+  },
+  {
+    "year": 2022,
+    "month": 8,
+    "price": 264.53
+  },
+  {
+    "year": 2022,
+    "month": 9,
+    "price": 258.66
+  },
+  {
+    "year": 2022,
+    "month": 10,
+    "price": 262.46
+  },
+  {
+    "year": 2022,
+    "month": 11,
+    "price": 255.66
+  },
+  {
+    "year": 2022,
+    "month": 12,
+    "price": 255.65
+  },
+  {
+    "year": 2023,
+    "month": 1,
+    "price": 265.13
+  },
+  {
+    "year": 2023,
+    "month": 2,
+    "price": 264.3
+  },
+  {
+    "year": 2023,
+    "month": 3,
+    "price": 268.98
+  },
+  {
+    "year": 2023,
+    "month": 4,
+    "price": 272.45
+  },
+  {
+    "year": 2023,
+    "month": 5,
+    "price": 266.85
+  },
+  {
+    "year": 2023,
+    "month": 6,
+    "price": 257.79
+  },
+  {
+    "year": 2023,
+    "month": 7,
+    "price": 251.74
+  },
+  {
+    "year": 2023,
+    "month": 8,
+    "price": 252.27
+  },
+  {
+    "year": 2023,
+    "month": 9,
+    "price": 264.9
+  },
+  {
+    "year": 2023,
+    "month": 10,
+    "price": 262.31
+  },
+  {
+    "year": 2023,
+    "month": 11,
+    "price": 259.93
+  },
+  {
+    "year": 2023,
+    "month": 12,
+    "price": 259.58
+  },
+  {
+    "year": 2024,
+    "month": 1,
+    "price": 261.62
+  },
+  {
+    "year": 2024,
+    "month": 2,
+    "price": 260.99
+  },
+  {
+    "year": 2024,
+    "month": 3,
+    "price": 274.3
+  },
+  {
+    "year": 2024,
+    "month": 4,
+    "price": 300.48
+  },
+  {
+    "year": 2024,
+    "month": 5,
+    "price": 299.73
+  },
+  {
+    "year": 2024,
+    "month": 6,
+    "price": 300.07
+  },
+  {
+    "year": 2024,
+    "month": 7,
+    "price": 303.74
+  },
+  {
+    "year": 2024,
+    "month": 8,
+    "price": 309.5
+  },
+  {
+    "year": 2024,
+    "month": 9,
+    "price": 317.3
+  },
+  {
+    "year": 2024,
+    "month": 10,
+    "price": 341.07
+  },
+  {
+    "year": 2024,
+    "month": 11,
+    "price": 347.55
+  },
+  {
+    "year": 2024,
+    "month": 12,
+    "price": 346.2
+  },
+  {
+    "year": 2025,
+    "month": 1,
+    "price": 356.54
+  },
+  {
+    "year": 2025,
+    "month": 2,
+    "price": 373.17
+  },
+  {
+    "year": 2025,
+    "month": 3,
+    "price": 370.1
+  },
+  {
+    "year": 2025,
+    "month": 4,
+    "price": 391.93
+  },
+  {
+    "year": 2025,
+    "month": 5,
+    "price": 397.58
+  },
+  {
+    "year": 2025,
+    "month": 6,
+    "price": 399.48
+  },
+  {
+    "year": 2025,
+    "month": 7,
+    "price": 390.16
+  },
+  {
+    "year": 2025,
+    "month": 8,
+    "price": 396.06
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "price": 425.67
+  },
+  {
+    "year": 2025,
+    "month": 10,
+    "price": 470.68
+  }
+]
