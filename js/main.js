@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('✅ Data loaded successfully');
 
+    // Initialize Gold Converter
+    GoldConverter.init(allData.goldMonthly);
+    console.log('✅ Gold Converter initialized');
+
     // Create charts
     ChartManager.createGoldPriceChart(allData.gold);
     ChartManager.createWarsawChart(allData.warsawMonthly);

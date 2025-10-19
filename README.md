@@ -8,6 +8,14 @@ Interactive visualization of historical gold prices in Polish Zloty (PLN) with c
 
 ## 🎯 Features
 
+### Gold Value Calculator
+- **💰 Kalkulator Wartości w Złocie** - Compare any asset's value over time
+  - Select year and month from 2013-2024
+  - Enter asset value (wage, car, property, etc.) from that period
+  - Enter current value and see the gold equivalent comparison
+  - Automatically calculates if your asset is worth more, same, or less gold today
+
+### Interactive Charts
 Three interactive, scrollable charts showcasing:
 
 1. **Gold Price in PLN (2013-Present)**

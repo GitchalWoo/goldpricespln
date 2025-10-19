@@ -563,18 +563,14 @@ const ChartManager = {
     /**
      * Update Warsaw statistics
      * @param {Array} data - Warsaw data with monthly entries
-     * @param {string} period - 'pln' or 'gold'
+     * @param {string} period - 'pln' or 'gold' (parameter kept for compatibility but not used)
      */
     updateWarsawStats(data, period) {
         const currentData = data[data.length - 1];
         
-        if (period === 'pln') {
-            document.getElementById('warsawM2Current').textContent = DataLoader.formatPLN(currentData.priceM2_pln);
-            document.getElementById('warsawM2Gold').textContent = DataLoader.formatGrams(currentData.priceM2_gold);
-        } else {
-            document.getElementById('warsawM2Current').textContent = DataLoader.formatGrams(currentData.priceM2_gold);
-            document.getElementById('warsawM2Gold').textContent = DataLoader.formatPLN(currentData.priceM2_pln);
-        }
+        // Always show PLN in first stat and Gold in second stat (don't swap)
+        document.getElementById('warsawM2Current').textContent = DataLoader.formatPLN(currentData.priceM2_pln);
+        document.getElementById('warsawM2Gold').textContent = DataLoader.formatGrams(currentData.priceM2_gold);
     },
 
     /**
@@ -593,20 +589,16 @@ const ChartManager = {
     /**
      * Update Minimum Wages statistics
      * @param {Array} data - Wages data with yearly entries
-     * @param {string} period - 'pln' or 'gold'
+     * @param {string} period - 'pln' or 'gold' (parameter kept for compatibility but not used)
      */
     updateMinWagesStats(data, period) {
         const currentData = data[data.length - 1];
         const oldData = data[0];
         const change = ((currentData.wagePLN - oldData.wagePLN) / oldData.wagePLN * 100).toFixed(1);
         
-        if (period === 'pln') {
-            document.getElementById('wagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);
-            document.getElementById('wagesCurrentGold').textContent = DataLoader.formatGrams(currentData.wageGold);
-        } else {
-            document.getElementById('wagesCurrentPLN').textContent = DataLoader.formatGrams(currentData.wageGold);
-            document.getElementById('wagesCurrentGold').textContent = DataLoader.formatPLN(currentData.wagePLN);
-        }
+        // Always show PLN in first stat and Gold in second stat (don't swap)
+        document.getElementById('wagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);
+        document.getElementById('wagesCurrentGold').textContent = DataLoader.formatGrams(currentData.wageGold);
         document.getElementById('wagesChange').textContent = (change > 0 ? '+' : '') + change + '%';
     },
 
@@ -718,20 +710,16 @@ const ChartManager = {
     /**
      * Update Average Wages statistics
      * @param {Array} data - Average wages data with yearly entries
-     * @param {string} period - 'pln' or 'gold'
+     * @param {string} period - 'pln' or 'gold' (parameter kept for compatibility but not used)
      */
     updateAvgWagesStats(data, period) {
         const currentData = data[data.length - 1];
         const oldData = data[0];
         const change = ((currentData.wagePLN - oldData.wagePLN) / oldData.wagePLN * 100).toFixed(1);
         
-        if (period === 'pln') {
-            document.getElementById('avgwagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);
-            document.getElementById('avgwagesCurrentGold').textContent = DataLoader.formatGrams(currentData.wageGold);
-        } else {
-            document.getElementById('avgwagesCurrentPLN').textContent = DataLoader.formatGrams(currentData.wageGold);
-            document.getElementById('avgwagesCurrentGold').textContent = DataLoader.formatPLN(currentData.wagePLN);
-        }
+        // Always show PLN in first stat and Gold in second stat (don't swap)
+        document.getElementById('avgwagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);
+        document.getElementById('avgwagesCurrentGold').textContent = DataLoader.formatGrams(currentData.wageGold);
         document.getElementById('avgwagesChange').textContent = (change > 0 ? '+' : '') + change + '%';
     }
 };

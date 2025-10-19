@@ -36,6 +36,89 @@
             </ul>
         </nav>
 
+        <!-- Gold Converter Tool -->
+        <section id="gold-converter" class="graph-section gold-converter-section">
+            <div class="container">
+                <h2>💰 Kalkulator Wartości w Złocie</h2>
+                <p class="description">
+                    Porównaj wartość swojego majątku z przeszłości z dzisiejszą wartością. 
+                    Wpisz wartość aktywa (płaca, samochód, mieszkanie, itp.) z wybranego roku i miesiąca, 
+                    a następnie jego dzisiejszą wartość. System automatycznie pokaże równowartość w złocie.
+                </p>
+                
+                <div class="converter-container">
+                    <div class="converter-form">
+                        <div class="form-group">
+                            <label for="converterYear">Rok:</label>
+                            <select id="converterYear" class="form-input">
+                                <option value="">Wybierz rok...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="converterMonth">Miesiąc:</label>
+                            <select id="converterMonth" class="form-input">
+                                <option value="">Wybierz miesiąc...</option>
+                                <option value="1">Styczeń</option>
+                                <option value="2">Luty</option>
+                                <option value="3">Marzec</option>
+                                <option value="4">Kwiecień</option>
+                                <option value="5">Maj</option>
+                                <option value="6">Czerwiec</option>
+                                <option value="7">Lipiec</option>
+                                <option value="8">Sierpień</option>
+                                <option value="9">Wrzesień</option>
+                                <option value="10">Październik</option>
+                                <option value="11">Listopad</option>
+                                <option value="12">Grudzień</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="converterPastValue">Wartość w przeszłości (PLN):</label>
+                            <input type="number" id="converterPastValue" class="form-input" placeholder="np. 50000" step="0.01" min="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="converterCurrentValue">Wartość dzisiaj (PLN):</label>
+                            <input type="number" id="converterCurrentValue" class="form-input" placeholder="np. 75000" step="0.01" min="0">
+                        </div>
+                        
+                        <button id="converterCalculate" class="converter-btn">Oblicz</button>
+                    </div>
+                    
+                    <div class="converter-results" id="converterResults" style="display: none;">
+                        <h3>Wyniki</h3>
+                        
+                        <div class="result-card">
+                            <div class="result-label">Wartość w przeszłości</div>
+                            <div class="result-time-info" id="resultPastTime"></div>
+                            <div class="result-value">
+                                <span id="resultPastPLN" class="pln-value">-</span>
+                                <span class="separator">→</span>
+                                <span id="resultPastGold" class="gold-value">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="result-card">
+                            <div class="result-label">Wartość dzisiaj</div>
+                            <div class="result-time-info">Dzisiaj (na dzień dzisiejszy)</div>
+                            <div class="result-value">
+                                <span id="resultCurrentPLN" class="pln-value">-</span>
+                                <span class="separator">→</span>
+                                <span id="resultCurrentGold" class="gold-value">-</span>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-result">
+                            <div id="comparisonText" class="comparison-text"></div>
+                            <div class="comparison-indicator" id="comparisonIndicator"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Graph 1: Gold Price -->
         <section id="graph1" class="graph-section">
             <div class="container">
@@ -238,6 +321,7 @@
     <!-- Scripts -->
     <script src="js/dataLoader.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/goldConverter.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
