@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ceny złota w PLN - interaktywne wykresy historyczne">
+    <meta name="author" content="GoldPrice PL">
+    
+    <title>Ceny Złota w PLN | Gold Price Visualization</title>
+    
+    <!-- Chart.js for visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>📊 Ceny Złota w PLN</h1>
+            <p class="subtitle">Interaktywne wykresy historyczne cen złota i porównania wartości</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Navigation -->
+        <nav class="navigation">
+            <ul>
+                <li><a href="#graph1" class="nav-link">Złoto 2000-teraz</a></li>
+                <li><a href="#graph2" class="nav-link">M² Warszawa</a></li>
+                <li><a href="#graph3" class="nav-link">VW Golf</a></li>
+            </ul>
+        </nav>
+
+        <!-- Graph 1: Gold Price -->
+        <section id="graph1" class="graph-section">
+            <div class="container">
+                <h2>Cena Złota w PLN (2000-Teraz)</h2>
+                <p class="description">
+                    Historyczne ceny złota na przestrzeni ponad 20 lat. 
+                    Widać znaczący wzrost szczególnie od 2008 roku podczas kryzysu finansowego.
+                </p>
+                <div class="chart-wrapper">
+                    <canvas id="chartGold"></canvas>
+                </div>
+                <div class="chart-stats">
+                    <div class="stat">
+                        <span class="stat-label">Min:</span>
+                        <span class="stat-value" id="goldMin">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Max:</span>
+                        <span class="stat-value" id="goldMax">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Średnia:</span>
+                        <span class="stat-value" id="goldAvg">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph 2: Warsaw M² vs Gold -->
+        <section id="graph2" class="graph-section graph-section--secondary">
+            <div class="container">
+                <h2>Cena M² w Warszawie vs Złoto</h2>
+                <p class="description">
+                    Porównanie średniej ceny metra kwadratowego nieruchomości w Warszawie 
+                    wyrażonej w złotych polskich vs równoważnika w gramach złota.
+                </p>
+                <div class="chart-wrapper">
+                    <canvas id="chartWarsawM2"></canvas>
+                </div>
+                <div class="chart-stats">
+                    <div class="stat">
+                        <span class="stat-label">M² w Warszawie (2024):</span>
+                        <span class="stat-value" id="warsawM2Current">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Równowartość w złocie:</span>
+                        <span class="stat-value" id="warsawM2Gold">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph 3: VW Golf Price -->
+        <section id="graph3" class="graph-section">
+            <div class="container">
+                <h2>Cena Volkswagena Golf w Złocie</h2>
+                <p class="description">
+                    Ile gramów złota trzeba było zapłacić za nowego Volkswagena Golf przez lata.
+                    Interesujące, jak zmienia się relacja ceny samochodu do ceny złota.
+                </p>
+                <div class="chart-wrapper">
+                    <canvas id="chartVWGolf"></canvas>
+                </div>
+                <div class="chart-stats">
+                    <div class="stat">
+                        <span class="stat-label">Golf 2000:</span>
+                        <span class="stat-value" id="golfOldGrams">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Golf 2024:</span>
+                        <span class="stat-value" id="golfNewGrams">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Zmiana:</span>
+                        <span class="stat-value" id="golfChange">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Info -->
+        <section class="info-section">
+            <div class="container">
+                <h3>ℹ️ O Projekcie</h3>
+                <p>
+                    Dane pochodzą z 
+                    <a href="https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/" target="_blank">
+                        Narodowego Banku Polski (NBP)
+                    </a>. 
+                    Wszystkie wykresy są generowane w przeglądarce na podstawie lokalnych plików JSON.
+                </p>
+                <p>
+                    <strong>Dane aktualizowane:</strong> <span id="lastUpdated">-</span>
+                </p>
+                <p class="disclaimer">
+                    Projekt służy wyłącznie celom edukacyjnym i informacyjnym. 
+                    Ceny mogą się różnić od rzeczywistych.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Gold Price Visualization | 
+                <a href="https://github.com/GitchalWoo/goldpricespln" target="_blank">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/dataLoader.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -57,17 +57,17 @@ Three interactive scrollable graphs showing:
 ## Technical Stack
 
 ### Frontend Framework
-- **Options to evaluate:**
-  - Chart.js (lightweight, easy to use)
-  - Plotly.js (interactive, feature-rich)
-  - D3.js (powerful, steeper learning curve)
-  - Recharts or Visx (React-based alternatives)
-- **Decision:** TBD based on simplicity and interactivity needs
+- **Selected:** Chart.js v4.4.0 from CDN ✅
+  - Lightweight and responsive
+  - Perfect for business analytics
+  - Easy dual-axis chart (for Graph 2)
+  - Great tooltip and legend customization
+  - No build step required
 
 ### Data Format
-- **Primary Format:** JSON (easier to work with in JS)
-- **Alternative:** CSV (can be parsed or converted to JSON)
-- **Storage:** Local files in the repo (no API calls)
+- **Primary Format:** JSON ✅ **SELECTED**
+- **Storage:** Local files in the `data/` folder
+- **Update Method:** Manual JSON file updates or scripted imports from NBP
 
 ### HTML/CSS
 - Semantic HTML5
@@ -145,32 +145,102 @@ GoldPrice/
 ## Next Steps
 
 1. ✅ Create project structure and `claude.md` (THIS FILE)
-2. ⏳ Research NBP data format and access method
-3. ⏳ Set up basic HTML structure with sections for 3 graphs
-4. ⏳ Choose and configure charting library
-5. ⏳ Gather/create sample data files
-6. ⏳ Implement data loading logic
-7. ⏳ Build Graph 1 (Gold prices)
-8. ⏳ Build Graph 2 (Warsaw M² vs Gold)
-9. ⏳ Build Graph 3 (VW Golf in Gold)
-10. ⏳ Polish UI/UX and Polish language implementation
-11. ⏳ Deploy to GitHub Pages
-12. ⏳ Test across devices and browsers
+2. ✅ Set up basic HTML structure with sections for 3 graphs
+3. ✅ Choose and configure charting library (Chart.js selected)
+4. ✅ Implement data loading logic
+5. ✅ Create sample data files with structures
+6. ✅ Build Graph 1 (Gold prices)
+7. ✅ Build Graph 2 (Warsaw M² vs Gold - dual axis)
+8. ✅ Build Graph 3 (VW Golf in Gold)
+9. ⏳ Research real NBP data format and integrate
+10. ⏳ Research real Warsaw real estate data sources
+11. ⏳ Research real VW Golf pricing data
+12. ⏳ Replace sample data with real data
+13. ⏳ Polish UI/UX refinements and testing
+14. ⏳ Deploy to GitHub Pages
+15. ⏳ Test across devices and browsers
 
 ---
 
 ## Key Decisions to Make
 
-- [ ] Chart library selection
-- [ ] Data file format (JSON vs CSV)
-- [ ] Real estate data source
-- [ ] Car pricing data source
-- [ ] Color scheme and design aesthetic
-- [ ] Mobile-first vs desktop-first approach
+- [x] Chart library selection → **Chart.js selected**
+- [x] Data file format → **JSON selected**
+- [ ] Real estate data source (GUS, real estate portals, etc.)
+- [ ] Car pricing data source (historical MSRP, local pricing)
+- [x] Color scheme and design aesthetic → **Gold/Amber primary color with clean modern design**
+- [x] Mobile-first vs desktop-first approach → **Responsive design supporting both**
 
 ---
 
-## Resources & References
+## Implementation Notes
+
+### HTML (`index.html`)
+- Semantic structure with `<header>`, `<main>`, `<section>`, `<footer>`
+- Sticky navigation bar for easy section jumping
+- 3 main graph sections with descriptions
+- Statistics cards below each chart
+- Info section with attribution and disclaimer
+
+### CSS (`css/style.css`)
+- CSS Custom Properties (variables) for maintainability
+- Flexbox and CSS Grid for layout
+- Responsive breakpoints: 1200px (desktop), 768px (tablet), 480px (mobile)
+- Gold color scheme (#f59e0b) as primary brand color
+- Smooth animations and transitions
+- Dark mode ready (structure in place)
+
+### JavaScript Architecture
+- **`dataLoader.js`** - Handles JSON fetching, formatting, and locale support
+  - `loadJSON()` - Fetch individual files
+  - `loadAllData()` - Promise.all() for parallel loading
+  - `formatPLN()`, `formatGrams()` - Polish locale formatting
+  
+- **`charts.js`** - Chart.js wrapper and chart creation
+  - `createGoldPriceChart()` - Simple line chart
+  - `createWarsawChart()` - Dual-axis line chart (PLN vs grams)
+  - `createGolfChart()` - Simple line chart
+  - `updateStats()` methods - Populate stat cards
+  
+- **`main.js`** - Application entry point
+  - Waits for DOM load
+  - Orchestrates data loading and chart creation
+  - Error handling with user-friendly messages
+
+### Polish Language Features
+- All UI text in Polish (headers, labels, tooltips)
+- `toLocaleDateString('pl-PL')` for date formatting
+- `Intl.NumberFormat('pl-PL')` for currency and number formatting
+- Polish decimal separator support (comma or period)
+
+---
+
+## Project Status
+
+### ✅ Completed (Skeleton Phase)
+- Project structure (folders: css/, js/, data/)
+- HTML5 semantic structure with 3 graph sections
+- Responsive CSS with grid layout and animations
+- Chart.js integration with Chart.js v4.4.0
+- Data loading module (async JSON fetching)
+- Chart rendering module (3 interactive charts)
+- Main initialization script
+- Sample data files (25-year sample data 2000-2024)
+- Navigation bar with smooth scrolling
+- Statistics display boxes under each chart
+- Mobile-responsive design
+
+### 📊 Charts Implemented
+1. **Gold Price Chart** - Line chart with historical prices (2000-2024)
+2. **Warsaw M² vs Gold** - Dual-axis comparison (PLN vs grams)
+3. **VW Golf in Gold** - Line chart showing gold equivalent cost
+
+### 🎯 Current Data Structure
+- `nbp-gold-prices.json` - Year and PLN/gram price
+- `warsaw-m2-prices.json` - Year and m² price in PLN
+- `vw-golf-prices.json` - Year and Golf price in PLN
+
+---
 
 - **NBP Official Site:** https://nbp.pl/
 - **GitHub Pages Setup:** https://docs.github.com/en/pages
@@ -190,4 +260,4 @@ GoldPrice/
 ---
 
 **Last Updated:** 2025-10-19  
-**Status:** Project Setup Phase
+**Status:** ✅ Skeleton Complete - Ready for Real Data Integration
