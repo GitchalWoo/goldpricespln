@@ -36,8 +36,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     initPeriodSwitcher('avgwages', (period) => ChartManager.updateAvgWagesChartPeriod(period));
 
     // Update last update date
-    const lastUpdated = DataLoader.getLastUpdateDate(allData);
-    document.getElementById('lastUpdated').textContent = lastUpdated;
+    if (allData.lastUpdate) {
+        document.getElementById('lastUpdated').textContent = allData.lastUpdate.readable;
+    } else {
+        const lastUpdated = DataLoader.getLastUpdateDate(allData);
+        document.getElementById('lastUpdated').textContent = lastUpdated;
+    }
 
     console.log('✅ Application initialized successfully');
 });

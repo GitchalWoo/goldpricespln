@@ -257,6 +257,19 @@ class DataUpdater:
         
         self.log("")
         
+        # Step 3: Update timestamp
+        self.log("[STEP-3] STEP 3: Update Timestamp")
+        self.log("-" * 40)
+        
+        if not self.run_script(
+            'update_timestamp.py',
+            'Update Last Modified Timestamp'
+        ):
+            self.log("[WARN] Failed to update timestamp", 'WARN')
+            all_secondary_success = False
+        
+        self.log("")
+        
         # Summary
         self.log("=" * 60)
         if all_secondary_success and success:
