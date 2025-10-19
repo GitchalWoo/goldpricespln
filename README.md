@@ -155,6 +155,41 @@ python scripts/fetch_warsaw_m2_prices.py --verbose
 python scripts/fetch_warsaw_m2_prices.py --output custom_output.json
 ```
 
+#### Eurostat Minimum Wage + Gold Analysis - Python Version
+
+Fetches Polish minimum wage data from Eurostat and calculates wage purchasing power in gold:
+
+```bash
+# Fetch minimum wage data and combine with gold prices
+python scripts/fetch_eurostat_min_wages.py
+
+# Show verbose output
+python scripts/fetch_eurostat_min_wages.py -v
+
+# Custom output file
+python scripts/fetch_eurostat_min_wages.py --output custom_output.json
+
+# Specific year range
+python scripts/fetch_eurostat_min_wages.py --start-year 2015 --end-year 2024
+```
+
+**What it does:**
+1. Downloads bi-annual minimum wage data from Eurostat API
+2. Aggregates semi-annual data to annual averages
+3. Loads existing gold price data from `nbp-gold-prices.json`
+4. Calculates wage purchasing power in grams of gold
+5. Generates `min-wages.json` with wage and gold equivalent
+
+**Output Format:**
+```json
+[
+  { "year": 2013, "wage": 1600.0, "price": 11.14 },
+  { "year": 2014, "wage": 1680.0, "price": 13.11 }
+]
+```
+
+**Key Finding:** While minimum wages increased 191% from 2013 to 2025, purchasing power in gold decreased ~10.4% due to gold price inflation.
+
 **What it does:**
 1. Downloads quarterly housing price data from NBP (Q3 2006 - present)
 2. Extracts Warsaw-specific average m² prices

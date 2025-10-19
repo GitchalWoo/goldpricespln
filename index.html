@@ -30,7 +30,8 @@
             <ul>
                 <li><a href="#graph1" class="nav-link">Złoto 2013-teraz</a></li>
                 <li><a href="#graph2" class="nav-link">M² Warszawa</a></li>
-                <li><a href="#graph3" class="nav-link">VW Golf</a></li>
+                <li><a href="#graph3" class="nav-link">Płaca Minimalna</a></li>
+                <li><a href="#graph4" class="nav-link">VW Golf</a></li>
             </ul>
         </nav>
 
@@ -102,8 +103,44 @@
             </div>
         </section>
 
-        <!-- Graph 3: VW Golf Price -->
-        <section id="graph3" class="graph-section">
+        <!-- Graph 3: Minimum Wages -->
+        <section id="graph3" class="graph-section graph-section--secondary">
+            <div class="container">
+                <h2>Płaca Minimalna w PLN vs Złoto</h2>
+                <p class="description">
+                    Porównanie wysokości płacy minimalnej w Polsce 
+                    wyrażonej w złotych polskich vs równoważnika w gramach złota.
+                </p>
+                <!-- Period Switcher for Minimum Wages -->
+                <div class="period-switcher">
+                    <label class="switcher-label">Wyświetl dane:</label>
+                    <div class="switcher-buttons">
+                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="wages">PLN</button>
+                        <button class="switcher-btn" data-period="gold" data-chart="wages">Złoto (gramy)</button>
+                    </div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="chartMinWages"></canvas>
+                </div>
+                <div class="chart-stats">
+                    <div class="stat">
+                        <span class="stat-label">Płaca minimalna (2025):</span>
+                        <span class="stat-value" id="wagesCurrentPLN">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Równowartość w złocie:</span>
+                        <span class="stat-value" id="wagesCurrentGold">-</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Wzrost od 2013:</span>
+                        <span class="stat-value" id="wagesChange">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph 4: VW Golf Price -->
+        <section id="graph4" class="graph-section">
             <div class="container">
                 <h2>Cena Volkswagena Golf w Złocie</h2>
                 <p class="description">

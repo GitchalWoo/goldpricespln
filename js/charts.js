@@ -357,6 +357,146 @@ const ChartManager = {
     },
 
     /**
+     * Create the Minimum Wages chart
+     * @param {Array} wagesData - Minimum wages yearly data
+     * @param {Array} goldData - Gold price data
+     */
+    createMinWagesChart(wagesData, goldData) {
+        const ctx = document.getElementById('chartMinWages');
+        if (!ctx) return;
+
+        // Calculate gold equivalents for wages
+        const wagesWithGold = wagesData.map(item => {
+            const goldPrice = goldData.find(g => g.year === item.year);
+            // Gold equivalent = wage / price per gram
+            const goldEquivalent = goldPrice ? item.wage / goldPrice.price : item.wage;
+            return {
+                year: item.year,
+                wagePLN: item.wage,
+                wageGold: goldEquivalent
+            };
+        });
+
+        // Default: show PLN wages
+        const chartData = {
+            labels: wagesWithGold.map(item => item.year),
+            datasets: [{
+                label: 'Płaca minimalna (PLN)',
+                data: wagesWithGold.map(item => item.wagePLN),
+                borderColor: '#8b5cf6',
+                backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                borderWidth: 3,
+                tension: 0.4,
+                fill: true,
+                pointRadius: 4,
+                pointBackgroundColor: '#8b5cf6',
+                pointBorderColor: '#fff',
+                pointBorderWidth: 2,
+                pointHoverRadius: 6
+            }]
+        };
+
+        this.chartInstances.wages = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        callbacks: {
+                            label: function(context) {
+                                return 'Płaca: ' + DataLoader.formatPLN(context.parsed.y);
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: 'PLN'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return DataLoader.formatPLN(value);
+                            }
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Rok'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Store data for switcher
+        this.chartInstances.wagesData = wagesWithGold;
+        this.updateMinWagesStats(wagesWithGold, 'pln');
+    },
+
+    /**
+     * Update Minimum Wages chart to show PLN or Gold
+     * @param {string} period - 'pln' or 'gold'
+     */
+    updateMinWagesChartPeriod(period) {
+        const chart = this.chartInstances.wages;
+        const data = this.chartInstances.wagesData;
+
+        if (!chart || !data) return;
+
+        let chartLabel;
+
+        if (period === 'pln') {
+            chartLabel = 'Płaca minimalna (PLN)';
+            chart.data.datasets[0].data = data.map(item => item.wagePLN);
+            chart.options.scales.y.title.text = 'PLN';
+            chart.options.scales.y.ticks.callback = function(value) {
+                return DataLoader.formatPLN(value);
+            };
+            chart.options.plugins.tooltip.callbacks.label = function(context) {
+                return 'Płaca: ' + DataLoader.formatPLN(context.parsed.y);
+            };
+        } else {
+            chartLabel = 'Płaca minimalna w złocie (gramy)';
+            chart.data.datasets[0].data = data.map(item => item.wageGold);
+            chart.options.scales.y.title.text = 'Gramy złota';
+            chart.options.scales.y.ticks.callback = function(value) {
+                return value.toFixed(2) + 'g';
+            };
+            chart.options.plugins.tooltip.callbacks.label = function(context) {
+                return 'Złoto: ' + DataLoader.formatGrams(context.parsed.y);
+            };
+        }
+
+        chart.data.datasets[0].label = chartLabel;
+        chart.data.datasets[0].borderColor = period === 'pln' ? '#8b5cf6' : '#f59e0b';
+        chart.data.datasets[0].backgroundColor = period === 'pln' ? 'rgba(139, 92, 246, 0.1)' : 'rgba(245, 158, 11, 0.1)';
+        chart.data.datasets[0].pointBackgroundColor = period === 'pln' ? '#8b5cf6' : '#f59e0b';
+
+        chart.update();
+        this.updateMinWagesStats(data, period);
+    },
+
+    /**
      * Update gold price statistics
      */
     updateGoldStats(data) {
@@ -398,5 +538,25 @@ const ChartManager = {
         document.getElementById('golfOldGrams').textContent = DataLoader.formatGrams(oldGolf.priceGold);
         document.getElementById('golfNewGrams').textContent = DataLoader.formatGrams(newGolf.priceGold);
         document.getElementById('golfChange').textContent = (change > 0 ? '+' : '') + change + '%';
+    },
+
+    /**
+     * Update Minimum Wages statistics
+     * @param {Array} data - Wages data with yearly entries
+     * @param {string} period - 'pln' or 'gold'
+     */
+    updateMinWagesStats(data, period) {
+        const currentData = data[data.length - 1];
+        const oldData = data[0];
+        const change = ((currentData.wagePLN - oldData.wagePLN) / oldData.wagePLN * 100).toFixed(1);
+        
+        if (period === 'pln') {
+            document.getElementById('wagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);
+            document.getElementById('wagesCurrentGold').textContent = DataLoader.formatGrams(currentData.wageGold);
+        } else {
+            document.getElementById('wagesCurrentPLN').textContent = DataLoader.formatGrams(currentData.wageGold);
+            document.getElementById('wagesCurrentGold').textContent = DataLoader.formatPLN(currentData.wagePLN);
+        }
+        document.getElementById('wagesChange').textContent = (change > 0 ? '+' : '') + change + '%';
     }
 };
