@@ -203,6 +203,69 @@ a:hover {
 }
 
 /* ================================
+   PERIOD SWITCHER
+   ================================ */
+.period-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.switcher-label {
+    font-weight: 500;
+    color: var(--color-text);
+    font-size: 0.95rem;
+}
+
+.switcher-buttons {
+    display: flex;
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    gap: 0;
+}
+
+.switcher-btn {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    background-color: transparent;
+    color: var(--color-text-light);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.95rem;
+}
+
+.switcher-btn:hover {
+    background-color: rgba(245, 158, 11, 0.05);
+    color: var(--color-text);
+}
+
+.switcher-btn--active {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.switcher-btn--active:hover {
+    background-color: #d97706;
+}
+
+@media (max-width: 768px) {
+    .period-switcher {
+        gap: var(--spacing-sm);
+    }
+
+    .switcher-btn {
+        padding: var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+}
+
+/* ================================
    CHART WRAPPER
    ================================ */
 .chart-wrapper {

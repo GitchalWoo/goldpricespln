@@ -23,12 +23,40 @@ document.addEventListener('DOMContentLoaded', async () => {
     ChartManager.createWarsawChart(allData.warsaw, allData.gold);
     ChartManager.createGolfChart(allData.golf, allData.gold);
 
+    // Initialize gold price period switcher
+    initGoldPeriodSwitcher(allData);
+
     // Update last update date
     const lastUpdated = DataLoader.getLastUpdateDate(allData);
     document.getElementById('lastUpdated').textContent = lastUpdated;
 
     console.log('✅ Application initialized successfully');
 });
+
+/**
+ * Initialize the gold price period switcher
+ * @param {Object} allData - All loaded data
+ */
+function initGoldPeriodSwitcher(allData) {
+    const switcherButtons = document.querySelectorAll('.switcher-btn');
+    
+    switcherButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const period = e.target.getAttribute('data-period');
+            
+            // Update button states
+            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
+            e.target.classList.add('switcher-btn--active');
+            
+            // Update chart based on period
+            if (period === 'yearly') {
+                ChartManager.updateGoldChart(allData.gold, 'yearly');
+            } else if (period === 'monthly') {
+                ChartManager.updateGoldChart(allData.goldMonthly, 'monthly');
+            }
+        });
+    });
+}
 
 /**
  * Show error message if data failed to load
@@ -41,6 +69,7 @@ function showError() {
             <p>Nie udało się załadować plików danych. Upewnij się, że wszystkie pliki JSON znajdują się w folderze <code>data/</code>:</p>
             <ul style="text-align: left; display: inline-block; margin: 1rem 0;">
                 <li>data/nbp-gold-prices.json</li>
+                <li>data/nbp-gold-prices-monthly.json</li>
                 <li>data/warsaw-m2-prices.json</li>
                 <li>data/vw-golf-prices.json</li>
             </ul>

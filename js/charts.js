@@ -94,6 +94,41 @@ const ChartManager = {
     },
 
     /**
+     * Update the gold price chart with different data
+     * @param {Array} data - Gold price data (yearly or monthly)
+     * @param {string} period - 'yearly' or 'monthly'
+     */
+    updateGoldChart(data, period) {
+        const chart = this.chartInstances.gold;
+        if (!chart) return;
+
+        let labels, priceData, xTitle;
+
+        if (period === 'yearly') {
+            labels = data.map(item => item.year);
+            priceData = data.map(item => item.price);
+            xTitle = 'Rok';
+        } else {
+            // Format monthly data as "Year-Month" for better readability
+            labels = data.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`);
+            priceData = data.map(item => item.price);
+            xTitle = 'Miesiąc';
+        }
+
+        // Update chart data
+        chart.data.labels = labels;
+        chart.data.datasets[0].data = priceData;
+
+        // Update x-axis title
+        if (chart.options.scales && chart.options.scales.x) {
+            chart.options.scales.x.title.text = xTitle;
+        }
+
+        chart.update();
+        this.updateGoldStats(data);
+    },
+
+    /**
      * Create the Warsaw M² vs Gold chart
      * @param {Array} warsawData - Warsaw real estate data
      * @param {Array} goldData - Gold price data
