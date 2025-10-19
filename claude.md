@@ -14,8 +14,8 @@ A static HTML page showcasing gold prices in PLN (Polish Zloty) with interactive
 ### Core Features
 Three interactive scrollable graphs showing:
 
-1. **Graph 1: Gold Price in PLN (2000-Present)**
-   - Historical gold prices from year 2000
+1. **Graph 1: Gold Price in PLN (2013-Present)**
+   - Historical gold prices from year 2013 onwards
    - Y-axis: PLN/gram
    - X-axis: Years
    - Show long-term trend
@@ -47,6 +47,7 @@ Three interactive scrollable graphs showing:
 - **Data Format:** JSON or CSV (to be determined)
 - **Update Frequency:** Monitor NBP's data availability
 - **Note:** NBP provides gold price in grams (consistent with project needs)
+- **Data Available:** 2013-01-02 onwards (NBP API limitation)
 
 ### Secondary Data (To Research/Gather)
 - **Warsaw M² Prices:** Historical real estate data (possible sources: GUS, real estate portals)
@@ -93,7 +94,7 @@ GoldPrice/
 │   ├── charts.js           # Chart rendering logic
 │   └── dataLoader.js       # Data loading and transformation
 ├── data/
-│   ├── nbp-gold-prices.json       # Gold prices (2000-present)
+│   ├── nbp-gold-prices.json       # Gold prices (2013-present)
 │   ├── warsaw-m2-prices.json      # Warsaw real estate data
 │   └── vw-golf-prices.json        # VW Golf price data
 ├── .gitignore
@@ -225,20 +226,20 @@ GoldPrice/
 - Data loading module (async JSON fetching)
 - Chart rendering module (3 interactive charts)
 - Main initialization script
-- Sample data files (25-year sample data 2000-2024)
+- Sample data files (12-year sample data 2013-2024)
 - Navigation bar with smooth scrolling
 - Statistics display boxes under each chart
 - Mobile-responsive design
 
 ### 📊 Charts Implemented
-1. **Gold Price Chart** - Line chart with historical prices (2000-2024)
+1. **Gold Price Chart** - Line chart with historical prices (2013-2024)
 2. **Warsaw M² vs Gold** - Dual-axis comparison (PLN vs grams)
 3. **VW Golf in Gold** - Line chart showing gold equivalent cost
 
 ### 🎯 Current Data Structure
-- `nbp-gold-prices.json` - Year and PLN/gram price
-- `warsaw-m2-prices.json` - Year and m² price in PLN
-- `vw-golf-prices.json` - Year and Golf price in PLN
+- `nbp-gold-prices.json` - Year and PLN/gram price (2013-present)
+- `warsaw-m2-prices.json` - Year and m² price in PLN (2013-present)
+- `vw-golf-prices.json` - Year and Golf price in PLN (2013-present)
 
 ---
 

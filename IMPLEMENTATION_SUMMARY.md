@@ -328,8 +328,7 @@ You now understand:
 
 ### Data Availability
 - ⚠️ NBP only has gold prices from **2013-01-02** onwards
-- Your current data has 2000-2012 years as placeholders
-- For pre-2013 data, consider alternative sources
+- Data now starts from 2013 (when NBP API data begins)
 
 ### Update Frequency
 - NBP updates prices on **weekdays only** (Monday-Friday)

@@ -252,8 +252,8 @@ Dark theme ready (CSS variables defined)
 ## 🚨 Known Limitations
 
 - **Historical Data:** NBP API only has gold prices from 2013-01-02 onwards
-  - Years 2000-2012 in current visualization are estimated/placeholder data
-  - Consider replacing with alternative historical sources for pre-2013 data
+  - Years before 2013 are not available from the official NBP source
+  - Warsaw M² and VW Golf data also starts from 2013 for consistency
 - **Update Frequency:** NBP updates prices on business days only (M-F)
   - Weekend/holiday data uses last available price
 - **Monthly Granularity:** Optional - default format is yearly for backward compatibility
