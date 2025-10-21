@@ -2,7 +2,8 @@
    VARIABLES & COLOR SCHEME
    ================================ */
 :root {
-    --color-primary: #ECBC4A;        /* Gold from logo */
+    --color-primary: #D4A632;        /* Darker gold for better contrast */
+    --color-primary-light: #ECBC4A;  /* Original gold, use for decorative only */
     --color-dark: #0f172a;           /* Very dark blue-gray (dark mode bg) */
     --color-dark-secondary: #1e293b; /* Secondary dark (cards/sections) */
     --color-light: #1e293b;          /* Light in dark mode (secondary bg) */
@@ -138,11 +139,8 @@ a:hover {
     font-weight: 800;
     margin-bottom: 0.2rem;
     letter-spacing: -1px;
-    background: linear-gradient(135deg, #ECBC4A 0%, #F5D76E 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: none;
+    color: #F5D76E;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     line-height: 1;
 }
 
@@ -190,10 +188,8 @@ a:hover {
 .price-widget-value {
     font-size: 1.5rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #ECBC4A 0%, #F5D76E 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #F5D76E;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
     letter-spacing: -0.5px;
 }
 
@@ -336,9 +332,9 @@ a:hover {
 
 .navigation .nav-link:hover {
     background-color: rgba(245, 158, 11, 0.1);
-    border-bottom-color: var(--color-primary);
+    border-bottom-color: #F5D76E;
     text-decoration: none;
-    color: var(--color-primary);
+    color: #F5D76E;
 }
 
 @media (max-width: 1024px) {
@@ -398,7 +394,8 @@ a:hover {
 .graph-section h2 {
     font-size: 2rem;
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: #F5D76E;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .graph-section .description {
@@ -579,7 +576,7 @@ a:hover {
     background-color: var(--color-dark-secondary);
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
-    border-left: 4px solid var(--color-primary);
+    border-left: 4px solid #D4A632;
     display: flex;
     flex-direction: column;
 }
@@ -594,7 +591,7 @@ a:hover {
 .stat-value {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: #F5D76E;
 }
 
 @media (max-width: 768px) {
@@ -615,7 +612,7 @@ a:hover {
 .info-section h3 {
     font-size: 1.5rem;
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: #F5D76E;
 }
 
 .info-section p {
@@ -631,10 +628,10 @@ a:hover {
     margin-bottom: var(--spacing-lg);
 }
 
-.info-subsection h4 {
+.info-subsection h3 {
     font-size: 1.1rem;
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: #F5D76E;
 }
 
 .info-subsection ul {
@@ -662,7 +659,7 @@ a:hover {
     background-color: rgba(245, 158, 11, 0.15);
     padding: var(--spacing-md);
     border-radius: var(--spacing-md);
-    border-left: 4px solid var(--color-primary);
+    border-left: 4px solid #D4A632;
 }
 
 /* ================================
@@ -818,7 +815,7 @@ a:hover {
 /* Results Display */
 .converter-results {
     background-color: var(--color-dark-secondary);
-    border: 2px solid var(--color-primary);
+    border: 2px solid #D4A632;
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-md);
@@ -826,13 +823,13 @@ a:hover {
 
 .converter-results h3 {
     margin-bottom: var(--spacing-md);
-    color: var(--color-primary);
+    color: #F5D76E;
     font-size: 1.25rem;
 }
 
 .result-card {
     background-color: var(--color-dark);
-    border-left: 4px solid var(--color-primary);
+    border-left: 4px solid #D4A632;
     padding: var(--spacing-md);
     margin-bottom: var(--spacing-md);
     border-radius: var(--radius-md);
@@ -877,7 +874,7 @@ a:hover {
 .gold-value {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: #F5D76E;
     flex: 1;
     min-width: 120px;
 }
@@ -885,7 +882,7 @@ a:hover {
 /* Comparison Result */
 .comparison-result {
     background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(217, 119, 6, 0.12) 100%);
-    border: 2px solid var(--color-primary);
+    border: 2px solid #D4A632;
     border-radius: var(--radius-md);
     padding: var(--spacing-lg);
     margin-top: var(--spacing-lg);
