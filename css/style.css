@@ -453,11 +453,12 @@ a:hover {
 
 .switcher-btn--active {
     background-color: var(--color-primary);
-    color: white;
+    color: #1a1a1a;
 }
 
 .switcher-btn--active:hover {
     background-color: #D4A632;
+    color: #1a1a1a;
 }
 
 @media (max-width: 768px) {
