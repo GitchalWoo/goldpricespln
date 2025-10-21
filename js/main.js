@@ -69,9 +69,13 @@ function initPeriodSwitcher(chartName, updateCallback, allData) {
         button.addEventListener('click', (e) => {
             const period = e.target.getAttribute('data-period');
             
-            // Update button states
-            switcherButtons.forEach(btn => btn.classList.remove('switcher-btn--active'));
+            // Update button states and ARIA attributes
+            switcherButtons.forEach(btn => {
+                btn.classList.remove('switcher-btn--active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
             e.target.classList.add('switcher-btn--active');
+            e.target.setAttribute('aria-pressed', 'true');
             
             // Call the appropriate update callback
             updateCallback(period, allData);
@@ -198,11 +202,15 @@ function createStockButtons(stocks, stockDataMap, defaultStock) {
         const button = document.createElement('button');
         button.className = 'switcher-btn';
         button.setAttribute('data-ticker', stock.ticker);
+        button.setAttribute('aria-label', `Wyświetl wykres ${stock.name}`);
         button.textContent = stock.name;
         
         // Mark the default stock as active
         if (stock.ticker === defaultStock.ticker) {
             button.classList.add('switcher-btn--active');
+            button.setAttribute('aria-pressed', 'true');
+        } else {
+            button.setAttribute('aria-pressed', 'false');
         }
 
         container.appendChild(button);
@@ -226,9 +234,13 @@ function initStockSelectionButtons(stockDataMap) {
                 return;
             }
 
-            // Update active button
-            buttons.forEach(btn => btn.classList.remove('switcher-btn--active'));
+            // Update active button and ARIA attributes
+            buttons.forEach(btn => {
+                btn.classList.remove('switcher-btn--active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
             e.target.classList.add('switcher-btn--active');
+            e.target.setAttribute('aria-pressed', 'true');
 
             // Get current period setting from the period switcher buttons
             const periodButtons = document.querySelectorAll('.switcher-btn[data-chart="stocks"]');

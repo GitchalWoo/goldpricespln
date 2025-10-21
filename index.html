@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Przejdź do głównej zawartości</a>
+    
     <!-- Header -->
     <header class="header">
         <div class="container header-content">
@@ -58,7 +61,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" id="main-content">
         <!-- Navigation -->
         <nav class="navigation">
             <ul>
@@ -84,15 +87,16 @@
                 <div class="converter-container">
                     <div class="converter-form">
                         <div class="form-group">
-                            <label for="converterYear">Rok:</label>
-                            <select id="converterYear" class="form-input">
+                            <label for="converterYear">Rok: <span class="required-indicator" aria-label="wymagane">*</span></label>
+                            <select id="converterYear" class="form-input" required aria-required="true">
                                 <option value="">Wybierz rok...</option>
                             </select>
+                            <span id="converterYear-error" class="error-message" role="alert" aria-live="polite"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="converterMonth">Miesiąc:</label>
-                            <select id="converterMonth" class="form-input">
+                            <label for="converterMonth">Miesiąc: <span class="required-indicator" aria-label="wymagane">*</span></label>
+                            <select id="converterMonth" class="form-input" required aria-required="true">
                                 <option value="">Wybierz miesiąc...</option>
                                 <option value="1">Styczeń</option>
                                 <option value="2">Luty</option>
@@ -107,19 +111,24 @@
                                 <option value="11">Listopad</option>
                                 <option value="12">Grudzień</option>
                             </select>
+                            <span id="converterMonth-error" class="error-message" role="alert" aria-live="polite"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="converterPastValue">Wartość w przeszłości (PLN):</label>
-                            <input type="number" id="converterPastValue" class="form-input" placeholder="np. 50000" step="0.01" min="0">
+                            <label for="converterPastValue">Wartość w przeszłości (PLN): <span class="required-indicator" aria-label="wymagane">*</span></label>
+                            <input type="number" id="converterPastValue" class="form-input" placeholder="np. 50000" step="0.01" min="0" required aria-required="true" aria-describedby="converterPastValue-help">
+                            <span id="converterPastValue-help" class="form-help">Wpisz wartość w złotych polskich</span>
+                            <span id="converterPastValue-error" class="error-message" role="alert" aria-live="polite"></span>
                         </div>
                         
                         <div class="form-group">
-                            <label for="converterCurrentValue">Wartość dzisiaj (PLN):</label>
-                            <input type="number" id="converterCurrentValue" class="form-input" placeholder="np. 75000" step="0.01" min="0">
+                            <label for="converterCurrentValue">Wartość dzisiaj (PLN): <span class="required-indicator" aria-label="wymagane">*</span></label>
+                            <input type="number" id="converterCurrentValue" class="form-input" placeholder="np. 75000" step="0.01" min="0" required aria-required="true" aria-describedby="converterCurrentValue-help">
+                            <span id="converterCurrentValue-help" class="form-help">Wpisz dzisiejszą wartość w złotych polskich</span>
+                            <span id="converterCurrentValue-error" class="error-message" role="alert" aria-live="polite"></span>
                         </div>
                         
-                        <button id="converterCalculate" class="converter-btn">Oblicz</button>
+                        <button id="converterCalculate" class="converter-btn" aria-label="Oblicz równowartość w złocie">Oblicz</button>
                     </div>
                     
                     <div class="converter-results" id="converterResults" style="display: none;">
@@ -162,14 +171,14 @@
                     Historyczne ceny złota od 2013 roku (dane dostępne z NBP).
                 </p>
                 <!-- Period Switcher -->
-                <div class="period-switcher">
+                <div class="period-switcher" role="group" aria-label="Wybór okresu dla wykresu cen złota">
                     <div class="switcher-buttons">
-                        <button class="switcher-btn switcher-btn--active" data-period="yearly" data-chart="gold">Roczne</button>
-                        <button class="switcher-btn" data-period="monthly" data-chart="gold">Miesięczne</button>
+                        <button class="switcher-btn switcher-btn--active" data-period="yearly" data-chart="gold" aria-pressed="true">Roczne</button>
+                        <button class="switcher-btn" data-period="monthly" data-chart="gold" aria-pressed="false">Miesięczne</button>
                     </div>
                 </div>
                 <div class="chart-wrapper">
-                    <canvas id="chartGold"></canvas>
+                    <canvas id="chartGold" role="img" aria-label="Wykres historycznych cen złota w PLN od 2013 roku do dzisiaj. Można przełączać między danymi rocznymi a miesięcznymi używając przycisków powyżej wykresu."></canvas>
                 </div>
                 <div class="chart-stats">
                     <div class="stat">
@@ -197,14 +206,14 @@
                     wyrażonej w złotych polskich vs równoważnika w gramach złota.
                 </p>
                 <!-- Period Switcher for Warsaw M² -->
-                <div class="period-switcher">
+                <div class="period-switcher" role="group" aria-label="Wybór jednostki dla wykresu cen mieszkań w Warszawie">
                     <div class="switcher-buttons">
-                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="warsaw">PLN/m²</button>
-                        <button class="switcher-btn" data-period="gold" data-chart="warsaw">Złoto (gramy)</button>
+                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="warsaw" aria-pressed="true">PLN/m²</button>
+                        <button class="switcher-btn" data-period="gold" data-chart="warsaw" aria-pressed="false">Złoto (gramy)</button>
                     </div>
                 </div>
                 <div class="chart-wrapper">
-                    <canvas id="chartWarsawM2"></canvas>
+                    <canvas id="chartWarsawM2" role="img" aria-label="Wykres cen metra kwadratowego w Warszawie. Można wyświetlić w PLN lub w gramach złota używając przycisków powyżej."></canvas>
                 </div>
                 <div class="chart-stats">
                     <div class="stat">
@@ -228,14 +237,14 @@
                     wyrażonej w złotych polskich vs równoważnika w gramach złota.
                 </p>
                 <!-- Period Switcher for Minimum Wages -->
-                <div class="period-switcher">
+                <div class="period-switcher" role="group" aria-label="Wybór jednostki dla wykresu płacy minimalnej">
                     <div class="switcher-buttons">
-                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="wages">PLN</button>
-                        <button class="switcher-btn" data-period="gold" data-chart="wages">Złoto (gramy)</button>
+                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="wages" aria-pressed="true">PLN</button>
+                        <button class="switcher-btn" data-period="gold" data-chart="wages" aria-pressed="false">Złoto (gramy)</button>
                     </div>
                 </div>
                 <div class="chart-wrapper">
-                    <canvas id="chartMinWages"></canvas>
+                    <canvas id="chartMinWages" role="img" aria-label="Wykres płacy minimalnej w Polsce. Można wyświetlić w PLN lub w gramach złota używając przycisków powyżej."></canvas>
                 </div>
                 <div class="chart-stats">
                     <div class="stat">
@@ -263,14 +272,14 @@
                     wyrażonej w złotych polskich vs równoważnika w gramach złota.
                 </p>
                 <!-- Period Switcher for Average Wages -->
-                <div class="period-switcher">
+                <div class="period-switcher" role="group" aria-label="Wybór jednostki dla wykresu średniej płacy">
                     <div class="switcher-buttons">
-                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="avgwages">PLN</button>
-                        <button class="switcher-btn" data-period="gold" data-chart="avgwages">Złoto (gramy)</button>
+                        <button class="switcher-btn switcher-btn--active" data-period="pln" data-chart="avgwages" aria-pressed="true">PLN</button>
+                        <button class="switcher-btn" data-period="gold" data-chart="avgwages" aria-pressed="false">Złoto (gramy)</button>
                     </div>
                 </div>
                 <div class="chart-wrapper">
-                    <canvas id="chartAvgWages"></canvas>
+                    <canvas id="chartAvgWages" role="img" aria-label="Wykres średniej płacy w Polsce. Można wyświetlić w PLN lub w gramach złota używając przycisków powyżej."></canvas>
                 </div>
                 <div class="chart-stats">
                     <div class="stat">
@@ -298,14 +307,14 @@
                     Interesujące, jak zmienia się relacja ceny samochodu do ceny złota.
                 </p>
                 <!-- Period Switcher for VW Golf -->
-                <div class="period-switcher">
+                <div class="period-switcher" role="group" aria-label="Wybór jednostki dla wykresu ceny VW Golf">
                     <div class="switcher-buttons">
-                        <button class="switcher-btn" data-period="pln" data-chart="golf">PLN</button>
-                        <button class="switcher-btn switcher-btn--active" data-period="gold" data-chart="golf">Złoto (gramy)</button>
+                        <button class="switcher-btn" data-period="pln" data-chart="golf" aria-pressed="false">PLN</button>
+                        <button class="switcher-btn switcher-btn--active" data-period="gold" data-chart="golf" aria-pressed="true">Złoto (gramy)</button>
                     </div>
                 </div>
                 <div class="chart-wrapper">
-                    <canvas id="chartVWGolf"></canvas>
+                    <canvas id="chartVWGolf" role="img" aria-label="Wykres ceny Volkswagena Golf. Można wyświetlić w PLN lub w gramach złota używając przycisków powyżej."></canvas>
                 </div>
                 <div class="chart-stats">
                     <div class="stat">
@@ -339,15 +348,15 @@
                 <!-- Dual Switcher: Period and Stock Selection -->
                 <div class="stock-switcher-container">
                     <!-- First Switcher: PLN vs Gold -->
-                    <div class="period-switcher">
+                    <div class="period-switcher" role="group" aria-label="Wybór jednostki dla wykresu akcji">
                         <div class="switcher-buttons">
-                            <button class="switcher-btn" data-period="pln" data-chart="stocks">PLN</button>
-                            <button class="switcher-btn switcher-btn--active" data-period="gold" data-chart="stocks">Złoto (gramy)</button>
+                            <button class="switcher-btn" data-period="pln" data-chart="stocks" aria-pressed="false">PLN</button>
+                            <button class="switcher-btn switcher-btn--active" data-period="gold" data-chart="stocks" aria-pressed="true">Złoto (gramy)</button>
                         </div>
                     </div>
 
                     <!-- Second Switcher: Stock Selection -->
-                    <div class="stock-selector">
+                    <div class="stock-selector" role="group" aria-label="Wybór akcji do wyświetlenia">
                         <div class="stock-buttons-container" id="stockButtonsContainer">
                             <!-- Buttons will be generated dynamically by JavaScript -->
                         </div>
@@ -355,7 +364,7 @@
                 </div>
 
                 <div class="chart-wrapper">
-                    <canvas id="chartStocks"></canvas>
+                    <canvas id="chartStocks" role="img" aria-label="Wykres cen akcji i ETF-ów. Można wybrać różne akcje oraz wyświetlić w PLN lub w gramach złota używając przycisków powyżej."></canvas>
                 </div>
                 <div class="chart-stats">
                     <div class="stat">
@@ -389,10 +398,10 @@
                     <div class="info-subsection">
                         <h3>Źródła Danych</h3>
                         <ul>
-                            <li><strong>Ceny Złota (NBP):</strong> <a href="https://api.nbp.pl/" target="_blank">Narodowy Bank Polski Web API</a> - dane dzienne od 2013-01-02 do dziś</li>
-                            <li><strong>Ceny M² w Warszawie (NBP):</strong> <a href="https://api.nbp.pl/" target="_blank">Narodowy Bank Polski Web API</a></li>
+                            <li><strong>Ceny Złota (NBP):</strong> <a href="https://api.nbp.pl/" target="_blank" rel="noopener noreferrer" aria-label="Narodowy Bank Polski Web API (otwiera się w nowym oknie)">Narodowy Bank Polski Web API<span class="sr-only"> (otwiera się w nowym oknie)</span></a> - dane dzienne od 2013-01-02 do dziś</li>
+                            <li><strong>Ceny M² w Warszawie (NBP):</strong> <a href="https://api.nbp.pl/" target="_blank" rel="noopener noreferrer" aria-label="Narodowy Bank Polski Web API (otwiera się w nowym oknie)">Narodowy Bank Polski Web API<span class="sr-only"> (otwiera się w nowym oknie)</span></a></li>
                             <li><strong>Ceny VW Golf:</strong> Historyczne MSRP i cenniki lokalne (ręczna aktualizacja)</li>
-                            <li><strong>Płace Minimalne i Średnie:</strong> <a href="https://ec.europa.eu/eurostat/" target="_blank">Eurostat</a></li>
+                            <li><strong>Płace Minimalne i Średnie:</strong> <a href="https://ec.europa.eu/eurostat/" target="_blank" rel="noopener noreferrer" aria-label="Eurostat (otwiera się w nowym oknie)">Eurostat<span class="sr-only"> (otwiera się w nowym oknie)</span></a></li>
                         </ul>
                     </div>
                     <div class="info-subsection">
@@ -461,9 +470,9 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 <a href="https://wzlocie.pl" target="_blank">wzlocie.pl</a> by 
-                <a href="https://github.com/GitchalWoo" target="_blank">GitchalWoo</a> | 
-                <a href="https://github.com/GitchalWoo/goldpricespln" target="_blank">GitHub Repo</a> |
+            <p>&copy; 2025 <a href="https://wzlocie.pl" target="_blank" rel="noopener noreferrer">wzlocie.pl<span class="sr-only"> (otwiera się w nowym oknie)</span></a> by 
+                <a href="https://github.com/GitchalWoo" target="_blank" rel="noopener noreferrer" aria-label="Profil GitchalWoo na GitHub (otwiera się w nowym oknie)">GitchalWoo<span class="sr-only"> (otwiera się w nowym oknie)</span></a> | 
+                <a href="https://github.com/GitchalWoo/goldpricespln" target="_blank" rel="noopener noreferrer" aria-label="Repozytorium kodu źródłowego na GitHub (otwiera się w nowym oknie)">Zobacz kod źródłowy na GitHub<span class="sr-only"> (otwiera się w nowym oknie)</span></a> |
                 <span class="footer-meta">Last Updated: October 19, 2025</span>
             </p>
         </div>
