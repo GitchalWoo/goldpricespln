@@ -96,5 +96,35 @@ const DataLoader = {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
         }).format(grams) + ' g';
+    },
+
+    /**
+     * Load stock data for a given ticker
+     * @param {string} ticker - Stock ticker symbol (filename-safe)
+     * @returns {Promise<Object>} - Stock data
+     */
+    async loadStockData(ticker) {
+        // Convert ticker format to filename format
+        const filename = ticker.replace('.', '_').replace(' ', '_').toLowerCase();
+        return this.loadJSON(`data/stocks/${filename}-monthly.json`);
+    },
+
+    /**
+     * Load all available stocks from configuration
+     * @param {Array} stocks - Array of stock objects from config
+     * @returns {Promise<Object>} - Map of ticker -> stock data
+     */
+    async loadAllStocks(stocks) {
+        const stockDataMap = {};
+        
+        const loadPromises = stocks.map(async (stock) => {
+            const data = await this.loadStockData(stock.ticker);
+            if (data) {
+                stockDataMap[stock.ticker] = data;
+            }
+        });
+
+        await Promise.all(loadPromises);
+        return stockDataMap;
     }
 };

@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     initPeriodSwitcher('avgwages', (period) => ChartManager.updateAvgWagesChartPeriod(period));
     initPeriodSwitcher('golf', (period) => ChartManager.updateGolfChartPeriod(period));
 
+    // Load stock data and initialize stock charts
+    await initializeStockCharts();
+    console.log('✅ Stock charts initialized');
+
     // Update last update date
     if (allData.lastUpdate) {
         document.getElementById('lastUpdated').textContent = allData.lastUpdate.readable;
@@ -127,4 +131,113 @@ function updatePriceWidget(priceData) {
         // Show the widget
         widget.style.display = 'flex';
     }
+}
+
+/**
+ * Initialize stock charts with dynamic stock selection
+ */
+async function initializeStockCharts() {
+    // Fetch stock configuration - it's in the scripts folder
+    const stockConfig = await DataLoader.loadJSON('scripts/stock-tickers-config.json');
+    if (!stockConfig || !stockConfig.stocks) {
+        console.warn('⚠️ Stock configuration not found or invalid');
+        console.warn('Attempted path: scripts/stock-tickers-config.json');
+        return;
+    }
+
+    // Load all stock data
+    const stockDataMap = await DataLoader.loadAllStocks(stockConfig.stocks);
+    if (Object.keys(stockDataMap).length === 0) {
+        console.warn('⚠️ No stock data loaded');
+        return;
+    }
+
+    // Store stock config and data globally for switchers
+    window.stockConfig = stockConfig;
+    window.stockDataMap = stockDataMap;
+
+    // Get the first available stock (default)
+    const firstStock = stockConfig.stocks.find(s => stockDataMap[s.ticker]);
+    if (!firstStock) {
+        console.warn('⚠️ No valid stock data found');
+        return;
+    }
+
+    // Create buttons for stock selection
+    createStockButtons(stockConfig.stocks, stockDataMap, firstStock);
+
+    // Create the initial chart with the first stock
+    ChartManager.createStockChart(stockDataMap[firstStock.ticker], 'gold');
+
+    // Initialize period switcher for stocks
+    initPeriodSwitcher('stocks', (period) => ChartManager.updateStockChartPeriod(period));
+
+    // Add event listeners for stock selection buttons
+    initStockSelectionButtons(stockDataMap);
+}
+
+/**
+ * Create stock selection buttons dynamically
+ * @param {Array} stocks - Array of stock config objects
+ * @param {Object} stockDataMap - Map of ticker -> stock data
+ * @param {Object} defaultStock - Default stock to highlight
+ */
+function createStockButtons(stocks, stockDataMap, defaultStock) {
+    const container = document.getElementById('stockButtonsContainer');
+    if (!container) return;
+
+    container.innerHTML = ''; // Clear existing buttons
+
+    stocks.forEach((stock) => {
+        // Only create button if we have data for this stock
+        if (!stockDataMap[stock.ticker]) {
+            console.log(`Skipping ${stock.ticker} - no data available`);
+            return;
+        }
+
+        const button = document.createElement('button');
+        button.className = 'switcher-btn';
+        button.setAttribute('data-ticker', stock.ticker);
+        button.textContent = stock.name;
+        
+        // Mark the default stock as active
+        if (stock.ticker === defaultStock.ticker) {
+            button.classList.add('switcher-btn--active');
+        }
+
+        container.appendChild(button);
+    });
+}
+
+/**
+ * Initialize click handlers for stock selection buttons
+ * @param {Object} stockDataMap - Map of ticker -> stock data
+ */
+function initStockSelectionButtons(stockDataMap) {
+    const buttons = document.querySelectorAll('#stockButtonsContainer .switcher-btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const ticker = e.target.getAttribute('data-ticker');
+            const stockData = stockDataMap[ticker];
+
+            if (!stockData) {
+                console.error(`Stock data not found for ticker: ${ticker}`);
+                return;
+            }
+
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('switcher-btn--active'));
+            e.target.classList.add('switcher-btn--active');
+
+            // Get current period setting from the period switcher buttons
+            const periodButtons = document.querySelectorAll('.switcher-btn[data-chart="stocks"]');
+            const currentPeriod = Array.from(periodButtons)
+                .find(btn => btn.classList.contains('switcher-btn--active'))
+                ?.getAttribute('data-period') || 'gold';
+
+            // Create new chart with selected stock
+            ChartManager.createStockChart(stockData, currentPeriod);
+        });
+    });
 }

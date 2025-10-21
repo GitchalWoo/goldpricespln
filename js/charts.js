@@ -764,5 +764,162 @@ const ChartManager = {
         document.getElementById('avgwagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);
         document.getElementById('avgwagesCurrentGold').textContent = DataLoader.formatGrams(currentData.wageGold);
         document.getElementById('avgwagesChange').textContent = (change > 0 ? '+' : '') + change + '%';
+    },
+
+    /**
+     * Create the stock prices chart
+     * @param {Object} stockData - Stock data with ticker, name, and monthly data
+     * @param {string} period - 'pln' or 'gold'
+     */
+    createStockChart(stockData, period = 'gold') {
+        const ctx = document.getElementById('chartStocks');
+        if (!ctx) return;
+
+        const isPLN = period === 'pln';
+        const useData = isPLN ? 'close' : 'price_gold';
+        const chartLabel = isPLN ? `${stockData.name} (${stockData.currency})` : `${stockData.name} (gramy złota)`;
+
+        const chartData = {
+            labels: stockData.data.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`),
+            datasets: [{
+                label: chartLabel,
+                data: stockData.data.map(item => item[useData]),
+                borderColor: '#8b5cf6',
+                backgroundColor: 'rgba(139, 92, 246, 0.1)',
+                borderWidth: 2,
+                tension: 0.4,
+                fill: true,
+                pointRadius: 1,
+                pointBackgroundColor: '#8b5cf6',
+                pointHoverRadius: 5
+            }]
+        };
+
+        // Destroy existing chart if it exists
+        if (this.chartInstances.stocks) {
+            this.chartInstances.stocks.destroy();
+        }
+
+        this.chartInstances.stocks = new Chart(ctx, {
+            type: 'line',
+            data: chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 20,
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        callbacks: {
+                            label: isPLN 
+                                ? getTooltipPLNCallback('Cena: ')
+                                : getTooltipGoldCallback('Złoto: ')
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: isPLN ? stockData.currency : 'Gramy złota'
+                        },
+                        ticks: {
+                            callback: isPLN ? getTickPLNCallback() : getTickGoldCallback()
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Data (Rok-Miesiąc)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Store data for switching
+        this.chartInstances.stocksData = stockData;
+        this.chartInstances.stocksPeriod = period;
+        this.updateStockStats(stockData, period);
+    },
+
+    /**
+     * Update stock chart to show PLN or Gold prices
+     * @param {string} period - 'pln' or 'gold'
+     */
+    updateStockChartPeriod(period) {
+        const chart = this.chartInstances.stocks;
+        const data = this.chartInstances.stocksData;
+
+        if (!chart || !data) return;
+
+        const isPLN = period === 'pln';
+        const useDataField = isPLN ? 'close' : 'price_gold';
+        const chartLabel = isPLN ? `${data.name} (${data.currency})` : `${data.name} (gramy złota)`;
+        const yAxisTitle = isPLN ? data.currency : 'Gramy złota';
+        const colors = getChartColors(period, '#8b5cf6', '#f59e0b');
+
+        // Update chart data and options
+        chart.data.datasets[0].data = data.data.map(item => item[useDataField]);
+        chart.data.datasets[0].label = chartLabel;
+        chart.data.datasets[0].borderColor = colors.borderColor;
+        chart.data.datasets[0].backgroundColor = colors.backgroundColor;
+        chart.data.datasets[0].pointBackgroundColor = colors.pointBackgroundColor;
+
+        chart.options.scales.y.title.text = yAxisTitle;
+        chart.options.scales.y.ticks.callback = isPLN ? getTickPLNCallback() : getTickGoldCallback();
+        chart.options.plugins.tooltip.callbacks.label = isPLN 
+            ? getTooltipPLNCallback('Cena: ')
+            : getTooltipGoldCallback('Złoto: ');
+
+        chart.update();
+        this.updateStockStats(data, period);
+    },
+
+    /**
+     * Update stock statistics
+     * @param {Object} stockData - Stock data
+     * @param {string} period - 'pln' or 'gold'
+     */
+    updateStockStats(stockData, period) {
+        const isPLN = period === 'pln';
+        const dataField = isPLN ? 'close' : 'price_gold';
+        
+        const values = stockData.data
+            .map(item => item[dataField])
+            .filter(v => v !== null && v !== undefined);
+
+        if (values.length === 0) {
+            document.getElementById('stockMin').textContent = '-';
+            document.getElementById('stockMax').textContent = '-';
+            document.getElementById('stockAvg').textContent = '-';
+            document.getElementById('stockCurrent').textContent = '-';
+            return;
+        }
+
+        const min = Math.min(...values);
+        const max = Math.max(...values);
+        const avg = values.reduce((a, b) => a + b, 0) / values.length;
+        const current = values[values.length - 1];
+
+        const formatter = isPLN ? (v) => DataLoader.formatPLN(v) : (v) => DataLoader.formatGrams(v);
+
+        document.getElementById('stockMin').textContent = formatter(min);
+        document.getElementById('stockMax').textContent = formatter(max);
+        document.getElementById('stockAvg').textContent = formatter(avg);
+        document.getElementById('stockCurrent').textContent = formatter(current);
     }
 };
