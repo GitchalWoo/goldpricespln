@@ -52,16 +52,33 @@ const GoldConverter = {
 
         // Allow Enter key to trigger calculation
         const inputs = [
+            document.getElementById('converterYear'),
+            document.getElementById('converterMonth'),
             document.getElementById('converterPastValue'),
             document.getElementById('converterCurrentValue')
         ];
+        
         inputs.forEach(input => {
             if (input) {
-                input.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        this.calculate();
+                // Clear error on input
+                input.addEventListener('input', (e) => {
+                    const errorElement = document.getElementById(`${e.target.id}-error`);
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                        errorElement.classList.remove('visible');
                     }
+                    e.target.classList.remove('error');
+                    e.target.removeAttribute('aria-invalid');
                 });
+
+                // Enter key to calculate (for text inputs)
+                if (input.type === 'number') {
+                    input.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            this.calculate();
+                        }
+                    });
+                }
             }
         });
     },
@@ -102,17 +119,83 @@ const GoldConverter = {
     },
 
     /**
+     * Clear all error messages
+     */
+    clearErrors() {
+        const errorElements = document.querySelectorAll('.error-message');
+        errorElements.forEach(el => {
+            el.textContent = '';
+            el.classList.remove('visible');
+        });
+        
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.classList.remove('error');
+            input.removeAttribute('aria-invalid');
+        });
+    },
+
+    /**
+     * Show error message for a specific field
+     * @param {string} fieldId - ID of the field
+     * @param {string} message - Error message to display
+     */
+    showError(fieldId, message) {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.getElementById(`${fieldId}-error`);
+        
+        if (field) {
+            field.classList.add('error');
+            field.setAttribute('aria-invalid', 'true');
+        }
+        
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.classList.add('visible');
+        }
+    },
+
+    /**
      * Perform the calculation
      */
     calculate() {
+        // Clear previous errors
+        this.clearErrors();
+
         const year = parseInt(document.getElementById('converterYear').value);
         const month = parseInt(document.getElementById('converterMonth').value);
         const pastValue = parseFloat(document.getElementById('converterPastValue').value);
         const currentValue = parseFloat(document.getElementById('converterCurrentValue').value);
 
         // Validate inputs
-        if (!year || !month || isNaN(pastValue) || isNaN(currentValue) || pastValue < 0 || currentValue < 0) {
-            alert('Proszę wypełnić wszystkie pola prawidłowymi wartościami.');
+        let hasErrors = false;
+
+        if (!year) {
+            this.showError('converterYear', 'Proszę wybrać rok.');
+            hasErrors = true;
+        }
+
+        if (!month) {
+            this.showError('converterMonth', 'Proszę wybrać miesiąc.');
+            hasErrors = true;
+        }
+
+        if (isNaN(pastValue) || pastValue < 0) {
+            this.showError('converterPastValue', 'Proszę podać prawidłową wartość (większą lub równą 0).');
+            hasErrors = true;
+        }
+
+        if (isNaN(currentValue) || currentValue < 0) {
+            this.showError('converterCurrentValue', 'Proszę podać prawidłową wartość (większą lub równą 0).');
+            hasErrors = true;
+        }
+
+        if (hasErrors) {
+            // Scroll to first error
+            const firstError = document.querySelector('.error-message.visible');
+            if (firstError) {
+                firstError.parentElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
             return;
         }
 
@@ -120,7 +203,7 @@ const GoldConverter = {
         const goldPricePast = this.getGoldPrice(year, month);
         
         if (!goldPricePast) {
-            alert(`Brak danych o cenie złota dla ${this.getMonthName(month)} ${year}. Proszę wybrać inny miesiąc/rok.`);
+            this.showError('converterMonth', `Brak danych o cenie złota dla ${this.getMonthName(month)} ${year}. Proszę wybrać inny miesiąc/rok.`);
             return;
         }
 
@@ -155,39 +238,43 @@ const GoldConverter = {
         const comparisonIndicator = document.getElementById('comparisonIndicator');
         const comparisonText = document.getElementById('comparisonText');
 
-        let badge, emoji, status;
+        let badge, emoji, status, verb;
         
         if (Math.abs(difference) < 0.01) {
             // Same value (within 0.01g tolerance)
             badge = 'same';
             emoji = '⚖️';
-            status = 'ta sama';
+            status = 'Tyle samo';
+            verb = 'jest warte';
         } else if (difference > 0) {
             badge = 'more';
             emoji = '📈';
-            status = 'więcej złota';
+            status = 'Więcej';
+            verb = 'zyskało';
         } else {
             badge = 'less';
             emoji = '📉';
-            status = 'mniej złota';
+            status = 'Mniej';
+            verb = 'straciło';
         }
 
         const badgeHTML = `
             <div class="comparison-badge ${badge}">
-                <span>${emoji} ${status.toUpperCase()}</span>
-                <span class="change-percentage">${Math.abs(percentageChange).toFixed(1)}%</span>
+                <span class="badge-icon">${emoji}</span>
+                <div class="badge-content">
+                    <span class="badge-label">${status.toUpperCase()}</span>
+                    <span class="badge-percentage">${Math.abs(percentageChange).toFixed(1)}%</span>
+                </div>
             </div>
         `;
 
         const changeText = difference > 0 
-            ? `Aktywo jest warte o <strong>${Math.abs(difference).toFixed(2)}g</strong> więcej złota (`
+            ? `Aktywo <strong>${verb}</strong> <strong>${Math.abs(difference).toFixed(2)}g</strong> złota`
             : difference < 0
-            ? `Aktywo jest warte o <strong>${Math.abs(difference).toFixed(2)}g</strong> mniej złota (`
-            : `Aktywo jest warte tyle samo złota (`;
+            ? `Aktywo <strong>${verb}</strong> <strong>${Math.abs(difference).toFixed(2)}g</strong> złota`
+            : `Aktywo <strong>${verb}</strong> tyle samo złota`;
 
-        comparisonText.innerHTML = changeText + 
-            (difference >= 0 ? '+' : '') + 
-            `${percentageChange.toFixed(1)}%)`;
+        comparisonText.innerHTML = changeText;
         
         comparisonIndicator.innerHTML = badgeHTML;
 

@@ -821,7 +821,7 @@ a:hover {
     box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
 }
 
-.form-input:invalid {
+.form-input.error {
     border-color: #ef4444;
 }
 
@@ -974,29 +974,55 @@ a:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-sm) var(--spacing-md);
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
     border-radius: var(--radius-lg);
     font-weight: 700;
     font-size: 1.05rem;
+    min-width: 200px;
+}
+
+.badge-icon {
+    font-size: 2rem;
+}
+
+.badge-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.badge-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.badge-percentage {
+    font-size: 1.5rem;
+    font-weight: 800;
 }
 
 .comparison-badge.more {
-    background-color: #d1fae5;
-    color: #065f46;
-    border: 2px solid #10b981;
+    background: linear-gradient(135deg, rgba(212, 166, 50, 0.15) 0%, rgba(236, 188, 74, 0.15) 100%);
+    color: #F5D76E;
+    border: 2px solid #D4A632;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .comparison-badge.same {
-    background-color: #dbeafe;
-    color: #1e40af;
-    border: 2px solid #3b82f6;
+    background: linear-gradient(135deg, rgba(148, 163, 184, 0.15) 0%, rgba(203, 213, 225, 0.15) 100%);
+    color: #cbd5e1;
+    border: 2px solid #64748b;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .comparison-badge.less {
-    background-color: #fee2e2;
-    color: #7f1d1d;
-    border: 2px solid #ef4444;
+    background: linear-gradient(135deg, rgba(239, 121, 121, 0.15) 0%, rgba(252, 165, 165, 0.15) 100%);
+    color: #fca5a5;
+    border: 2px solid #dc2626;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .change-percentage {
