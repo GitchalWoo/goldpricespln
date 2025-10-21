@@ -1,0 +1,81 @@
+{
+  "stocks": [
+    {
+      "ticker": "ALE.WA",
+      "name": "Allegro",
+      "exchange": "GPW",
+      "description": "Polish e-commerce platform",
+      "start_year": 2020,
+      "status": "try_alternative",
+      "note": "IPO: October 2020"
+    },
+    {
+      "ticker": "KGH.WA",
+      "name": "KGHM",
+      "exchange": "GPW",
+      "description": "Polish copper mining company",
+      "start_year": 2013,
+      "status": "try_alternative"
+    },
+    {
+      "ticker": "PKN.WA",
+      "name": "Orlen",
+      "exchange": "GPW",
+      "description": "Polish oil & gas company",
+      "start_year": 2013,
+      "status": "try_alternative"
+    },
+    {
+      "ticker": "PKO.WA",
+      "name": "PKO BP",
+      "exchange": "GPW",
+      "description": "Polish bank",
+      "start_year": 2013,
+      "status": "try_alternative"
+    },
+    {
+      "ticker": "SPY",
+      "name": "SPDR S&P 500 ETF",
+      "exchange": "NYSE",
+      "description": "US stock market index ETF",
+      "start_year": 2013,
+      "status": "active"
+    },
+    {
+      "ticker": "VOO",
+      "name": "Vanguard S&P 500 ETF",
+      "exchange": "NYSE",
+      "description": "US stock market index ETF (alternative to SPY)",
+      "start_year": 2013,
+      "status": "active"
+    },
+    {
+      "ticker": "IUSA.L",
+      "name": "iShares Core S&P 500 UCITS ETF",
+      "exchange": "LSE",
+      "description": "US equity ETF (LSE listed, EUR)",
+      "start_year": 2013,
+      "status": "active"
+    },
+    {
+      "ticker": "VWRL.L",
+      "name": "Vanguard FTSE All-World UCITS ETF",
+      "exchange": "LSE",
+      "description": "Global equity ETF (LSE listed)",
+      "start_year": 2013,
+      "status": "active"
+    }
+  ],
+  "metadata": {
+    "last_updated": "2025-10-21",
+    "gold_price_file": "../data/nbp-gold-prices-monthly.json",
+    "output_directory": "../data/stocks/",
+    "description": "Configuration for fetching stock prices and comparing with gold",
+    "notes": {
+      "status_field": "active = confirmed working, try_alternative = needs verification",
+      "ticker_formats": "WA = Warsaw Stock Exchange, L = London Stock Exchange, no suffix = NASDAQ/NYSE, ^ = Index prefix",
+      "polish_stocks_limitation": "Some Polish stocks may have limited data on yfinance. For production use, consider Stooq.pl API (https://stooq.pl/)",
+      "adding_tickers": "Simply add entries to the 'stocks' array. Script will attempt to download and process each one."
+    }
+  }
+}

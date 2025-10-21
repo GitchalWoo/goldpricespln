@@ -1,0 +1,1550 @@
+{
+  "ticker": "PKO.WA",
+  "name": "PKO BP",
+  "generated": "2025-10-21T22:20:27.837262",
+  "data_points": 154,
+  "currency": "local",
+  "note": "price_gold values are in grams of gold (1000 proof from NBP)",
+  "data": [
+    {
+      "year": 2013,
+      "month": 1,
+      "open": 23.74,
+      "high": 25.91,
+      "low": 23.36,
+      "close": 23.93,
+      "volume": 25000,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2013,
+      "month": 2,
+      "open": 24.25,
+      "high": 24.66,
+      "low": 23.55,
+      "close": 24.6,
+      "volume": 11714594,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2013,
+      "month": 3,
+      "open": 23.87,
+      "high": 24.6,
+      "low": 23.18,
+      "close": 23.87,
+      "volume": 0,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2013,
+      "month": 4,
+      "open": 22.66,
+      "high": 24.32,
+      "low": 22.22,
+      "close": 22.73,
+      "volume": 3383340,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2013,
+      "month": 5,
+      "open": 23.79,
+      "high": 24.25,
+      "low": 22.33,
+      "close": 24.05,
+      "volume": 5310660,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2013,
+      "month": 6,
+      "open": 24.12,
+      "high": 26.0,
+      "low": 23.36,
+      "close": 24.6,
+      "volume": 5008035,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2013,
+      "month": 7,
+      "open": 25.03,
+      "high": 25.91,
+      "low": 23.18,
+      "close": 25.71,
+      "volume": 5505180,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2013,
+      "month": 8,
+      "open": 26.36,
+      "high": 27.36,
+      "low": 25.65,
+      "close": 26.47,
+      "volume": 3187304,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2013,
+      "month": 9,
+      "open": 26.84,
+      "high": 27.24,
+      "low": 23.6,
+      "close": 26.91,
+      "volume": 3571916,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2013,
+      "month": 10,
+      "open": 29.52,
+      "high": 30.55,
+      "low": 26.63,
+      "close": 29.63,
+      "volume": 1894649,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2013,
+      "month": 11,
+      "open": 29.97,
+      "high": 30.67,
+      "low": 28.36,
+      "close": 29.85,
+      "volume": 2855235,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2013,
+      "month": 12,
+      "open": 28.59,
+      "high": 30.09,
+      "low": 27.72,
+      "close": 28.59,
+      "volume": 0,
+      "price_gold": 0.24
+    },
+    {
+      "year": 2014,
+      "month": 1,
+      "open": 29.35,
+      "high": 30.96,
+      "low": 27.29,
+      "close": 29.59,
+      "volume": 4928401,
+      "price_gold": 0.24
+    },
+    {
+      "year": 2014,
+      "month": 2,
+      "open": 31.71,
+      "high": 32.26,
+      "low": 29.2,
+      "close": 32.02,
+      "volume": 3337443,
+      "price_gold": 0.25
+    },
+    {
+      "year": 2014,
+      "month": 3,
+      "open": 30.54,
+      "high": 31.52,
+      "low": 28.67,
+      "close": 30.81,
+      "volume": 3060728,
+      "price_gold": 0.24
+    },
+    {
+      "year": 2014,
+      "month": 4,
+      "open": 30.39,
+      "high": 31.44,
+      "low": 29.78,
+      "close": 30.1,
+      "volume": 2524337,
+      "price_gold": 0.24
+    },
+    {
+      "year": 2014,
+      "month": 5,
+      "open": 30.1,
+      "high": 30.23,
+      "low": 27.93,
+      "close": 29.45,
+      "volume": 4289127,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2014,
+      "month": 6,
+      "open": 27.51,
+      "high": 29.85,
+      "low": 26.93,
+      "close": 27.35,
+      "volume": 3567636,
+      "price_gold": 0.22
+    },
+    {
+      "year": 2014,
+      "month": 7,
+      "open": 26.8,
+      "high": 28.14,
+      "low": 25.75,
+      "close": 25.82,
+      "volume": 4778915,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2014,
+      "month": 8,
+      "open": 27.9,
+      "high": 28.99,
+      "low": 25.58,
+      "close": 27.75,
+      "volume": 3680668,
+      "price_gold": 0.21
+    },
+    {
+      "year": 2014,
+      "month": 9,
+      "open": 29.3,
+      "high": 29.65,
+      "low": 27.78,
+      "close": 29.32,
+      "volume": 4294467,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2014,
+      "month": 10,
+      "open": 27.8,
+      "high": 29.53,
+      "low": 25.68,
+      "close": 27.69,
+      "volume": 2101800,
+      "price_gold": 0.21
+    },
+    {
+      "year": 2014,
+      "month": 11,
+      "open": 27.63,
+      "high": 28.15,
+      "low": 26.47,
+      "close": 27.76,
+      "volume": 1176035,
+      "price_gold": 0.22
+    },
+    {
+      "year": 2014,
+      "month": 12,
+      "open": 26.44,
+      "high": 28.45,
+      "low": 25.88,
+      "close": 26.44,
+      "volume": 0,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2015,
+      "month": 1,
+      "open": 25.36,
+      "high": 27.47,
+      "low": 23.47,
+      "close": 25.39,
+      "volume": 2286736,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2015,
+      "month": 2,
+      "open": 24.1,
+      "high": 25.63,
+      "low": 23.9,
+      "close": 24.1,
+      "volume": 3252405,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2015,
+      "month": 3,
+      "open": 24.94,
+      "high": 26.54,
+      "low": 23.44,
+      "close": 25.14,
+      "volume": 2257049,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2015,
+      "month": 4,
+      "open": 26.61,
+      "high": 27.16,
+      "low": 24.82,
+      "close": 26.69,
+      "volume": 1828970,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2015,
+      "month": 5,
+      "open": 24.36,
+      "high": 27.94,
+      "low": 24.12,
+      "close": 24.16,
+      "volume": 3661168,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2015,
+      "month": 6,
+      "open": 22.66,
+      "high": 24.88,
+      "low": 21.44,
+      "close": 23.01,
+      "volume": 2964997,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2015,
+      "month": 7,
+      "open": 21.35,
+      "high": 23.47,
+      "low": 20.78,
+      "close": 21.6,
+      "volume": 2213526,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2015,
+      "month": 8,
+      "open": 21.79,
+      "high": 22.09,
+      "low": 19.54,
+      "close": 21.99,
+      "volume": 3206082,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2015,
+      "month": 9,
+      "open": 21.44,
+      "high": 22.77,
+      "low": 20.63,
+      "close": 21.76,
+      "volume": 2475832,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2015,
+      "month": 10,
+      "open": 21.49,
+      "high": 23.34,
+      "low": 20.79,
+      "close": 21.17,
+      "volume": 3849809,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2015,
+      "month": 11,
+      "open": 19.62,
+      "high": 21.57,
+      "low": 19.53,
+      "close": 19.92,
+      "volume": 4929159,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2015,
+      "month": 12,
+      "open": 20.2,
+      "high": 20.55,
+      "low": 18.14,
+      "close": 20.2,
+      "volume": 0,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2016,
+      "month": 1,
+      "open": 18.11,
+      "high": 19.74,
+      "low": 16.21,
+      "close": 18.22,
+      "volume": 3848015,
+      "price_gold": 0.13
+    },
+    {
+      "year": 2016,
+      "month": 2,
+      "open": 18.24,
+      "high": 19.34,
+      "low": 17.1,
+      "close": 18.06,
+      "volume": 3279452,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2016,
+      "month": 3,
+      "open": 20.25,
+      "high": 20.55,
+      "low": 17.91,
+      "close": 20.55,
+      "volume": 3024102,
+      "price_gold": 0.13
+    },
+    {
+      "year": 2016,
+      "month": 4,
+      "open": 18.02,
+      "high": 20.43,
+      "low": 17.76,
+      "close": 18.08,
+      "volume": 2299031,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2016,
+      "month": 5,
+      "open": 18.49,
+      "high": 18.59,
+      "low": 17.02,
+      "close": 18.3,
+      "volume": 4978453,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2016,
+      "month": 6,
+      "open": 17.34,
+      "high": 19.26,
+      "low": 15.89,
+      "close": 17.21,
+      "volume": 3618388,
+      "price_gold": 0.11
+    },
+    {
+      "year": 2016,
+      "month": 7,
+      "open": 18.18,
+      "high": 18.26,
+      "low": 16.47,
+      "close": 17.6,
+      "volume": 1438890,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2016,
+      "month": 8,
+      "open": 19.64,
+      "high": 20.49,
+      "low": 17.57,
+      "close": 19.64,
+      "volume": 2721135,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2016,
+      "month": 9,
+      "open": 20.21,
+      "high": 20.77,
+      "low": 19.04,
+      "close": 20.06,
+      "volume": 2673030,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2016,
+      "month": 10,
+      "open": 21.13,
+      "high": 21.3,
+      "low": 19.23,
+      "close": 21.11,
+      "volume": 1956259,
+      "price_gold": 0.13
+    },
+    {
+      "year": 2016,
+      "month": 11,
+      "open": 19.58,
+      "high": 21.28,
+      "low": 19.34,
+      "close": 19.64,
+      "volume": 2214744,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2016,
+      "month": 12,
+      "open": 21.52,
+      "high": 21.86,
+      "low": 19.31,
+      "close": 21.62,
+      "volume": 761589,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2017,
+      "month": 1,
+      "open": 23.51,
+      "high": 24.77,
+      "low": 21.4,
+      "close": 23.56,
+      "volume": 1608985,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2017,
+      "month": 2,
+      "open": 26.01,
+      "high": 27.34,
+      "low": 23.51,
+      "close": 25.57,
+      "volume": 2381561,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2017,
+      "month": 3,
+      "open": 24.95,
+      "high": 27.43,
+      "low": 24.63,
+      "close": 24.63,
+      "volume": 1937315,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2017,
+      "month": 4,
+      "open": 27.46,
+      "high": 27.73,
+      "low": 24.36,
+      "close": 27.11,
+      "volume": 1987641,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2017,
+      "month": 5,
+      "open": 27.06,
+      "high": 28.65,
+      "low": 26.18,
+      "close": 28.05,
+      "volume": 6975170,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2017,
+      "month": 6,
+      "open": 26.52,
+      "high": 28.61,
+      "low": 25.95,
+      "close": 26.47,
+      "volume": 1369824,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2017,
+      "month": 7,
+      "open": 28.08,
+      "high": 28.5,
+      "low": 26.4,
+      "close": 28.3,
+      "volume": 2320149,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2017,
+      "month": 8,
+      "open": 28.34,
+      "high": 28.77,
+      "low": 26.61,
+      "close": 28.18,
+      "volume": 1660767,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2017,
+      "month": 9,
+      "open": 26.61,
+      "high": 28.37,
+      "low": 26.54,
+      "close": 27.14,
+      "volume": 1262748,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2017,
+      "month": 10,
+      "open": 29.36,
+      "high": 29.83,
+      "low": 26.62,
+      "close": 29.77,
+      "volume": 2471768,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2017,
+      "month": 11,
+      "open": 32.23,
+      "high": 33.34,
+      "low": 28.97,
+      "close": 32.5,
+      "volume": 3122168,
+      "price_gold": 0.22
+    },
+    {
+      "year": 2017,
+      "month": 12,
+      "open": 34.18,
+      "high": 34.37,
+      "low": 31.15,
+      "close": 34.04,
+      "volume": 1196297,
+      "price_gold": 0.24
+    },
+    {
+      "year": 2018,
+      "month": 1,
+      "open": 35.37,
+      "high": 36.57,
+      "low": 32.88,
+      "close": 35.08,
+      "volume": 1695336,
+      "price_gold": 0.24
+    },
+    {
+      "year": 2018,
+      "month": 2,
+      "open": 33.46,
+      "high": 35.54,
+      "low": 32.17,
+      "close": 33.09,
+      "volume": 3318913,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2018,
+      "month": 3,
+      "open": 31.07,
+      "high": 33.6,
+      "low": 30.25,
+      "close": 31.07,
+      "volume": 0,
+      "price_gold": 0.21
+    },
+    {
+      "year": 2018,
+      "month": 4,
+      "open": 31.69,
+      "high": 32.59,
+      "low": 29.89,
+      "close": 32.14,
+      "volume": 879265,
+      "price_gold": 0.22
+    },
+    {
+      "year": 2018,
+      "month": 5,
+      "open": 28.84,
+      "high": 32.65,
+      "low": 28.84,
+      "close": 28.84,
+      "volume": 0,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2018,
+      "month": 6,
+      "open": 27.9,
+      "high": 31.04,
+      "low": 27.73,
+      "close": 28.42,
+      "volume": 2046702,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2018,
+      "month": 7,
+      "open": 31.96,
+      "high": 32.48,
+      "low": 27.56,
+      "close": 32.04,
+      "volume": 1737018,
+      "price_gold": 0.22
+    },
+    {
+      "year": 2018,
+      "month": 8,
+      "open": 33.08,
+      "high": 34.45,
+      "low": 30.41,
+      "close": 32.85,
+      "volume": 3320625,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2018,
+      "month": 9,
+      "open": 33.16,
+      "high": 33.74,
+      "low": 30.81,
+      "close": 33.4,
+      "volume": 3590871,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2018,
+      "month": 10,
+      "open": 30.91,
+      "high": 33.82,
+      "low": 29.89,
+      "close": 31.08,
+      "volume": 2841094,
+      "price_gold": 0.21
+    },
+    {
+      "year": 2018,
+      "month": 11,
+      "open": 32.2,
+      "high": 33.05,
+      "low": 28.73,
+      "close": 31.85,
+      "volume": 2928820,
+      "price_gold": 0.21
+    },
+    {
+      "year": 2018,
+      "month": 12,
+      "open": 30.73,
+      "high": 32.66,
+      "low": 29.91,
+      "close": 30.73,
+      "volume": 0,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2019,
+      "month": 1,
+      "open": 30.59,
+      "high": 32.66,
+      "low": 30.28,
+      "close": 30.76,
+      "volume": 2936836,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2019,
+      "month": 2,
+      "open": 29.81,
+      "high": 31.48,
+      "low": 29.43,
+      "close": 29.61,
+      "volume": 3881626,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2019,
+      "month": 3,
+      "open": 30.24,
+      "high": 30.9,
+      "low": 29.28,
+      "close": 30.03,
+      "volume": 1561783,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2019,
+      "month": 4,
+      "open": 30.63,
+      "high": 31.64,
+      "low": 30.02,
+      "close": 30.55,
+      "volume": 3238208,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2019,
+      "month": 5,
+      "open": 29.74,
+      "high": 30.7,
+      "low": 28.71,
+      "close": 30.59,
+      "volume": 3764078,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2019,
+      "month": 6,
+      "open": 33.33,
+      "high": 33.86,
+      "low": 30.4,
+      "close": 33.33,
+      "volume": 2075508,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2019,
+      "month": 7,
+      "open": 32.12,
+      "high": 33.84,
+      "low": 31.93,
+      "close": 32.86,
+      "volume": 4121636,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2019,
+      "month": 8,
+      "open": 30.07,
+      "high": 32.93,
+      "low": 29.11,
+      "close": 31.48,
+      "volume": 3296675,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2019,
+      "month": 9,
+      "open": 32.16,
+      "high": 33.63,
+      "low": 30.56,
+      "close": 31.62,
+      "volume": 2044881,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2019,
+      "month": 10,
+      "open": 31.44,
+      "high": 31.8,
+      "low": 28.79,
+      "close": 30.65,
+      "volume": 2218627,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2019,
+      "month": 11,
+      "open": 29.56,
+      "high": 32.15,
+      "low": 28.96,
+      "close": 29.06,
+      "volume": 3270305,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2019,
+      "month": 12,
+      "open": 27.71,
+      "high": 29.5,
+      "low": 26.63,
+      "close": 27.71,
+      "volume": 0,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2020,
+      "month": 1,
+      "open": 28.03,
+      "high": 28.84,
+      "low": 27.17,
+      "close": 27.51,
+      "volume": 4098405,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2020,
+      "month": 2,
+      "open": 25.41,
+      "high": 29.82,
+      "low": 24.6,
+      "close": 25.16,
+      "volume": 5575049,
+      "price_gold": 0.13
+    },
+    {
+      "year": 2020,
+      "month": 3,
+      "open": 18.33,
+      "high": 27.16,
+      "low": 16.32,
+      "close": 18.19,
+      "volume": 3455596,
+      "price_gold": 0.09
+    },
+    {
+      "year": 2020,
+      "month": 4,
+      "open": 18.01,
+      "high": 19.67,
+      "low": 15.8,
+      "close": 17.7,
+      "volume": 6103164,
+      "price_gold": 0.08
+    },
+    {
+      "year": 2020,
+      "month": 5,
+      "open": 17.77,
+      "high": 19.94,
+      "low": 16.37,
+      "close": 17.93,
+      "volume": 11447299,
+      "price_gold": 0.08
+    },
+    {
+      "year": 2020,
+      "month": 6,
+      "open": 18.27,
+      "high": 20.2,
+      "low": 17.39,
+      "close": 18.43,
+      "volume": 3117907,
+      "price_gold": 0.08
+    },
+    {
+      "year": 2020,
+      "month": 7,
+      "open": 17.59,
+      "high": 19.98,
+      "low": 17.42,
+      "close": 17.49,
+      "volume": 1930434,
+      "price_gold": 0.08
+    },
+    {
+      "year": 2020,
+      "month": 8,
+      "open": 17.88,
+      "high": 18.99,
+      "low": 17.29,
+      "close": 17.34,
+      "volume": 3488775,
+      "price_gold": 0.07
+    },
+    {
+      "year": 2020,
+      "month": 9,
+      "open": 16.78,
+      "high": 17.88,
+      "low": 16.0,
+      "close": 17.06,
+      "volume": 3670086,
+      "price_gold": 0.07
+    },
+    {
+      "year": 2020,
+      "month": 10,
+      "open": 14.88,
+      "high": 18.62,
+      "low": 14.64,
+      "close": 15.24,
+      "volume": 4643437,
+      "price_gold": 0.06
+    },
+    {
+      "year": 2020,
+      "month": 11,
+      "open": 22.11,
+      "high": 22.8,
+      "low": 15.25,
+      "close": 21.23,
+      "volume": 7903004,
+      "price_gold": 0.09
+    },
+    {
+      "year": 2020,
+      "month": 12,
+      "open": 24.36,
+      "high": 24.4,
+      "low": 21.07,
+      "close": 23.09,
+      "volume": 2867630,
+      "price_gold": 0.11
+    },
+    {
+      "year": 2021,
+      "month": 1,
+      "open": 23.04,
+      "high": 27.08,
+      "low": 22.54,
+      "close": 23.22,
+      "volume": 2979062,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2021,
+      "month": 2,
+      "open": 24.17,
+      "high": 25.5,
+      "low": 22.12,
+      "close": 24.24,
+      "volume": 4276574,
+      "price_gold": 0.11
+    },
+    {
+      "year": 2021,
+      "month": 3,
+      "open": 26.29,
+      "high": 26.7,
+      "low": 24.22,
+      "close": 26.32,
+      "volume": 1743900,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2021,
+      "month": 4,
+      "open": 28.65,
+      "high": 29.27,
+      "low": 25.67,
+      "close": 28.36,
+      "volume": 1936213,
+      "price_gold": 0.13
+    },
+    {
+      "year": 2021,
+      "month": 5,
+      "open": 32.04,
+      "high": 33.17,
+      "low": 26.56,
+      "close": 32.7,
+      "volume": 3399172,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2021,
+      "month": 6,
+      "open": 32.13,
+      "high": 33.32,
+      "low": 30.4,
+      "close": 30.42,
+      "volume": 4729880,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2021,
+      "month": 7,
+      "open": 30.3,
+      "high": 31.25,
+      "low": 28.95,
+      "close": 30.43,
+      "volume": 1173180,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2021,
+      "month": 8,
+      "open": 32.77,
+      "high": 33.81,
+      "low": 30.04,
+      "close": 33.81,
+      "volume": 3744770,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2021,
+      "month": 9,
+      "open": 34.47,
+      "high": 35.53,
+      "low": 32.9,
+      "close": 33.97,
+      "volume": 2641762,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2021,
+      "month": 10,
+      "open": 38.22,
+      "high": 39.88,
+      "low": 33.67,
+      "close": 39.24,
+      "volume": 4059327,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2021,
+      "month": 11,
+      "open": 33.47,
+      "high": 40.5,
+      "low": 33.19,
+      "close": 35.01,
+      "volume": 5127720,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2021,
+      "month": 12,
+      "open": 35.54,
+      "high": 36.78,
+      "low": 32.73,
+      "close": 36.13,
+      "volume": 1111962,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2022,
+      "month": 1,
+      "open": 38.28,
+      "high": 40.56,
+      "low": 36.13,
+      "close": 38.31,
+      "volume": 3595198,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2022,
+      "month": 2,
+      "open": 31.73,
+      "high": 39.86,
+      "low": 28.59,
+      "close": 32.43,
+      "volume": 8476421,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2022,
+      "month": 3,
+      "open": 32.84,
+      "high": 33.57,
+      "low": 24.97,
+      "close": 32.04,
+      "volume": 3451998,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2022,
+      "month": 4,
+      "open": 27.35,
+      "high": 33.68,
+      "low": 26.33,
+      "close": 26.38,
+      "volume": 6275259,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2022,
+      "month": 5,
+      "open": 26.01,
+      "high": 26.62,
+      "low": 22.47,
+      "close": 25.64,
+      "volume": 5281202,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2022,
+      "month": 6,
+      "open": 22.91,
+      "high": 26.0,
+      "low": 21.86,
+      "close": 22.52,
+      "volume": 3559978,
+      "price_gold": 0.09
+    },
+    {
+      "year": 2022,
+      "month": 7,
+      "open": 20.84,
+      "high": 23.17,
+      "low": 20.2,
+      "close": 21.06,
+      "volume": 2995741,
+      "price_gold": 0.08
+    },
+    {
+      "year": 2022,
+      "month": 8,
+      "open": 19.96,
+      "high": 22.41,
+      "low": 19.57,
+      "close": 20.32,
+      "volume": 5072747,
+      "price_gold": 0.08
+    },
+    {
+      "year": 2022,
+      "month": 9,
+      "open": 18.93,
+      "high": 21.99,
+      "low": 18.41,
+      "close": 18.86,
+      "volume": 4641703,
+      "price_gold": 0.07
+    },
+    {
+      "year": 2022,
+      "month": 10,
+      "open": 22.36,
+      "high": 22.53,
+      "low": 18.26,
+      "close": 22.52,
+      "volume": 3553889,
+      "price_gold": 0.09
+    },
+    {
+      "year": 2022,
+      "month": 11,
+      "open": 24.62,
+      "high": 25.48,
+      "low": 21.97,
+      "close": 24.49,
+      "volume": 4507786,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2022,
+      "month": 12,
+      "open": 26.26,
+      "high": 26.56,
+      "low": 24.24,
+      "close": 26.16,
+      "volume": 1420447,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2023,
+      "month": 1,
+      "open": 27.12,
+      "high": 31.21,
+      "low": 26.11,
+      "close": 27.78,
+      "volume": 3985848,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2023,
+      "month": 2,
+      "open": 26.41,
+      "high": 29.1,
+      "low": 25.79,
+      "close": 26.85,
+      "volume": 3401497,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2023,
+      "month": 3,
+      "open": 24.92,
+      "high": 27.54,
+      "low": 21.45,
+      "close": 24.63,
+      "volume": 2740049,
+      "price_gold": 0.09
+    },
+    {
+      "year": 2023,
+      "month": 4,
+      "open": 28.12,
+      "high": 28.5,
+      "low": 24.45,
+      "close": 27.7,
+      "volume": 2882031,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2023,
+      "month": 5,
+      "open": 28.3,
+      "high": 29.56,
+      "low": 26.19,
+      "close": 27.71,
+      "volume": 4280682,
+      "price_gold": 0.1
+    },
+    {
+      "year": 2023,
+      "month": 6,
+      "open": 31.42,
+      "high": 31.61,
+      "low": 27.66,
+      "close": 31.23,
+      "volume": 2054562,
+      "price_gold": 0.12
+    },
+    {
+      "year": 2023,
+      "month": 7,
+      "open": 34.97,
+      "high": 35.32,
+      "low": 30.52,
+      "close": 35.12,
+      "volume": 1569968,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2023,
+      "month": 8,
+      "open": 32.85,
+      "high": 35.11,
+      "low": 31.31,
+      "close": 32.26,
+      "volume": 3961301,
+      "price_gold": 0.13
+    },
+    {
+      "year": 2023,
+      "month": 9,
+      "open": 29.67,
+      "high": 32.87,
+      "low": 28.96,
+      "close": 29.99,
+      "volume": 3399302,
+      "price_gold": 0.11
+    },
+    {
+      "year": 2023,
+      "month": 10,
+      "open": 36.91,
+      "high": 38.81,
+      "low": 28.87,
+      "close": 37.59,
+      "volume": 4110416,
+      "price_gold": 0.14
+    },
+    {
+      "year": 2023,
+      "month": 11,
+      "open": 41.11,
+      "high": 41.89,
+      "low": 36.0,
+      "close": 41.05,
+      "volume": 3445627,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2023,
+      "month": 12,
+      "open": 43.53,
+      "high": 44.48,
+      "low": 40.93,
+      "close": 43.46,
+      "volume": 615213,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2024,
+      "month": 1,
+      "open": 44.26,
+      "high": 45.22,
+      "low": 41.26,
+      "close": 45.22,
+      "volume": 4052460,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2024,
+      "month": 2,
+      "open": 48.25,
+      "high": 50.43,
+      "low": 44.54,
+      "close": 49.26,
+      "volume": 4304469,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2024,
+      "month": 3,
+      "open": 51.69,
+      "high": 52.9,
+      "low": 45.8,
+      "close": 52.61,
+      "volume": 2048382,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2024,
+      "month": 4,
+      "open": 54.88,
+      "high": 55.93,
+      "low": 49.31,
+      "close": 53.82,
+      "volume": 2723091,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2024,
+      "month": 5,
+      "open": 51.44,
+      "high": 54.76,
+      "low": 49.85,
+      "close": 52.63,
+      "volume": 6116412,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2024,
+      "month": 6,
+      "open": 55.47,
+      "high": 56.25,
+      "low": 49.46,
+      "close": 55.79,
+      "volume": 4460498,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2024,
+      "month": 7,
+      "open": 52.29,
+      "high": 56.34,
+      "low": 51.57,
+      "close": 52.28,
+      "volume": 2114549,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2024,
+      "month": 8,
+      "open": 54.08,
+      "high": 54.36,
+      "low": 45.23,
+      "close": 53.97,
+      "volume": 2800725,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2024,
+      "month": 9,
+      "open": 54.16,
+      "high": 55.09,
+      "low": 48.96,
+      "close": 52.2,
+      "volume": 2698601,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2024,
+      "month": 10,
+      "open": 51.85,
+      "high": 55.37,
+      "low": 49.7,
+      "close": 52.03,
+      "volume": 4491728,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2024,
+      "month": 11,
+      "open": 51.75,
+      "high": 56.79,
+      "low": 48.79,
+      "close": 52.13,
+      "volume": 6234013,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2024,
+      "month": 12,
+      "open": 55.95,
+      "high": 57.68,
+      "low": 52.05,
+      "close": 55.72,
+      "volume": 1344943,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2025,
+      "month": 1,
+      "open": 62.83,
+      "high": 63.3,
+      "low": 54.68,
+      "close": 62.4,
+      "volume": 3028772,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2025,
+      "month": 2,
+      "open": 64.34,
+      "high": 68.82,
+      "low": 59.03,
+      "close": 64.43,
+      "volume": 4861740,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2025,
+      "month": 3,
+      "open": 71.11,
+      "high": 75.61,
+      "low": 61.39,
+      "close": 70.12,
+      "volume": 3417549,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2025,
+      "month": 4,
+      "open": 70.89,
+      "high": 72.42,
+      "low": 55.41,
+      "close": 67.49,
+      "volume": 5160112,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2025,
+      "month": 5,
+      "open": 70.2,
+      "high": 75.06,
+      "low": 66.56,
+      "close": 70.2,
+      "volume": 7712966,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2025,
+      "month": 6,
+      "open": 69.06,
+      "high": 70.5,
+      "low": 62.2,
+      "close": 70.16,
+      "volume": 3578187,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2025,
+      "month": 7,
+      "open": 77.19,
+      "high": 77.9,
+      "low": 69.23,
+      "close": 76.82,
+      "volume": 2392957,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2025,
+      "month": 8,
+      "open": 73.04,
+      "high": 86.46,
+      "low": 70.56,
+      "close": 71.0,
+      "volume": 2930715,
+      "price_gold": 0.18
+    },
+    {
+      "year": 2025,
+      "month": 9,
+      "open": 69.78,
+      "high": 74.56,
+      "low": 67.78,
+      "close": 70.48,
+      "volume": 2538421,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2025,
+      "month": 10,
+      "open": 75.26,
+      "high": 76.5,
+      "low": 69.64,
+      "close": 75.62,
+      "volume": 2184386,
+      "price_gold": 0.16
+    }
+  ]
+}
