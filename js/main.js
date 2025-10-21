@@ -6,6 +6,19 @@
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🚀 Initializing Gold Price Visualization...');
 
+    // Verify Chart.js is loaded (it should be with defer attribute)
+    if (typeof Chart === 'undefined') {
+        console.error('❌ Chart.js not loaded yet, waiting...');
+        await new Promise(resolve => {
+            const checkChart = setInterval(() => {
+                if (typeof Chart !== 'undefined') {
+                    clearInterval(checkChart);
+                    resolve();
+                }
+            }, 100);
+        });
+    }
+
     // Load all data
     const allData = await DataLoader.loadAllData();
 
