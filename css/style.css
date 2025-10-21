@@ -58,19 +58,21 @@ body {
     position: absolute;
     top: -40px;
     left: 0;
-    background: #D4A632;
-    color: #0f172a;
+    background: #0f172a;
+    color: #F5D76E;
     padding: 12px 16px;
     text-decoration: none;
     z-index: 10000;
-    font-weight: 600;
+    font-weight: 700;
     border-radius: 0 0 4px 0;
+    border: 2px solid #D4A632;
 }
 
 .skip-link:focus {
     top: 0;
     outline: 3px solid #F5D76E;
     outline-offset: 2px;
+    background: #1e293b;
 }
 
 /* ================================
@@ -853,18 +855,18 @@ a:hover {
     width: 100%;
     padding: var(--spacing-md);
     background-color: var(--color-primary);
-    color: white;
+    color: #000000;
     border: none;
     border-radius: var(--radius-md);
     font-size: 1.05rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow-md);
 }
 
 .converter-btn:hover {
-    background-color: #D4A632;
+    background-color: #E5C050;
     box-shadow: var(--shadow-lg);
     transform: translateY(-2px);
 }
@@ -874,7 +876,8 @@ a:hover {
 }
 
 .converter-btn:disabled {
-    background-color: #d1d5db;
+    background-color: #64748b;
+    color: #e2e8f0;
     cursor: not-allowed;
     transform: none;
 }
