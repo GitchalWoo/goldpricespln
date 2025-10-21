@@ -201,13 +201,13 @@ class StockPriceFetcher:
             with open(output_file, 'w') as f:
                 json.dump(output_data, f, indent=2, ensure_ascii=False)
             self.log(f"Saved: {output_file}")
-            print(f"✅ {ticker}: {output_file} ({len(monthly_data)} months)")
+            print(f"[OK] {ticker}: {output_file} ({len(monthly_data)} months)")
         except Exception as e:
             print(f"[ERROR] Failed to save {ticker} data: {e}", file=sys.stderr)
 
     def fetch_all_stocks(self):
         """Fetch data for all configured stocks."""
-        print("\n📊 Stock Price Downloader\n")
+        print("\n[DATA] Stock Price Downloader\n")
         print(f"Fetching {len(self.config['stocks'])} stocks...\n")
 
         # Load gold prices once
@@ -229,10 +229,10 @@ class StockPriceFetcher:
                 # Save to JSON file
                 self.save_to_json(ticker, name, monthly_data)
             else:
-                print(f"⚠️  {ticker}: Failed to fetch data")
+                print(f"[WARN] {ticker}: Failed to fetch data")
 
-        print(f"\n✨ All stocks processed!")
-        print(f"📁 Output directory: {self.output_directory.absolute()}\n")
+        print(f"\n[DONE] All stocks processed!")
+        print(f"[FILES] Output directory: {self.output_directory.absolute()}\n")
 
 
 def main():

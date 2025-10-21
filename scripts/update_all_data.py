@@ -255,6 +255,13 @@ class DataUpdater:
                 expected_keys=['year', 'wage', 'price']
             )
         
+        # Stock prices
+        if not self.run_script(
+            'fetch_stock_prices.py',
+            'Stock Prices (Yahoo Finance)'
+        ):
+            all_secondary_success = False
+        
         self.log("")
         
         # Step 3: Update timestamp
