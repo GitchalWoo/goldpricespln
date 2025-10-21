@@ -170,8 +170,8 @@ async function initializeStockCharts() {
     // Create buttons for stock selection
     createStockButtons(stockConfig.stocks, stockDataMap, firstStock);
 
-    // Create the initial chart with the first stock
-    ChartManager.createStockChart(stockDataMap[firstStock.ticker], 'gold');
+    // Create the initial chart with the first stock (default to PLN)
+    ChartManager.createStockChart(stockDataMap[firstStock.ticker], 'pln');
 
     // Initialize period switcher for stocks
     initPeriodSwitcher('stocks', (period) => ChartManager.updateStockChartPeriod(period));

@@ -369,8 +369,8 @@ const ChartManager = {
         const chartData = {
             labels: golfWithGold.map(item => item.year),
             datasets: [{
-                label: 'Cena Golfa w złocie (gramy)',
-                data: golfWithGold.map(item => item.priceGold),
+                label: 'Cena Golfa (PLN)',
+                data: golfWithGold.map(item => item.pricePLN),
                 borderColor: '#10b981',
                 backgroundColor: 'rgba(16, 185, 129, 0.1)',
                 borderWidth: 3,
@@ -407,7 +407,7 @@ const ChartManager = {
                         backgroundColor: 'rgba(0, 0, 0, 0.8)',
                         padding: 12,
                         callbacks: {
-                            label: getTooltipGoldCallback('Złoto: ')
+                            label: getTooltipPLNCallback('Cena: ')
                         }
                     }
                 },
@@ -416,12 +416,10 @@ const ChartManager = {
                         beginAtZero: false,
                         title: {
                             display: true,
-                            text: 'Gramy złota'
+                            text: 'PLN'
                         },
                         ticks: {
-                            callback: function(value) {
-                                return value.toFixed(0) + 'g';
-                            }
+                            callback: getTickPLNCallback()
                         }
                     },
                     x: {
@@ -436,7 +434,7 @@ const ChartManager = {
 
         // Store data for switcher
         this.chartInstances.golfData = golfWithGold;
-        this.updateGolfStats(golfWithGold, 'gold');
+        this.updateGolfStats(golfWithGold, 'pln');
     },
 
     /**
@@ -771,7 +769,7 @@ const ChartManager = {
      * @param {Object} stockData - Stock data with ticker, name, and monthly data
      * @param {string} period - 'pln' or 'gold'
      */
-    createStockChart(stockData, period = 'gold') {
+    createStockChart(stockData, period = 'pln') {
         const ctx = document.getElementById('chartStocks');
         if (!ctx) return;
 
