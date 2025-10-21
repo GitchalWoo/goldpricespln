@@ -44,6 +44,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('lastUpdated').textContent = lastUpdated;
     }
 
+    // Initialize price widget with today's gold price
+    if (allData.priceToday && allData.priceToday.price) {
+        updatePriceWidget(allData.priceToday);
+    }
+
     console.log('✅ Application initialized successfully');
 });
 
@@ -101,4 +106,25 @@ function showError() {
         </div>
     `;
     mainContent.innerHTML = errorHTML;
+}
+
+/**
+ * Update price widget with today's gold price
+ * @param {Object} priceData - Price data with 'price' and 'date' fields
+ */
+function updatePriceWidget(priceData) {
+    const widget = document.getElementById('priceWidget');
+    const priceValue = document.getElementById('priceWidgetValue');
+    const priceDate = document.getElementById('priceWidgetDate');
+    
+    if (widget && priceData.price) {
+        priceValue.textContent = DataLoader.formatPLN(priceData.price) + '/g';
+        
+        // Format date in Polish locale
+        const dateObj = new Date(priceData.date);
+        priceDate.textContent = `z dnia ${dateObj.toLocaleDateString('pl-PL')}`;
+        
+        // Show the widget
+        widget.style.display = 'flex';
+    }
 }

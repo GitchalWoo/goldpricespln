@@ -90,7 +90,8 @@ a:hover {
 .header-content {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
 }
 
 .header-branding {
@@ -154,6 +155,55 @@ a:hover {
     margin: 0;
 }
 
+/* ================================
+   HEADER PRICE WIDGET
+   ================================ */
+.header-price-widget {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding: var(--spacing-md);
+    background: rgba(236, 188, 74, 0.1);
+    border: 1px solid rgba(236, 188, 74, 0.3);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(10px);
+    min-width: 200px;
+}
+
+.price-widget-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--spacing-xs);
+}
+
+.price-widget-label {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+}
+
+.price-widget-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ECBC4A 0%, #F5D76E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.price-widget-date {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    font-weight: 400;
+    opacity: 0.75;
+}
+
 @media (max-width: 1024px) {
     .header-branding {
         gap: var(--spacing-md);
@@ -170,11 +220,30 @@ a:hover {
     .logo-main {
         height: 70px;
     }
+    
+    .header-price-widget {
+        min-width: 180px;
+        padding: var(--spacing-sm);
+    }
+    
+    .price-widget-value {
+        font-size: 1.25rem;
+    }
 }
 
 @media (max-width: 768px) {
     .header {
         padding: var(--spacing-lg) 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-md);
+    }
+    
+    .header-branding {
+        width: 100%;
     }
     
     .header-text {
@@ -192,6 +261,16 @@ a:hover {
     
     .logo-main {
         height: 60px;
+    }
+    
+    .header-price-widget {
+        width: 100%;
+        justify-content: center;
+        margin-left: 0;
+    }
+    
+    .price-widget-content {
+        align-items: center;
     }
 }
 
