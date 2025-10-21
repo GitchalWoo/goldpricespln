@@ -1,0 +1,70 @@
+name: Update Daily Gold Price
+
+on:
+  schedule:
+    # Run daily at 9:00 AM CET (8:00 AM UTC)
+    # CET is UTC+1, so 09:00 CET = 08:00 UTC
+    - cron: '0 8 * * *'
+  # Allow manual trigger from Actions tab
+  workflow_dispatch:
+
+jobs:
+  update-daily-price:
+    runs-on: ubuntu-22.04
+    
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Fetch today's gold price
+        run: python scripts/fetch_nbp_gold_price_today.py --verbose
+        timeout-minutes: 10
+
+      - name: Check for changes
+        id: verify-changes
+        run: |
+          if git diff --quiet data/pricetoday.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changed files:"
+            git diff --name-only data/
+          fi
+
+      - name: Configure git
+        if: steps.verify-changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        if: steps.verify-changes.outputs.has_changes == 'true'
+        run: |
+          git add data/pricetoday.json
+          git commit -m "chore: update daily gold price - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git push
+
+      - name: Report status
+        if: always()
+        run: |
+          if [ "${{ steps.verify-changes.outputs.has_changes }}" = "true" ]; then
+            echo "[DATA] Daily gold price updated and pushed successfully"
+          else
+            echo "[WARN] No changes detected in price data"
+          fi
