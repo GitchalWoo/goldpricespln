@@ -1,0 +1,11 @@
+# robots.txt for wzlocie.pl
+User-agent: *
+Allow: /
+
+# Disallow access to data files (optional - these are public but might not need indexing)
+# Allow: /data/
+
+# Allow all static assets
+Allow: /css/
+Allow: /js/
+Allow: /images/
