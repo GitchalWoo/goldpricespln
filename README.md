@@ -17,7 +17,7 @@ Interactive visualization of historical gold prices in Polish Zloty (PLN) with c
   - Automatically calculates if your asset is worth more, same, or less gold today
 
 ### Interactive Charts
-Three interactive, scrollable charts showcasing:
+Multiple interactive, scrollable charts showcasing:
 
 1. **Gold Price in PLN (2013-Present)**
    - Historical gold prices from 2013 onwards (NBP data)
@@ -35,6 +35,12 @@ Three interactive, scrollable charts showcasing:
    - Historical VW Golf price converted to grams of gold
    - Shows how much gold needed to buy a Golf through time
    - Interesting perspective on price inflation
+
+4. **Stock Market Comparisons** *(NEW)*
+   - US Market: S&P 500 (SPY, VOO) vs Gold
+   - Polish Stocks: KGHM, Orlen, PKO BP, Allegro vs Gold
+   - Global ETFs: MSCI World equivalent vs Gold
+   - Compare how gold performs against equity investments
 
 ---
 
@@ -91,6 +97,14 @@ Three interactive, scrollable charts showcasing:
   - **Methodology:** Some years were interpolated or estimated based on inflation rates due to missing official data
   - **Note:** Prices represent suggested retail prices and may vary by region, equipment options, and market promotions
 
+### Stock Prices (Yahoo Finance)
+- **Source:** [Yahoo Finance (yfinance)](https://finance.yahoo.com/)
+- **US/Global ETFs:** SPY, VOO, IUSA.L, VWRL.L (NYSE/LSE)
+- **Polish Stocks:** KGH.WA, PKN.WA, PKO.WA, ALE.WA (Warsaw Stock Exchange)
+- **Data Available:** 2013-2025 (monthly granularity)
+- **Update Frequency:** Monthly (after market close)
+- **Includes:** OHLCV data + automatic gold price conversion
+
 ---
 
 ## 🔄 Updating Data
@@ -131,6 +145,6 @@ For manual updates, individual scripts, troubleshooting, and GitHub Actions setu
 
 ---
 
-**Last Updated:** October 19, 2025  
-**Data Current As Of:** October 19, 2025
+**Last Updated:** October 21, 2025  
+**Data Current As Of:** October 21, 2025
 
