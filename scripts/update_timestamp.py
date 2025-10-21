@@ -27,12 +27,13 @@ import argparse
 import sys
 
 
-def generate_timestamp(output_dir: Path) -> bool:
+def generate_timestamp(output_dir: Path, verbose: bool = False) -> bool:
     """
     Generate a last-update.json file with current timestamp.
     
     Args:
         output_dir: Directory where to save the JSON file
+        verbose: Enable verbose output
         
     Returns:
         True if successful, False otherwise
@@ -58,7 +59,8 @@ def generate_timestamp(output_dir: Path) -> bool:
             json.dump(timestamp_data, f, indent=2, ensure_ascii=False)
         
         print(f"[OK] Successfully created {output_file}")
-        print(f"     Timestamp: {timestamp_data['timestamp']}")
+        if verbose:
+            print(f"     Timestamp: {timestamp_data['timestamp']}")
         
         return True
         
@@ -89,10 +91,16 @@ Examples:
         help='Directory to save last-update.json (default: ../data/)'
     )
     
+    parser.add_argument(
+        '-v', '--verbose',
+        action='store_true',
+        help='Enable verbose output'
+    )
+    
     args = parser.parse_args()
     
     try:
-        success = generate_timestamp(args.output_dir)
+        success = generate_timestamp(args.output_dir, verbose=args.verbose)
         sys.exit(0 if success else 1)
     except Exception as e:
         print(f"[ERROR] Unexpected error: {e}", file=sys.stderr)

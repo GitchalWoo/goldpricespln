@@ -354,7 +354,7 @@ class WarsawM2PriceFetcher:
                 })
         
         if missing_months:
-            self.log(f"  ⚠ Warning: {len(missing_months)} months missing gold price data")
+            self.log(f"  WARNING: {len(missing_months)} months missing gold price data")
             for year, month in sorted(missing_months)[:5]:  # Show first 5
                 self.log(f"     {year}-{month:02d}")
             if len(missing_months) > 5:
