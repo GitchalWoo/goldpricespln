@@ -98,7 +98,7 @@ function initPeriodSwitcher(chartName, updateCallback, allData) {
 
 /**
  * Wrapper for gold chart period switching
- * @param {string} period - 'yearly' or 'monthly'
+ * @param {string} period - 'yearly', 'monthly', or 'daily'
  * @param {Object} allData - All loaded data
  */
 function updateGoldChartPeriod(period, allData) {
@@ -106,6 +106,8 @@ function updateGoldChartPeriod(period, allData) {
         ChartManager.updateGoldChart(allData.gold, 'yearly');
     } else if (period === 'monthly') {
         ChartManager.updateGoldChart(allData.goldMonthly, 'monthly');
+    } else if (period === 'daily') {
+        ChartManager.updateGoldChart(allData.goldDaily, 'daily');
     }
 }
 

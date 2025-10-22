@@ -168,8 +168,8 @@ const ChartManager = {
 
     /**
      * Update the gold price chart with different data
-     * @param {Array} data - Gold price data (yearly or monthly)
-     * @param {string} period - 'yearly' or 'monthly'
+     * @param {Array} data - Gold price data (yearly, monthly, or daily)
+     * @param {string} period - 'yearly', 'monthly', or 'daily'
      */
     updateGoldChart(data, period) {
         const chart = this.chartInstances.gold;
@@ -182,7 +182,7 @@ const ChartManager = {
             labels = data.map(item => item.year);
             priceData = data.map(item => item.price);
             xTitle = 'Rok';
-        } else {
+        } else if (period === 'monthly') {
             // For monthly data, show only last 12 months
             const last12Months = data.slice(-12);
             filteredData = last12Months;
@@ -191,6 +191,15 @@ const ChartManager = {
             labels = last12Months.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`);
             priceData = last12Months.map(item => item.price);
             xTitle = 'Ostatnie 12 miesięcy';
+        } else if (period === 'daily') {
+            // For daily data, show all available (last 30 days)
+            // Reverse the data to show oldest first (left to right timeline)
+            filteredData = [...data].reverse();
+            
+            // Format daily data as "YYYY-MM-DD" for display
+            labels = filteredData.map(item => item.date);
+            priceData = filteredData.map(item => item.price);
+            xTitle = 'Ostatnie 30 dni';
         }
 
         // Update chart data

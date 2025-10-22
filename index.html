@@ -178,13 +178,15 @@
             <div class="container">
                 <h2>Cena Złota w PLN (2013-Teraz)</h2>
                 <p class="description">
-                    Historyczne ceny złota od 2013 roku (dane dostępne z NBP).
+                    Historyczne ceny złota od 2013 roku (dane dostępne z NBP). 
+                    Wybierz okres: roczne (średnie roczne), miesięczne (ostatnie 12 miesięcy) lub dzienne (ostatnie 30 dni).
                 </p>
                 <!-- Period Switcher -->
                 <div class="period-switcher" role="group" aria-label="Wybór okresu dla wykresu cen złota">
                     <div class="switcher-buttons">
                         <button class="switcher-btn switcher-btn--active" data-period="yearly" data-chart="gold" aria-pressed="true">Roczne</button>
                         <button class="switcher-btn" data-period="monthly" data-chart="gold" aria-pressed="false">Miesięczne</button>
+                        <button class="switcher-btn" data-period="daily" data-chart="gold" aria-pressed="false">Dzienne</button>
                     </div>
                 </div>
                 <div class="chart-wrapper">
@@ -445,11 +447,19 @@
                         <ul class="data-files-list">
                             <li>
                                 <a href="data/nbp-gold-prices.json" download>nbp-gold-prices.json</a>
-                                <span class="file-description">— Monthly gold prices in PLN from 2013-01-02 to present (Polish National Bank API)</span>
+                                <span class="file-description">— Yearly gold prices in PLN from 2013 to present (Polish National Bank API)</span>
                             </li>
                             <li>
                                 <a href="data/nbp-gold-prices-monthly.json" download>nbp-gold-prices-monthly.json</a>
-                                <span class="file-description">— Monthly aggregated gold prices</span>
+                                <span class="file-description">— Monthly aggregated gold prices from 2013 to present</span>
+                            </li>
+                            <li>
+                                <a href="data/nbp-gold-prices-daily.json" download>nbp-gold-prices-daily.json</a>
+                                <span class="file-description">— Daily gold prices for the last 30 days (updated daily)</span>
+                            </li>
+                            <li>
+                                <a href="data/pricetoday.json" download>pricetoday.json</a>
+                                <span class="file-description">— Most recent gold price (single entry, updated daily)</span>
                             </li>
                             <li>
                                 <a href="data/warsaw-m2-prices-monthly.json" download>warsaw-m2-prices-monthly.json</a>

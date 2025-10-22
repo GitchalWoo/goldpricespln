@@ -27,9 +27,10 @@ const DataLoader = {
      * @returns {Promise<Object>} - All data organized by category
      */
     async loadAllData() {
-        const [goldData, goldMonthlyData, warsawMonthlyData, golfData, wagesData, avgwagesData, lastUpdateData, priceTodayData] = await Promise.all([
+        const [goldData, goldMonthlyData, goldDailyData, warsawMonthlyData, golfData, wagesData, avgwagesData, lastUpdateData, priceTodayData] = await Promise.all([
             this.loadJSON('data/nbp-gold-prices.json'),
             this.loadJSON('data/nbp-gold-prices-monthly.json'),
+            this.loadJSON('data/nbp-gold-prices-daily.json'),
             this.loadJSON('data/warsaw-m2-prices-monthly.json'),
             this.loadJSON('data/vw-golf-prices.json'),
             this.loadJSON('data/min-wages.json'),
@@ -41,6 +42,7 @@ const DataLoader = {
         return {
             gold: goldData || [],
             goldMonthly: goldMonthlyData || [],
+            goldDaily: goldDailyData || [],
             warsawMonthly: warsawMonthlyData || [],
             golf: golfData || [],
             wages: wagesData || [],
