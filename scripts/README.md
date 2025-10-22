@@ -89,6 +89,51 @@ python fetch_nbp_gold_prices.py --output my_prices.json
 python fetch_nbp_gold_prices.py --help
 ```
 
+---
+
+### 1b. **fetch_nbp_gold_price_today.py** - Daily Price Updates (Last 30 Days)
+
+Fetches the last 30 days of gold prices for daily tracking and provides the most recent price.
+
+**Features:**
+- Downloads last 30 calendar days (typically 20-22 trading days)
+- Saves full 30-day history to `nbp-gold-prices-daily.json`
+- Extracts most recent price to `pricetoday.json`
+- Sorted by date (newest first)
+- Used by GitHub Actions for automated daily updates
+
+**Output:** 
+- `../data/nbp-gold-prices-daily.json` (30-day history)
+- `../data/pricetoday.json` (most recent price only)
+
+**Usage:**
+```bash
+# Fetch last 30 days (default)
+python fetch_nbp_gold_price_today.py
+
+# Verbose output
+python fetch_nbp_gold_price_today.py --verbose
+
+# Custom output paths
+python fetch_nbp_gold_price_today.py --output-daily daily.json --output-today today.json
+
+# All options
+python fetch_nbp_gold_price_today.py --help
+```
+
+**Output Format:**
+```json
+// nbp-gold-prices-daily.json (array of last 30 days)
+[
+  { "date": "2025-10-22", "price": 489.04 },
+  { "date": "2025-10-21", "price": 501.87 },
+  { "date": "2025-10-20", "price": 494.26 }
+]
+
+// pricetoday.json (single most recent entry)
+{ "date": "2025-10-22", "price": 489.04 }
+```
+
 **Data Source:**
 - API: https://api.nbp.pl/api/cenyzlota/
 - Unit: PLN per gram (1000 proof)

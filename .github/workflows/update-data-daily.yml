@@ -1,4 +1,4 @@
-name: Update Daily Gold Price
+name: Update Daily Gold Prices (30-day window)
 
 on:
   schedule:
@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  update-daily-price:
+  update-daily-prices:
     runs-on: ubuntu-22.04
     
     permissions:
@@ -32,14 +32,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
-      - name: Fetch today's gold price
+      - name: Fetch last 30 days gold prices
         run: python scripts/fetch_nbp_gold_price_today.py --verbose
         timeout-minutes: 10
 
       - name: Check for changes
         id: verify-changes
         run: |
-          if git diff --quiet data/pricetoday.json; then
+          if git diff --quiet data/pricetoday.json data/nbp-gold-prices-daily.json; then
             echo "has_changes=false" >> $GITHUB_OUTPUT
           else
             echo "has_changes=true" >> $GITHUB_OUTPUT
@@ -56,8 +56,8 @@ jobs:
       - name: Commit and push changes
         if: steps.verify-changes.outputs.has_changes == 'true'
         run: |
-          git add data/pricetoday.json
-          git commit -m "chore: update daily gold price - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git add data/pricetoday.json data/nbp-gold-prices-daily.json
+          git commit -m "chore: update daily gold prices (30-day window) - $(date +'%Y-%m-%d %H:%M:%S UTC')"
           git push
 
       - name: Report status
