@@ -175,17 +175,22 @@ const ChartManager = {
         const chart = this.chartInstances.gold;
         if (!chart) return;
 
-        let labels, priceData, xTitle;
+        let labels, priceData, xTitle, filteredData;
 
         if (period === 'yearly') {
+            filteredData = data;
             labels = data.map(item => item.year);
             priceData = data.map(item => item.price);
             xTitle = 'Rok';
         } else {
+            // For monthly data, show only last 12 months
+            const last12Months = data.slice(-12);
+            filteredData = last12Months;
+            
             // Format monthly data as "Year-Month" for better readability
-            labels = data.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`);
-            priceData = data.map(item => item.price);
-            xTitle = 'Miesiąc';
+            labels = last12Months.map(item => `${item.year}-${String(item.month).padStart(2, '0')}`);
+            priceData = last12Months.map(item => item.price);
+            xTitle = 'Ostatnie 12 miesięcy';
         }
 
         // Update chart data
@@ -198,7 +203,7 @@ const ChartManager = {
         }
 
         chart.update();
-        this.updateGoldStats(data);
+        this.updateGoldStats(filteredData);
     },
 
     /**
