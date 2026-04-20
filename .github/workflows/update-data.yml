@@ -55,7 +55,7 @@ jobs:
       - name: Commit and push changes
         if: steps.verify-changes.outputs.has_changes == 'true'
         run: |
-          git add data/*.json
+          git add data/*.json data/stocks/*.json
           git commit -m "chore: update data files - $(date +'%Y-%m-%d %H:%M:%S UTC')"
           git push
 

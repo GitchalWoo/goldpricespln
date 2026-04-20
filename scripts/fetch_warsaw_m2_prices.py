@@ -84,8 +84,16 @@ class WarsawM2PriceFetcher:
         workbook = openpyxl.load_workbook(BytesIO(excel_data))
         self.log(f"  Available sheets: {workbook.sheetnames}")
         
-        # Try to find the main data sheet (usually the first one)
-        sheet = workbook.active
+        # Use "Rynek pierwotny" (Primary market) sheet which contains the actual data
+        # The active sheet is often the description sheet
+        target_sheets = ['Rynek pierwotny', 'Rynek wtórny']
+        sheet = None
+        for sheet_name in target_sheets:
+            if sheet_name in workbook.sheetnames:
+                sheet = workbook[sheet_name]
+                break
+        if sheet is None:
+            sheet = workbook.active
         self.log(f"  Using sheet: {sheet.title}")
         
         warsaw_prices = []

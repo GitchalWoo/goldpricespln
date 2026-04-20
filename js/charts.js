@@ -632,6 +632,12 @@ const ChartManager = {
         const newValue = isPLN ? newGolf.pricePLN : newGolf.priceGold;
         const change = ((newValue - oldValue) / oldValue * 100).toFixed(1);
 
+        // Update labels with years from data
+        const oldLabel = document.getElementById('golfOldLabel');
+        const newLabel = document.getElementById('golfNewLabel');
+        if (oldLabel) oldLabel.textContent = `Golf ${oldGolf.year}:`;
+        if (newLabel) newLabel.textContent = `Golf ${newGolf.year}:`;
+
         document.getElementById('golfOldGrams').textContent = isPLN 
             ? DataLoader.formatPLN(oldValue)
             : DataLoader.formatGrams(oldValue);
@@ -650,6 +656,10 @@ const ChartManager = {
         const currentData = data[data.length - 1];
         const oldData = data[0];
         const change = ((currentData.wagePLN - oldData.wagePLN) / oldData.wagePLN * 100).toFixed(1);
+        
+        // Update label with current year from data
+        const labelEl = document.getElementById('wagesCurrentLabel');
+        if (labelEl) labelEl.textContent = `Płaca minimalna (${currentData.year}):`;
         
         // Always show PLN in first stat and Gold in second stat (don't swap)
         document.getElementById('wagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);
@@ -771,6 +781,10 @@ const ChartManager = {
         const currentData = data[data.length - 1];
         const oldData = data[0];
         const change = ((currentData.wagePLN - oldData.wagePLN) / oldData.wagePLN * 100).toFixed(1);
+        
+        // Update label with current year from data
+        const labelEl = document.getElementById('avgwagesCurrentLabel');
+        if (labelEl) labelEl.textContent = `Średnia płaca (${currentData.year}):`;
         
         // Always show PLN in first stat and Gold in second stat (don't swap)
         document.getElementById('avgwagesCurrentPLN').textContent = DataLoader.formatPLN(currentData.wagePLN);

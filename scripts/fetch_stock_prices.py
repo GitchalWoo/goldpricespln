@@ -119,6 +119,10 @@ class StockPriceFetcher:
             self.log(f"Fetching {ticker} from {start_date} to {end_date}")
             data = yf.download(ticker, start=start_date, end=end_date, progress=False)
 
+            # Flatten MultiIndex columns (yfinance >= 0.2.36 returns MultiIndex with ticker)
+            if isinstance(data.columns, __import__('pandas').MultiIndex):
+                data.columns = data.columns.get_level_values(0)
+
             if data.empty:
                 print(f"[WARN] No data found for ticker: {ticker}", file=sys.stderr)
                 return None

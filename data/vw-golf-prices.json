@@ -11,5 +11,6 @@
   { "year": 2022, "pricePLN": 120000, "source": "VW Polska – Golf VIII (1.0 TSI 110 KM)" },
   { "year": 2023, "pricePLN": 112000, "source": "chceauto.pl – Golf VIII (1.5 eTSI 130 KM)" },
   { "year": 2024, "pricePLN": 112100, "source": "Autokult – Golf VIII po liftingu" },
-  { "year": 2025, "pricePLN": 115000, "source": "dane salonowe / volkswagen.pl – Golf VIII Life 1.5 TSI 116 KM" }
+  { "year": 2025, "pricePLN": 115000, "source": "dane salonowe / volkswagen.pl – Golf VIII Life 1.5 TSI 116 KM" },
+  { "year": 2026, "pricePLN": 111790, "source": "volkswagen.pl – Golf VIII 1.5 TSI 116 KM cennik kwiecień 2026 (cena katalogowa przed promocją)" }
 ]
