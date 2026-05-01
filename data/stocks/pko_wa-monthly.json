@@ -1,8 +1,8 @@
 {
   "ticker": "PKO.WA",
   "name": "PKO BP",
-  "generated": "2025-10-21T22:20:27.837262",
-  "data_points": 154,
+  "generated": "2026-05-01T03:11:54.707113",
+  "data_points": 160,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -1539,12 +1539,72 @@
     {
       "year": 2025,
       "month": 10,
-      "open": 75.26,
-      "high": 76.5,
+      "open": 77.32,
+      "high": 78.8,
       "low": 69.64,
-      "close": 75.62,
-      "volume": 2184386,
+      "close": 75.7,
+      "volume": 3119903,
       "price_gold": 0.16
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "open": 77.5,
+      "high": 78.76,
+      "low": 72.88,
+      "close": 77.4,
+      "volume": 1662056,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "open": 84.9,
+      "high": 86.22,
+      "low": 76.42,
+      "close": 85.16,
+      "volume": 2245375,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "open": 90.86,
+      "high": 93.5,
+      "low": 85.04,
+      "close": 92.58,
+      "volume": 3530896,
+      "price_gold": 0.17
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "open": 93.8,
+      "high": 97.1,
+      "low": 87.82,
+      "close": 92.46,
+      "volume": 4545335,
+      "price_gold": 0.16
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "open": 86.08,
+      "high": 91.32,
+      "low": 80.8,
+      "close": 86.86,
+      "volume": 2070988,
+      "price_gold": 0.15
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "open": 96.3,
+      "high": 102.54,
+      "low": 87.72,
+      "close": 94.64,
+      "volume": 2724662,
+      "price_gold": 0.17
     }
   ]
 }

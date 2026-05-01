@@ -1,8 +1,8 @@
 {
   "ticker": "PKN.WA",
   "name": "Orlen",
-  "generated": "2025-10-21T22:20:27.273256",
-  "data_points": 154,
+  "generated": "2026-05-01T03:11:54.443586",
+  "data_points": 160,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -1539,12 +1539,72 @@
     {
       "year": 2025,
       "month": 10,
-      "open": 89.0,
-      "high": 92.21,
+      "open": 100.6,
+      "high": 101.78,
       "low": 84.85,
-      "close": 92.09,
-      "volume": 2753652,
+      "close": 100.06,
+      "volume": 2068056,
+      "price_gold": 0.21
+    },
+    {
+      "year": 2025,
+      "month": 11,
+      "open": 93.15,
+      "high": 105.28,
+      "low": 91.8,
+      "close": 94.02,
+      "volume": 1840834,
       "price_gold": 0.2
+    },
+    {
+      "year": 2025,
+      "month": 12,
+      "open": 95.64,
+      "high": 96.58,
+      "low": 90.4,
+      "close": 96.11,
+      "volume": 1240593,
+      "price_gold": 0.19
+    },
+    {
+      "year": 2026,
+      "month": 1,
+      "open": 105.8,
+      "high": 108.96,
+      "low": 92.5,
+      "close": 107.96,
+      "volume": 2793690,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2026,
+      "month": 2,
+      "open": 115.44,
+      "high": 115.88,
+      "low": 103.62,
+      "close": 114.66,
+      "volume": 2884232,
+      "price_gold": 0.2
+    },
+    {
+      "year": 2026,
+      "month": 3,
+      "open": 132.46,
+      "high": 136.38,
+      "low": 113.8,
+      "close": 134.34,
+      "volume": 2869791,
+      "price_gold": 0.23
+    },
+    {
+      "year": 2026,
+      "month": 4,
+      "open": 132.16,
+      "high": 136.88,
+      "low": 121.0,
+      "close": 132.92,
+      "volume": 2348693,
+      "price_gold": 0.24
     }
   ]
 }
