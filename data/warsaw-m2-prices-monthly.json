@@ -1172,19 +1172,19 @@
   {
     "year": 2022,
     "month": 10,
-    "priceM2_pln": 10963.03,
+    "priceM2_pln": 10963.16,
     "priceM2_gold": 41.77
   },
   {
     "year": 2022,
     "month": 11,
-    "priceM2_pln": 10963.03,
+    "priceM2_pln": 10963.16,
     "priceM2_gold": 42.88
   },
   {
     "year": 2022,
     "month": 12,
-    "priceM2_pln": 10963.03,
+    "priceM2_pln": 10963.16,
     "priceM2_gold": 42.88
   },
   {
@@ -1226,37 +1226,37 @@
   {
     "year": 2023,
     "month": 7,
-    "priceM2_pln": 12171.69,
+    "priceM2_pln": 12171.79,
     "priceM2_gold": 48.35
   },
   {
     "year": 2023,
     "month": 8,
-    "priceM2_pln": 12171.69,
+    "priceM2_pln": 12171.79,
     "priceM2_gold": 48.25
   },
   {
     "year": 2023,
     "month": 9,
-    "priceM2_pln": 12171.69,
+    "priceM2_pln": 12171.79,
     "priceM2_gold": 45.95
   },
   {
     "year": 2023,
     "month": 10,
-    "priceM2_pln": 12763.36,
+    "priceM2_pln": 12763.56,
     "priceM2_gold": 48.66
   },
   {
     "year": 2023,
     "month": 11,
-    "priceM2_pln": 12763.36,
+    "priceM2_pln": 12763.56,
     "priceM2_gold": 49.1
   },
   {
     "year": 2023,
     "month": 12,
-    "priceM2_pln": 12763.36,
+    "priceM2_pln": 12763.56,
     "priceM2_gold": 49.17
   },
   {
@@ -1280,127 +1280,145 @@
   {
     "year": 2024,
     "month": 4,
-    "priceM2_pln": 13859.32,
-    "priceM2_gold": 46.12
+    "priceM2_pln": 13859.78,
+    "priceM2_gold": 46.13
   },
   {
     "year": 2024,
     "month": 5,
-    "priceM2_pln": 13859.32,
+    "priceM2_pln": 13859.78,
     "priceM2_gold": 46.24
   },
   {
     "year": 2024,
     "month": 6,
-    "priceM2_pln": 13859.32,
+    "priceM2_pln": 13859.78,
     "priceM2_gold": 46.19
   },
   {
     "year": 2024,
     "month": 7,
-    "priceM2_pln": 14107.37,
+    "priceM2_pln": 14108.08,
     "priceM2_gold": 46.45
   },
   {
     "year": 2024,
     "month": 8,
-    "priceM2_pln": 14107.37,
+    "priceM2_pln": 14108.08,
     "priceM2_gold": 45.58
   },
   {
     "year": 2024,
     "month": 9,
-    "priceM2_pln": 14107.37,
+    "priceM2_pln": 14108.08,
     "priceM2_gold": 44.46
   },
   {
     "year": 2024,
     "month": 10,
-    "priceM2_pln": 14027.4,
+    "priceM2_pln": 14027.47,
     "priceM2_gold": 41.13
   },
   {
     "year": 2024,
     "month": 11,
-    "priceM2_pln": 14027.4,
+    "priceM2_pln": 14027.47,
     "priceM2_gold": 40.36
   },
   {
     "year": 2024,
     "month": 12,
-    "priceM2_pln": 14027.4,
+    "priceM2_pln": 14027.47,
     "priceM2_gold": 40.52
   },
   {
     "year": 2025,
     "month": 1,
-    "priceM2_pln": 14369.58,
+    "priceM2_pln": 14370.07,
     "priceM2_gold": 40.3
   },
   {
     "year": 2025,
     "month": 2,
-    "priceM2_pln": 14369.58,
+    "priceM2_pln": 14370.07,
     "priceM2_gold": 38.51
   },
   {
     "year": 2025,
     "month": 3,
-    "priceM2_pln": 14369.58,
+    "priceM2_pln": 14370.07,
     "priceM2_gold": 38.83
   },
   {
     "year": 2025,
     "month": 4,
-    "priceM2_pln": 14523.45,
+    "priceM2_pln": 14524.13,
     "priceM2_gold": 37.06
   },
   {
     "year": 2025,
     "month": 5,
-    "priceM2_pln": 14523.45,
+    "priceM2_pln": 14524.13,
     "priceM2_gold": 36.53
   },
   {
     "year": 2025,
     "month": 6,
-    "priceM2_pln": 14523.45,
+    "priceM2_pln": 14524.13,
     "priceM2_gold": 36.36
   },
   {
     "year": 2025,
     "month": 7,
-    "priceM2_pln": 14303.89,
+    "priceM2_pln": 14304.79,
     "priceM2_gold": 36.66
   },
   {
     "year": 2025,
     "month": 8,
-    "priceM2_pln": 14303.89,
+    "priceM2_pln": 14304.79,
     "priceM2_gold": 36.12
   },
   {
     "year": 2025,
     "month": 9,
-    "priceM2_pln": 14303.89,
-    "priceM2_gold": 33.6
+    "priceM2_pln": 14304.79,
+    "priceM2_gold": 33.61
   },
   {
     "year": 2025,
     "month": 10,
-    "priceM2_pln": 14420.58,
-    "priceM2_gold": 30.39
+    "priceM2_pln": 14424.65,
+    "priceM2_gold": 30.4
   },
   {
     "year": 2025,
     "month": 11,
-    "priceM2_pln": 14420.58,
-    "priceM2_gold": 29.99
+    "priceM2_pln": 14424.65,
+    "priceM2_gold": 30.0
   },
   {
     "year": 2025,
     "month": 12,
-    "priceM2_pln": 14420.58,
-    "priceM2_gold": 28.97
+    "priceM2_pln": 14424.65,
+    "priceM2_gold": 28.98
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "priceM2_pln": 14586.61,
+    "priceM2_gold": 26.74
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "priceM2_pln": 14586.61,
+    "priceM2_gold": 25.42
+  },
+  {
+    "year": 2026,
+    "month": 3,
+    "priceM2_pln": 14586.61,
+    "priceM2_gold": 25.06
   }
 ]

@@ -1,8 +1,8 @@
 {
   "ticker": "PKN.WA",
   "name": "Orlen",
-  "generated": "2026-05-01T03:11:54.443586",
-  "data_points": 160,
+  "generated": "2026-06-01T03:16:22.966299",
+  "data_points": 161,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -1605,6 +1605,16 @@
       "close": 132.92,
       "volume": 2348693,
       "price_gold": 0.24
+    },
+    {
+      "year": 2026,
+      "month": 5,
+      "open": 141.98,
+      "high": 146.98,
+      "low": 133.5,
+      "close": 141.76,
+      "volume": 2895695,
+      "price_gold": 0.26
     }
   ]
 }
