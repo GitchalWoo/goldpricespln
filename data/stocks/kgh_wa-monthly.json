@@ -1,8 +1,8 @@
 {
   "ticker": "KGH.WA",
   "name": "KGHM",
-  "generated": "2026-07-01T03:14:28.094149",
-  "data_points": 162,
+  "generated": "2026-08-01T03:06:55.369174",
+  "data_points": 163,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -649,10 +649,10 @@
     {
       "year": 2018,
       "month": 5,
-      "open": 78.95,
+      "open": 78.94,
       "high": 92.14,
       "low": 78.87,
-      "close": 78.95,
+      "close": 78.94,
       "volume": 0,
       "price_gold": 0.52
     },
@@ -1351,7 +1351,7 @@
       "month": 3,
       "open": 107.34,
       "high": 116.61,
-      "low": 103.59,
+      "low": 103.58,
       "close": 111.39,
       "volume": 838958,
       "price_gold": 0.41
@@ -1625,6 +1625,16 @@
       "close": 331.25,
       "volume": 792468,
       "price_gold": 0.66
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "open": NaN,
+      "high": 341.65,
+      "low": 290.65,
+      "close": NaN,
+      "volume": 791237,
+      "price_gold": NaN
     }
   ]
 }

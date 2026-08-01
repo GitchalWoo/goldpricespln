@@ -1,8 +1,8 @@
 {
   "ticker": "VOO",
   "name": "Vanguard S&P 500 ETF",
-  "generated": "2026-07-01T03:14:30.396191",
-  "data_points": 162,
+  "generated": "2026-08-01T03:06:56.990570",
+  "data_points": 163,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -1623,8 +1623,18 @@
       "high": 697.12,
       "low": 662.39,
       "close": 686.81,
-      "volume": 6004801,
+      "volume": 9892400,
       "price_gold": 1.36
+    },
+    {
+      "year": 2026,
+      "month": 7,
+      "open": 684.5,
+      "high": 694.5,
+      "low": 670.16,
+      "close": 686.65,
+      "volume": 7168188,
+      "price_gold": 1.39
     }
   ]
 }
