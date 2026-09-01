@@ -1,8 +1,8 @@
 {
   "ticker": "IUSA.L",
   "name": "iShares Core S&P 500 UCITS ETF",
-  "generated": "2026-08-01T03:06:56.183703",
-  "data_points": 163,
+  "generated": "2026-09-01T02:19:53.507555",
+  "data_points": 164,
   "currency": "PLN",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -149,7 +149,7 @@
     {
       "year": 2014,
       "month": 3,
-      "open": 1115.12,
+      "open": 1115.13,
       "high": 1136.13,
       "low": 1091.78,
       "close": 1115.37,
@@ -159,7 +159,7 @@
     {
       "year": 2014,
       "month": 4,
-      "open": 1109.14,
+      "open": 1109.13,
       "high": 1140.08,
       "low": 1079.55,
       "close": 1107.14,
@@ -202,7 +202,7 @@
       "open": 1200.06,
       "high": 1203.2,
       "low": 1124.02,
-      "close": 1200.56,
+      "close": 1200.55,
       "volume": 1081795,
       "price_gold": 9.17
     },
@@ -622,7 +622,7 @@
       "open": 1973.04,
       "high": 1994.77,
       "low": 1839.94,
-      "close": 1979.54,
+      "close": 1979.53,
       "volume": 534598,
       "price_gold": 13.72
     },
@@ -802,7 +802,7 @@
       "open": 2398.14,
       "high": 2470.08,
       "low": 2314.96,
-      "close": 2388.03,
+      "close": 2388.02,
       "volume": 227452,
       "price_gold": 12.75
     },
@@ -1030,7 +1030,7 @@
       "year": 2021,
       "month": 7,
       "open": 3126.42,
-      "high": 3189.64,
+      "high": 3189.63,
       "low": 3084.7,
       "close": 3149.53,
       "volume": 59702,
@@ -1091,7 +1091,7 @@
       "month": 1,
       "open": 3287.51,
       "high": 3554.31,
-      "low": 3159.08,
+      "low": 3159.07,
       "close": 3313.99,
       "volume": 324314,
       "price_gold": 14.12
@@ -1179,10 +1179,10 @@
     {
       "year": 2022,
       "month": 10,
-      "open": 3348.57,
+      "open": 3348.56,
       "high": 3368.56,
       "low": 3111.17,
-      "close": 3360.19,
+      "close": 3360.18,
       "volume": 167700,
       "price_gold": 12.8
     },
@@ -1432,7 +1432,7 @@
       "open": 4713.67,
       "high": 4774.66,
       "low": 4380.98,
-      "close": 4736.04,
+      "close": 4736.05,
       "volume": 101779,
       "price_gold": 13.63
     },
@@ -1629,12 +1629,22 @@
     {
       "year": 2026,
       "month": 7,
-      "open": NaN,
+      "open": 5529.0,
       "high": 5641.75,
       "low": 5465.5,
-      "close": NaN,
+      "close": 5501.0,
       "volume": 83850,
-      "price_gold": NaN
+      "price_gold": 11.13
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "open": 5671.75,
+      "high": 5796.25,
+      "low": 5560.34,
+      "close": 5707.25,
+      "volume": 104782,
+      "price_gold": 10.89
     }
   ]
 }

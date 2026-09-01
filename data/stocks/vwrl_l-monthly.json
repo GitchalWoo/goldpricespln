@@ -1,8 +1,8 @@
 {
   "ticker": "VWRL.L",
   "name": "Vanguard FTSE All-World UCITS ETF",
-  "generated": "2026-08-01T03:06:56.447823",
-  "data_points": 163,
+  "generated": "2026-09-01T02:19:53.897070",
+  "data_points": 164,
   "currency": "PLN",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -1629,12 +1629,22 @@
     {
       "year": 2026,
       "month": 7,
-      "open": NaN,
+      "open": 135.73,
       "high": 138.32,
       "low": 133.65,
-      "close": NaN,
+      "close": 134.83,
       "volume": 71352,
-      "price_gold": NaN
+      "price_gold": 0.27
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "open": 139.23,
+      "high": 141.05,
+      "low": 135.25,
+      "close": 139.72,
+      "volume": 77927,
+      "price_gold": 0.27
     }
   ]
 }

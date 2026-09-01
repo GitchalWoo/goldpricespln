@@ -1,8 +1,8 @@
 {
   "ticker": "SPY",
   "name": "SPDR S&P 500 ETF",
-  "generated": "2026-08-01T03:06:56.732770",
-  "data_points": 163,
+  "generated": "2026-09-01T02:19:54.367808",
+  "data_points": 164,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -1411,7 +1411,7 @@
       "month": 9,
       "open": 558.94,
       "high": 563.14,
-      "low": 526.97,
+      "low": 526.96,
       "close": 562.21,
       "volume": 63557400,
       "price_gold": 1.77
@@ -1633,8 +1633,18 @@
       "high": 755.58,
       "low": 729.1,
       "close": 747.03,
-      "volume": 59137694,
+      "volume": 62445900,
       "price_gold": 1.51
+    },
+    {
+      "year": 2026,
+      "month": 8,
+      "open": 767.33,
+      "high": 779.37,
+      "low": 748.8,
+      "close": 767.05,
+      "volume": 38644504,
+      "price_gold": 1.46
     }
   ]
 }
