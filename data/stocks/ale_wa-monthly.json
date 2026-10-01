@@ -1,8 +1,8 @@
 {
   "ticker": "ALE.WA",
   "name": "Allegro",
-  "generated": "2026-09-01T02:19:51.939194",
-  "data_points": 71,
+  "generated": "2026-10-01T02:28:46.100819",
+  "data_points": 72,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -709,11 +709,21 @@
     {
       "year": 2026,
       "month": 8,
-      "open": NaN,
+      "open": 44.9,
       "high": 47.63,
       "low": 43.85,
-      "close": NaN,
+      "close": 45.61,
       "volume": 8309381,
+      "price_gold": 0.09
+    },
+    {
+      "year": 2026,
+      "month": 9,
+      "open": NaN,
+      "high": 51.14,
+      "low": 44.12,
+      "close": NaN,
+      "volume": 5436418,
       "price_gold": NaN
     }
   ]

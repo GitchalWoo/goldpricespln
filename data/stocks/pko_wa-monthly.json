@@ -1,8 +1,8 @@
 {
   "ticker": "PKO.WA",
   "name": "PKO BP",
-  "generated": "2026-09-01T02:19:53.156465",
-  "data_points": 164,
+  "generated": "2026-10-01T02:28:46.930627",
+  "data_points": 165,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -1639,11 +1639,21 @@
     {
       "year": 2026,
       "month": 8,
-      "open": NaN,
+      "open": 113.3,
       "high": 116.66,
       "low": 105.9,
-      "close": NaN,
+      "close": 113.96,
       "volume": 2694154,
+      "price_gold": 0.22
+    },
+    {
+      "year": 2026,
+      "month": 9,
+      "open": NaN,
+      "high": 125.54,
+      "low": 111.72,
+      "close": NaN,
+      "volume": 3533388,
       "price_gold": NaN
     }
   ]
