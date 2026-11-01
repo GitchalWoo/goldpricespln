@@ -1,8 +1,8 @@
 {
   "ticker": "VOO",
   "name": "Vanguard S&P 500 ETF",
-  "generated": "2026-10-01T02:28:47.954668",
-  "data_points": 165,
+  "generated": "2026-11-01T02:12:00.124363",
+  "data_points": 166,
   "currency": "local",
   "note": "price_gold values are in grams of gold (1000 proof from NBP)",
   "data": [
@@ -590,7 +590,7 @@
       "year": 2017,
       "month": 11,
       "open": 210.04,
-      "high": 211.86,
+      "high": 211.87,
       "low": 203.56,
       "close": 210.95,
       "volume": 5451700,
@@ -792,7 +792,7 @@
       "open": 248.07,
       "high": 249.11,
       "low": 242.6,
-      "close": 245.09,
+      "close": 245.1,
       "volume": 4910000,
       "price_gold": 1.42
     },
@@ -872,7 +872,7 @@
       "open": 218.0,
       "high": 261.26,
       "low": 182.58,
-      "close": 215.61,
+      "close": 215.6,
       "volume": 10386300,
       "price_gold": 1.05
     },
@@ -999,7 +999,7 @@
     {
       "year": 2021,
       "month": 4,
-      "open": 355.53,
+      "open": 355.52,
       "high": 358.15,
       "low": 338.97,
       "close": 355.21,
@@ -1653,8 +1653,18 @@
       "high": 712.47,
       "low": 687.27,
       "close": 700.86,
-      "volume": 9855900,
+      "volume": 9876100,
       "price_gold": 1.33
+    },
+    {
+      "year": 2026,
+      "month": 10,
+      "open": 699.92,
+      "high": 718.47,
+      "low": 689.75,
+      "close": 694.81,
+      "volume": 9959200,
+      "price_gold": 1.34
     }
   ]
 }
